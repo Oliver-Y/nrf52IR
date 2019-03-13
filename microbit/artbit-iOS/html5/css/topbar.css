@@ -1,0 +1,96 @@
+/*topbar*/
+.topbar {
+  position: fixed;
+  top: 0px;
+  display: inline-block;
+  width: 100%;
+  text-shadow: none;
+  height: 80px;
+  background-color: #FFF;
+  -webkit-box-shadow: 0  0px 10px rgba(0, 0, 0, 0.5);
+  z-index: 100;
+  overflow: hidden;
+}
+
+/* topbar features */
+*.tabicon {
+	position: relative;
+	display: inline-block;
+  top: 0;
+  left: 0;
+  margin: 0;
+  margin-left: 10px;
+  padding 0px;
+  width: 75px;
+  height: 60px;
+}
+
+*.devicelist {
+	position: relative;
+	display: inline-block;
+  top: 0;
+  left: 0;
+  margin: 0;
+  margin-left: 100px;
+  padding 0px;
+  
+}
+
+*.tabicon.KCJ {width: 180px; margin-top: 10px; margin-left: 10px; background: url('../assets/home/kcjlogo.svg') no-repeat center top;}
+*.microbit.on {background: url('../assets/home/microbitBlue.svg') no-repeat center top;}
+*.microbit.off {background: url('../assets/home/microbitOff.svg') no-repeat center top;}
+
+.languages {
+	position: absolute;
+	float: right;
+  top: 0;
+  right: 0;
+  margin: 15px 10px 0;
+  padding 0px;
+  height: 60px;
+}
+
+.languages ul {
+	position: relative;
+  list-style-position: none;
+  display: inline-block;
+  margin: 0px;
+  padding: 0px;
+  line-height: 49px;
+  font-weight: bold;
+  font-size: 16px;
+  height: 49px;
+   width: 120px;
+  vertical-align: middle;
+  font-weight: normal;
+  color: #3BB2F7;
+  z-index: 1000; 
+  cursor: default;
+}
+
+.languages li { 
+	position: relative;
+	display: inline-block;
+	height: 49px;
+	width: 50px;
+	text-align: center;
+	vertical-align: middle;
+	padding: 0px;
+	margin: 0px;
+ }​
+ 
+.languages li:active {
+  background-color: #3BB2F7;
+  color: #fff;
+}
+
+.languages li:hover {
+  background-color: #3BB2F7;
+  color: #fff;
+}
+
+.languages li.selected {
+  background-color: #3BB2F7;
+  color: #fff;
+}
+

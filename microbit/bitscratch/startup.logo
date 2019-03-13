@@ -1,0 +1,53 @@
+to startup
+load "logo/compiler compiler-startup
+load "logo/comms open-serial-port
+startticker 50
+end
+
+define ignore[n][]
+define byte0 [n][output logand :n $ff]
+define byte1 [n][output logand lsh :n -8 $ff]
+define byte2 [n][output logand lsh :n -16 $ff]
+define byte3 [n][output logand lsh :n -24 $ff]
+define bytes [n][output (se byte0 :n byte1 :n byte2 :n byte3 :n)]
+define hb [n][output hexw logand $ff :n 2]
+define hhw [n][output hexw logand $ffff :n 4]
+define hw [n][output hexw logand $ffffffff :n 8]
+define .word [a b][output intern word :a :b]
+define bfn[n l][repeat :n [make "l bf :l] output :l]
+
+to filetolist :file
+let [bytes filetobytes :file
+     res []]
+dotimes [i count :bytes][make "res se :res nth :i :bytes]
+output :res
+end
+
+to listtofile :name :list
+let [bytes bytearray count :list]
+dotimes[i count :list][setnth :i :bytes nth :i :list]
+bytestofile :name :bytes
+end
+
+to startswith :str :key
+loop
+ [if empty? :key [output true]
+  if empty? :str [output false]
+  if not (first :str) = (first :key) [output false]
+  make "key bf :key
+  make "str bf :str]
+end
+
+to hexl :list
+let [res []]
+dolist [i :list][make "res se :res hb :i]
+output :res
+end
+
+to explode :str
+let [res []]
+dotimes [i count :str][make "res se :res ascii nth :i :str]
+output se :res 0
+end
+
+define rr [][reload startup]

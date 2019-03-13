@@ -1,0 +1,326 @@
+@font-face { font-family: Raleway; src: url('../assets/Raleway-Bold.ttf'); } 
+body {
+		background: #fff;
+		width: 100%;
+		overflow-x: hidden;
+    -webkit-user-select: none !important;
+    user-select: none !important;
+    -webkit-user-callout: none !important;
+    -webkit-touch-callout: none !important;
+}
+
+input, textarea {
+    -webkit-user-select: text !important;
+    user-select: text !important;
+    -webkit-user-callout: default !important;
+    -webkit-touch-callout: default !important;
+}
+
+*{
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none; /* Firefox all */
+    -ms-user-select: none; /* IE 10+ */
+    user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-modify: none;
+}
+
+html {
+  background: #FFF;
+  color: #4c4d4f;  
+  direction: ltr;
+  font: 81.25% Raleway, arial, sans-serif;
+}
+
+*.frame {
+ background: #FFF;
+ margin: 0;
+ padding: 0;
+ height: 100%;
+ width: 100%;
+ color: white;
+ font-family: Raleway;
+}
+
+*.content {
+  margin: 0px;
+  padding: 0px;
+  padding-top: 82px;
+}
+
+*.inner {
+	padding: 0px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 896px;
+}
+
+*.scrollarea{
+  position: relative;
+  padding: 0px 0px 50px;
+  margin: 0px;
+  width: 100%;
+}
+
+*.title {
+	position: relative;
+	margin: 10px 0px 20px;
+	padding: 0px;
+  text-align: center;
+  color: #3BB2F7;
+  font-family: Raleway;
+  font-size: 44px;
+  font-weight: bold;
+	height: 40px;
+ 	width: 100%;
+  cursor: default;
+  line-height:50px;
+}
+
+/*thumbs*/
+*.thumb{
+  display: inline-block;
+  word-spacing: -1;
+  position: relative;
+	margin: 15px;
+	margin-bottom: 4px;
+	padding: 0px;
+	width: 184px;
+	height: 184px;	
+	text-align: center;
+ 	-webkit-border-radius: 12px;
+ 	border: 4px solid #3BB2F7;
+  background: #fff;
+	cursor: default;
+}
+
+*.thumb > *.svgimage {
+	position: absolute;
+	top:0px;
+	left: 0px;
+	width: 184px;
+	height: 154px;	
+	cursor: default;
+}
+
+*.thumb.caret {
+	border: 4px solid #fff;
+	background: transparent;
+}
+
+*.thumb.selected {
+/*	opacity: 0.5; */
+  -webkit-box-shadow: 0 10px 10px rgba(0, 0, 0, 0.5);
+}
+*.thumb.newproject {
+	position: relative;
+	width: 192px;
+	height: 192px;
+	border: 0px solid #3BB2F7;
+	background: url('../assets/home/newproject.svg') no-repeat center top;
+}
+
+*.thumb > *.delete {
+	position: relative;
+	top: -12px;
+	left: -12px;
+	padding: 0px;
+	margin: 0px;
+	width: 32px;
+	height: 32px;
+	color: #FFF;
+	background: url('../assets/home/delete.svg') no-repeat center center;
+	visibility: hidden;
+}	
+
+*.thumb.shake {
+    -webkit-animation: swingthumb 0.3s infinite linear;
+    -webkit-transform-origin: center;
+}
+
+*.thumb.shake > *.delete {visibility: visible;}
+
+@-webkit-keyframes shake {
+    0%, 100% {-webkit-transform: translateX(0) rotate(0deg) translateY(0);}
+    15%, 35%, 55%, 75%, 95% {-webkit-transform: translateX(-1px) rotate(-2deg) ;}
+    25%, 45%, 65%, 85% {-webkit-transform: translateX(1px) rotate(2deg); }
+    10%, 30%, 50%, 70%, 90% {-webkit-transform: translateY(1px);}    
+    20%, 40%, 60%, 80% {-webkit-transform: translateY(-1px); }
+}
+
+@-webkit-keyframes swingthumb{
+    0%{-webkit-transform:rotate(2deg)}
+    50%{-webkit-transform:rotate(-2deg)}
+    100%{-webkit-transform:rotate(2deg)}
+}
+
+
+*.projectinfo {
+	position: absolute;
+	bottom: 0px;
+ 	width: 100%;
+  margin: 0px;
+  padding: 0px;
+  height: 30px;
+	background: #3BB2F7;
+}
+
+*.projectname{
+	margin: 0px;
+	padding: 0px;
+  text-align: left;
+	height: 100%;
+ 	width:100%;
+ 	outline: 0px;
+  cursor: default;
+}
+
+*.projectname > *.instruction {
+	margin: 2px 0px 0px;
+	padding: 0px;
+	float: left;
+  text-align: center;
+  color: #fff;
+  font-family: Arial;
+  font-size:  16px;
+  vertical-align: middle;
+  font-weight: normal;
+	height: 28px;
+ 	width: 100%;
+  cursor: default;
+  outline: 0px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  background: transparent;
+  border: 0px solid #c0c2c3;
+  line-height: 24px;
+}
+
+*.projectname > *.instruction.select {
+	background: white; 
+	color: #747474; 
+	border: 1px solid #c0c2c3;
+	padding-left: 4px;
+	padding-right: 4px;
+}
+
+
+/* Menus */
+
+
+*.menustyle {
+	position: absolute;
+	display: inline-block;
+	margin: 0px;
+	padding: 0px;
+	border: 1px solid  rgba(0,0, 0, 0.1);
+	background: #F2f2f2; 
+	z-index: 1000;	
+	width: 240px;
+  -webkit-border-radius: 8px;
+  -webkit-box-shadow: 2px 2px 2px gba(0,0, 0, 0.2);
+}
+
+
+*.balloonarrow {
+	position: relative;
+	margin: 0px;
+	padding: 0px;
+	width: 16px;
+	height: 16px;
+	left: -8px;
+	top: 16px;
+	background: #fff;
+	border: 2px solid #3BB2F7;
+	-webkit-transform: rotate(45deg);
+	-webkit-box-shadow: 0 10px 10px rgba(0, 0, 0, 0.5);
+}
+
+
+/*UI drop downs*/
+*.balloon {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  margin: 0px;
+  padding: 2px;
+  min-height: 44px;
+  background: #fff;
+  border: 2px solid #3BB2F7;
+   -webkit-border-radius: 6px;
+   -webkit-box-shadow: 0 10px 10px rgba(0, 0, 0, 0.5);
+  z-index: 10000;
+  
+}
+
+.dropdown { 
+  position: absolute;
+  display: inline-block;
+  top: 0px;
+  left: 0px;
+ 	margin: 0px;
+  padding: 0px;
+   background: #fff;
+  -webkit-border-radius: 6px;
+  overflow: hidden;  
+}
+
+.dropdown ul {
+	position: relative;
+  list-style-position: none;
+  min-width: 100px;
+  margin: 0px;
+  padding: 2px;
+  line-height: 44px;
+  height: 44px;
+  vertical-align: middle;
+  font-weight: bold;
+  font-size: 16px;
+  -webkit-border-radius: 6px;
+  font-family: Verdana; 
+  color: #3BB2F7;
+  cursor: default;
+}
+
+.dropdown li { 
+	display: block;
+	height: 44px;
+	text-align: center;
+	vertical-align: middle;
+	min-width: 150px;
+	padding: 0px;
+	margin: 0px;
+ }​
+
+.dropdown li.selectmenu {
+  background-color: #69D2E7;
+  color: #FFF;
+  cursor: pointer;
+}
+
+.dropdown li:hover {
+  background-color:  #69D2E7;
+  color: #FFF;
+  margin: 0px;
+  cursor: pointer;
+}
+
+
+.dropdown li:active {
+  background-color:  #69D2E7;
+  color: #FFF;
+  cursor: pointer;
+}
+
+.dropdown ul li.divider {
+  border-top: 1px solid #5EBFCC;
+  height: 1px;
+  margin: 0px;
+  margin: 0px 0px 0px;
+}
+
+/* languages */
+

@@ -1,0 +1,238 @@
+/*UI drop downs*/
+.connectioncenter {
+  position: absolute;
+  top: 75px;
+  left: 190px;
+  width: auto;
+  margin: 0px 0px 0;
+  padding: 0px;
+  z-index: 10000;
+}
+
+.dropdowncontent { 
+  position: absolute;
+  top: 7px;
+  left: 0px;
+ 	margin: 0px;
+  padding: 0px;
+  max-height: 450px;
+  background: red;
+  overflow-x: hidden;
+	overflow-y: scroll;
+	-webkit-overflow-scrolling: touch;	
+  background: #fff;
+  -webkit-border-radius: 6px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 3px 3px 0px rgba(0, 0, 0, 0.2);
+}
+
+*.menuarrow {
+	position: absolute;
+	margin: 0px;
+	left: 137px;
+	padding: 0px;
+	width: 16px;
+	height: 16px;
+	background: #fff;
+	z-index: 200; 	
+	top: 0px;
+	-webkit-transform: rotate(45deg);
+	-webkit-box-shadow: -1px -1px 0px rgba(0, 0, 0, 0.2);
+}
+
+*.close { 
+	position: relative;
+	height: 40px;
+	vertical-align: middle;
+	padding: 0;
+	margin:  0px 8px 0px;
+	width: 250px;
+	background: url('../assets/scan/close.svg') no-repeat right center;
+ }​
+ 
+.dropdowncontent .innerspace {
+	position: relative;
+  margin: 0px;
+  padding: 0px;
+  font-weight: bold;
+  font-size: 16px;
+  width: 250px;
+  height: auto;
+  vertical-align: middle;
+  font-weight: normal;
+  color: #3BB2F7;
+  z-index: 1000; 
+  cursor: default;
+  max-height: 300px;	
+}
+
+.dropdowncontent .line { 
+	display: inline-block;
+	border-top: 1px solid #c4c4c4;
+	height: 80px;
+	vertical-align: middle;
+	padding: 0px;
+	margin: 0px;
+	width: 100%;
+ }
+
+*.scanlabel {
+  font-size: 18px;
+	text-align: center;
+  margin: 0px 5% 0px;
+  width: 90%;
+  height: auto;
+	border-top: 1px solid #f0f0f0;
+	text-align: center;
+	line-height: 18px;
+	padding-top: 15px;
+	padding-bottom: 15px;
+ }
+
+*.scanlabel.warning {
+	color: #3BB2F7;
+ }
+ 
+ *.scanlabel.error {
+	color: #d81637;
+ }
+ 
+*.scanlabel.failed {
+ 	font-size: 16px;
+	margin-top: 10px;
+}
+
+*.action {	
+	position: relative;
+ 	margin: 0;
+ 	padding: 0;
+	height: 80px;	
+	width: 100%;
+}
+
+*.wrapper {
+	position: absolute;
+	height: 100%;
+	margin: 0 auto 0;
+}
+
+*.gobutton {	
+	position: relative;
+ 	display: inline-block;
+ 	white-space: nowrap;
+ 	margin: 0;
+ 	padding: 0;
+ 	top: 20px;
+ 	font-size: 18px;
+ 	cursor: default;
+	height: 40px;	
+	-webkit-border-radius: 8px;
+	-webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+*.gobutton.orange {	background-color: #FFA200;}
+*.gobutton.blue {	background-color: #3BB2F7;}
+*.gobutton.green {	background-color: #00af4d;}
+*.gobutton.red {-webkit-box-shadow: none;}
+*.gobutton.gray {-webkit-box-shadow: none;}
+
+
+*.gobutton *.goicon{
+  position: relative;
+ 	display: inline-block;
+ 	white-space: nowrap;
+ 	margin: 0px;
+	padding: 0px;
+	top: 0;
+	width: 32px;
+	height: 40px;
+	z-index: 10;
+}
+
+*.gobutton *.goicon.red {width: 0px;}
+*.gobutton *.goicon.gray {width: 0px;}
+*.gobutton *.goicon.blue {background: url('../assets/scan/connect.svg') no-repeat left center;}
+*.gobutton *.goicon.orange {background: url('../assets/scan/register.svg') no-repeat left center;}
+*.gobutton *.goicon.green {background: url('../assets/scan/disconnect1.svg') no-repeat left center;}
+
+*.gobutton *.label{
+  position: relative;
+  display: inline-block;
+ 	white-space: nowrap;
+	margin: 0px;
+	padding: 0px;
+	padding-left: 5px;
+	padding-right: 20px;
+	height: 40px;
+	line-height:40px;
+	text-align: center;
+ 	color: #fff;
+ 	width: auto;
+ 	top: -14px;
+}
+
+*.gobutton *.label.red {color: #d81637;	font-size: 16px;}
+*.gobutton *.label.gray {color: #c4c4c4;	font-size: 16px;}
+*.gobutton *.label.blue {}
+*.gobutton *.label.orange {}
+*.gobutton *.label.green {}
+
+
+/* Scanning Icon */
+
+.loader {
+  margin: 20px 80px 0px;
+  font-size: 10px;
+  position: relative;
+  text-indent: -9999em;
+  border-top: 1.1em solid rgba(59, 178, 247, 0.3);
+  border-right: 1.1em solid rgba(59, 178, 247, 0.3);
+  border-bottom: 1.1em solid rgba(59, 178, 247, 0.3);
+  border-left: 1.1em solid #FFAA00;
+  -webkit-transform: translateZ(0);
+  -webkit-animation: spinwheel 1.1s infinite linear;
+}
+
+.loader,
+.loader:after {
+  border-radius: 50%;
+  width: 10em;
+  height: 10em;
+}
+
+@-webkit-keyframes spinwheel {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+.imagename{
+ 	position: absolute;
+ 	display: none;
+	margin: 0px;
+	padding: 0px;
+	top: 26px;
+	left: 31px;
+	height: 35px;
+	width: 33px;
+	zoom: 0.74;
+	background: #FFFFF;
+	 -webkit-box-shadow: none;
+}
+
+.imagename.off {display: none;}
+.imagename.on {	display: block;}
+ 
+.imagename.topbar {
+	background: #fff;
+}
+
+.imagename.editor {
+	background: #3BB2F7;
+}
+

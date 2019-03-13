@@ -1,0 +1,53 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+<head>
+<title>art:bit</title>
+<style type="text/css">@import "css/base.css";</style>
+<style type="text/css">@import "css/topbar.css";</style>
+<style type="text/css">@import "css/ble.css";</style>
+<style type="text/css">@import "css/home.css";</style>
+<style type="text/css">@import "css/scan.css";</style>
+<script src="js/utils/lib.js"></script>
+<script src="js/utils/Events.js"></script>
+<script src="js/Home.js"></script>
+<script src="js/ui/CC.js"></script>
+<script src="js/utils/Events.js"></script>
+<script src="js/utils/iOS.js"></script>
+<script src="js/utils/BLE.js"></script>
+<script src="js/utils/SimpleAudio.js"></script>
+<script src="js/utils/Translation.js"></script>
+<script src="js/utils/SVGTools.js"></script>
+
+<script language="javascript">
+
+function startup(){Home.init();}
+
+</script>
+
+</head>
+	<body onload="startup();">
+		<div class="frame" id="frame">
+			<div class="topbar" id="topbar">
+				<div class="tabicon KCJ" id="about"></div>
+				<div class="devicelist">
+					<div class="tabicon microbit on" id="microbit0">
+						<div class="ble" id="microbit0_scanicon"></div>	
+						<div class="imagename topbar off" id="microbit0_image"></div>	
+					</div>	
+				</div>	
+				<div class ="fwlabel"><div class="smalltext blue" id="fwversion"></div></div>
+				<div class="languages">
+          <ul id="languages"><li id="lan_en">EN</li><li id="lan_fr">FR</li></ul>
+        </div>
+			</div>		
+			<div class="content" id="content">	
+				<div class="title" id="title"></div>
+				<div class="inner">
+					<div class="scrollarea" id="scrollarea"></div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
