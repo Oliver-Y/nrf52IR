@@ -40,10 +40,9 @@ Code.timeout = undefined;
 Code.start = function(e){
 	libInit();
 	document.body.addEventListener('touchmove', Code.handleMouseDown, {passive: false});
-//	document.body.addEventListener('touchmove', (e)=>{}, {passive: false, useCapture: false});
-	SimpleAudio.init();
+	SimpleAudio.init(true);
 	var urlvars = getUrlVars();
-	var cond = function(){return iOS.ready;};
+	var cond = function(){return iOS && iOS.ready;};
   waituntil (cond, function (){Defs.init(doNext)} );
 	function doNext (){
 	 	Blockly.Msg.CLEAN_UP = Translation.strings['editor']["cleanup"];
@@ -66,7 +65,8 @@ Code.start = function(e){
 		Runtime.startTimer();
 		var pid = Number(urlvars['pid']);
 		UI.projectID = pid;
-		if (pid > -1) UI.loadProject (pid)
+		if (pid == -2) UI.loadUnsavedWork()
+		else if (pid > -1) UI.loadProject (pid)
 		else {
 			ShapeEditor.shapes = ShapeEditor.defaultShapes.concat();
 			ShapeEditor.displayAll();
@@ -75,7 +75,11 @@ Code.start = function(e){
 	}
  }
 
-Code.handleMouseDown = function (e){e.preventDefault();}
+Code.handleMouseDown = function (e){
+	e.preventDefault();	
+ // UI.selectTool(undefined);
+	UI.unfocus();
+}
  
 Code.reset = function (str){
 	if (gn('blocklyDiv')) gn('blocklyDiv').parentNode.removeChild (gn('blocklyDiv'))	
@@ -119,13 +123,13 @@ Code.getToolboxElement= function () {
 
  Code.blockListener= function(e){
  	 UI.unfocus();
-	 UI.updateToolsState(undefined);
+	// UI.updateToolsState(undefined);
    Code.scripts.blocksContainer.blocklyListen(e,  Code.scripts);
 }
 
  Code.blockListenerFlyout = function(e){
  	UI.unfocus();
-	UI.updateToolsState(undefined);
+	UI.selectTool(undefined);
   Code.flyoutBlocks.blocksContainer.blocklyListen(e, Code.flyoutBlocks);
 }
 
@@ -190,14 +194,14 @@ Code.startDownload = function (blocktext){
 		Runtime.startTimer();
 	}
 	
-	let msg =  blocktext+' '+flatten(ShapeEditor.shapes).join(' ');
+	let msg =  blocktext;
 	if ((Code.cache != msg) && (blocktext != '')) HW.compiler.downloadProcs(blocktext, flatten(ShapeEditor.shapes), doNext)
 	else downloadEnd();
 
 
 	function doNext(str){
 		var value  = str ? "ERROR: "+str : 'downloaded.'
-		console.log (value)
+//		console.log ("doNext", value)
 		if (!str) Code.cache = msg;
 		downloadEnd();
 	}	

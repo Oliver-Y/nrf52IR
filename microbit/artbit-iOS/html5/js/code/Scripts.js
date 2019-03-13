@@ -68,6 +68,7 @@ class Scripts {
 			case 'delete':
 			case 'move': 
 				UI.saveForUndo(false);
+				Runtime.checkDetach(e)
 				break;
 			case 'change': 
 				if  (!Code.workspace.blockDB_[e.blockId]) break;
@@ -90,13 +91,17 @@ class Scripts {
  				
 	 /* ScratchBlocks callbaks */
 	 handleUI (e){
+	// 	console.log (e.element)
 		switch (e.element){
 			case 'stackclick':
 				if (!this.ignoreNext) this.runBlock(e.blockId)
 				this.ignoreNext = false
 				break;
 			case 'selected': this.selectionStarts(e); break;
-			case "click": if (!this.isFlyout) this.handleClick(e); break;
+			case "click": 
+				if (!this.isFlyout) this.handleClick(e); 
+				else UI.selectTool(undefined);
+				break;
 			default:  console.log ("ui not handled", e); break;
 		}
 	}
@@ -104,7 +109,8 @@ class Scripts {
 	handleClick (e){
 		switch (UI.toolmode){
 			case "scissors":
-				this.cutBlocks(e.blockId);
+				Runtime.checkDetach(e);
+				this.cutBlocks(e.blockId);		
 				UI.selectTool(undefined);
 				this.ignoreNext = true;
 				break;
@@ -121,7 +127,8 @@ class Scripts {
 		let block = this.blocksContainer.getBlock(blockID);
 		var opcode = this.blocksContainer.getOpcode(block);
     var prim = opcode.split ("_")[1]
-    
+	 	var regex = new RegExp(/^(control_|events_).*/);
+    if (this.isFlyout && regex.test (block.id)) return; 
 		if (Defs.primtives[prim][1] == "r") {
 			var t =  new Thread(this, block);
 			var token=Prim[block.opcode];			
@@ -171,11 +178,24 @@ class Scripts {
 		var y = attr["y"] ? Number(attr["y"]) + 30 : 103;
 		b.setAttribute("x", x);
 		b.setAttribute("y", y);
-		if (attr.type == "myblocks_definition") this.changeProcNameTo (b, Blockly.CustomBlocks.PROC_DEFAULT);
+		if (attr.type == "myblocks_definition") this.changeProcNameTo (b);
 		Blockly.Xml.domToWorkspace(xml, Code.workspace);
+		if (attr.type == "myblocks_definition")	Code.updatePalette();
 	}
 
-	changeProcNameTo (blockDOM,val) {
+	changeProcNameTo (blockDOM) {
+		var val  =  Blockly.CustomBlocks.PROC_DEFAULT;
+		for (var i = 0; i < blockDOM.children.length; i++) {
+			var xmlChild = blockDOM.children[i];
+			var childattr = Adapter.getAttributes(xmlChild);
+			switch (xmlChild.tagName.toLowerCase()) {
+			case 'mutation':
+					val = xmlChild.getAttribute("values");
+					break;
+			}	
+		}	
+		val = this.validateProcName (val)
+		
 		for (var i = 0; i < blockDOM.children.length; i++) {
 			var xmlChild = blockDOM.children[i];
 			var childattr = Adapter.getAttributes(xmlChild);
@@ -191,6 +211,30 @@ class Scripts {
 		}
 	}
 
+validateProcName (name){
+  while (!this.isUniqueName(name)) {
+    // Collision with another procedure.
+    var r = name.match(/^(.*?)(\d+)$/);
+    if (!r) {
+      name += '2';
+    } else {
+      name = r[1] + (parseInt(r[2], 10) + 1);
+    }
+  }
+  return name;
+};
+
+isUniqueName (name){
+	var topblocks = this.blocksContainer.getScripts()
+	for (let i=0; i < topblocks.length; i++) {
+			let blockID =  topblocks[i]
+			let block = this.blocksContainer.getBlock(blockID)
+			if (!block) continue;
+			if  (block.opcode != "myblocks_definition") continue;
+			if (block.mutation.arg0 == name) return false
+		}
+		return true
+}
 ////////////////////////
 // On Play
 ////////////////////////

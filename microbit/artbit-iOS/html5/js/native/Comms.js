@@ -40,7 +40,7 @@ dowloaddata(l, addr, fcn){
 	t.flasherase(addr, download2);
 
 	function download2(){
-		console.log("download2", l);
+		//console.log("download2", l);
 		if(l.length==0) fcn()
 		else {
 			t.flashwrite(addr, l.slice(0,128), download2);
@@ -64,13 +64,13 @@ twobytes(n){return [n&0xff, (n>>8)&0xff];}
 fourbytes(n){return [n&0xff, (n>>8)&0xff, (n>>16)&0xff, (n>>24)&0xff];}
 	
 sendReceive(l, fcn){
-	console.log('sendReceive:',l);
+//	console.log('sendReceive:',l);
 	this.packetcallback = fcn;
 	this.sendl(l);
 }
 
 sendl(l){
-	console.log(l);
+//	console.log(l);
 	var comm = this;
 	while(l.length>0){
 		comm.send(l.slice(0,8));

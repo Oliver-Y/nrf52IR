@@ -27,9 +27,6 @@ HW.shape = [0,0,0,0,0];
 HW.messages = [];
 HW.brightness = 100;
 HW.timeout = undefined;
- 	
-
-HW.gotString = function (str) {console.log ("HW.gotString:", str);}
 
 HW.poll = function () {
 //	console.log ("polling");
@@ -87,11 +84,6 @@ HW.gotPollPacket = function (l){
 
 	HW.state.tilts = {x: array2float(l.slice(3, 5)), y: array2float(l.slice(5, 7)), 
 							z: array2float(l.slice(7, 9)), w: array2float(l.slice(9, 11))}		
-}
-
-HW.getVersion = function (doNext){
-	if (iOS.devices.length == 0)  doNext ('fail')
-	else HW.comms.sendReceive([0xff], doNext);
 }
 
 function array2float(l){

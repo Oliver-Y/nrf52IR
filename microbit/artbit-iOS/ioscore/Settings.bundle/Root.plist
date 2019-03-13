@@ -8,33 +8,13 @@
 	<array>
 		<dict>
 			<key>Type</key>
-			<string>PSMultiValueSpecifier</string>
-			<key>Title</key>
-			<string>Advanced</string>
-			<key>Key</key>
-			<string>host</string>
-			<key>DefaultValue</key>
-			<string>0</string>
-			<key>Titles</key>
-			<array>
-				<string>iPad</string>
-				<string>URL</string>
-			</array>
-			<key>Values</key>
-			<array>
-				<string>0</string>
-				<string>1</string>
-			</array>
-		</dict>
-		<dict>
-			<key>Type</key>
 			<string>PSTextFieldSpecifier</string>
 			<key>Title</key>
-			<string>HTML</string>
+			<string>Troubleshooting:</string>
 			<key>Key</key>
 			<string>html</string>
 			<key>DefaultValue</key>
-			<string>http://192.168.0.110/~paula/KCJ/artbit_iOS/html5/index.html</string>
+			<string></string>
 			<key>IsSecure</key>
 			<false/>
 			<key>KeyboardType</key>

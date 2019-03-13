@@ -28,7 +28,7 @@ func doOpen(_ str: String) -> String {
     let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
     let fileURL = URL(fileURLWithPath: paths[0]).appendingPathComponent(args[0])
     if sqlite3_open(fileURL.path, &db) != SQLITE_OK {return sendError(db!)}
-    //   print ("open");
+    print ("open");
     return "open"
 }
 
@@ -48,7 +48,8 @@ func doStmt(_ str: String) -> String {
     let args = NSString(string: str).components(separatedBy: "\n")
     //   print (args)
     let data: Data = args[0].data(using: String.Encoding.utf8)!
-    let jsonObject: Any = try! JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.mutableContainers) as Any;
+ //   print (args[0])
+    let jsonObject: Any = try! JSONSerialization.jsonObject(with: data, options: []) as Any;
     if let dict = jsonObject as? NSDictionary {return sendStatement(dict);}
     else {return "error: bad dictionary"}
 }
@@ -57,12 +58,17 @@ func doQuery(_ str: String) -> String {
     let args = NSString(string: str).components(separatedBy: "\n")
     //    print (args)
     let data: Data = args[0].data(using: String.Encoding.utf8)!
-    let jsonObject: Any = try! JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.mutableContainers) as Any;
-    if let dict = jsonObject as? NSDictionary {return sendResult(dict);}
+    let jsonObject: Any = try! JSONSerialization.jsonObject(with: data, options: []) as Any;
+    if let dict = jsonObject as? NSDictionary {
+       let qres = sendResult(dict);
+  //      print (qres);
+        return qres
+    }
     else {return "error: bad dictionary"}
 }
 
 func sendStatement (_ dict: NSDictionary)-> String {
+ //   print (dict)
     var statement: OpaquePointer? = nil
     let values = dict.object(forKey: "values") as! NSArray
     let stmtstr = dict.object(forKey: "stmt") as! String
@@ -71,7 +77,6 @@ func sendStatement (_ dict: NSDictionary)-> String {
         print("error preparing insert: \(errmsg)")
         return sendError(db!)
     }
-    print (stmtstr)
     var i = 0;
     for val in values {
         if let stringArray = val as? String{
@@ -138,14 +143,17 @@ func sendResult (_ dict: NSDictionary)-> String {
         return sendError(db!)
     }
     
-    let theJSONData = try? JSONSerialization.data(withJSONObject: res,
-                                                  options: JSONSerialization.WritingOptions(rawValue: 0))
-    if let json = theJSONData {
-        let theJSONText = NSString(data: json, encoding: String.Encoding.ascii.rawValue)
-        return (theJSONText as String?)!
-    }
     
-    return "error: unkonwn"
+    do {
+        let theJSONData =  try JSONSerialization.data(withJSONObject: res, options: []) // first of all convert json to the data
+        let convertedString = String(data: theJSONData, encoding: String.Encoding.utf8) // the data will be converted to the string
+        return convertedString!
+        
+    } catch let myJSONError {
+        print(myJSONError)
+        return "error: parsing error"
+    }
+
 }
 
 
@@ -161,8 +169,9 @@ func getSQLRow (_ statement: OpaquePointer)-> [String: Any] {
             var jsonObject: Any?
             let utf8str = val.data(using: String.Encoding.utf8)!
             do {
-             //   print(skey);
-                jsonObject = try JSONSerialization.jsonObject(with: utf8str, options: JSONSerialization.ReadingOptions.mutableContainers) as Any? }
+                jsonObject = try JSONSerialization.jsonObject(with: utf8str, options: [])
+                
+            }
             catch {jsonObject = val}
             if let svalue = jsonObject as? NSDictionary {dict[skey] = svalue;}
             else {dict[skey] = val;}

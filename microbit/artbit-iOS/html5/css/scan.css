@@ -93,6 +93,10 @@
 	color: #3BB2F7;
  }
  
+ *.scanlabel.notavailable {
+	color: #FFaa00;
+ }
+ 
  *.scanlabel.error {
 	color: #d81637;
  }

@@ -88,7 +88,7 @@ html {
 	margin-bottom: 4px;
 	padding: 0px;
 	width: 184px;
-	height: 184px;	
+	height: 198px;	
 	text-align: center;
  	-webkit-border-radius: 12px;
  	border: 4px solid #3BB2F7;
@@ -117,19 +117,19 @@ html {
 *.thumb.newproject {
 	position: relative;
 	width: 192px;
-	height: 192px;
+	height: 206px;
 	border: 0px solid #3BB2F7;
 	background: url('../assets/home/newproject.svg') no-repeat center top;
 }
 
 *.thumb > *.delete {
 	position: relative;
-	top: -12px;
-	left: -12px;
+	top: -16px;
+	left: -16px;
 	padding: 0px;
 	margin: 0px;
-	width: 32px;
-	height: 32px;
+	width: 44px;
+	height: 44px;
 	color: #FFF;
 	background: url('../assets/home/delete.svg') no-repeat center center;
 	visibility: hidden;
@@ -163,14 +163,14 @@ html {
  	width: 100%;
   margin: 0px;
   padding: 0px;
-  height: 30px;
+  height: 44px;
 	background: #3BB2F7;
 }
 
 *.projectname{
 	margin: 0px;
 	padding: 0px;
-  text-align: left;
+  text-align: middle;
 	height: 100%;
  	width:100%;
  	outline: 0px;
@@ -187,7 +187,7 @@ html {
   font-size:  16px;
   vertical-align: middle;
   font-weight: normal;
-	height: 28px;
+	height: 100%;
  	width: 100%;
   cursor: default;
   outline: 0px;
@@ -196,7 +196,7 @@ html {
   text-overflow: ellipsis;
   background: transparent;
   border: 0px solid #c0c2c3;
-  line-height: 24px;
+  line-height: 100%;
 }
 
 *.projectname > *.instruction.select {
@@ -321,6 +321,4 @@ html {
   margin: 0px;
   margin: 0px 0px 0px;
 }
-
-/* languages */
 

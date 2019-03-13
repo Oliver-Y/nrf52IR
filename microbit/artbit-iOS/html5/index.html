@@ -1,6 +1,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<meta name = "viewport" content = "user-scalable=no, width=1024">
 <meta name="apple-mobile-web-app-capable" content="yes">
+<meta http-equiv="cache-control" content="no-cache">
 
 <head>
 <title>art:bit</title>
@@ -19,6 +20,7 @@
 <script src="js/utils/SimpleAudio.js"></script>
 <script src="js/utils/Translation.js"></script>
 <script src="js/utils/SVGTools.js"></script>
+<script src="js/native/HW.js"></script>
 
 <script language="javascript">
 
@@ -38,8 +40,8 @@ function startup(){Home.init();}
 					</div>	
 				</div>	
 				<div class ="fwlabel"><div class="smalltext blue" id="fwversion"></div></div>
-				<div class="languages">
-          <ul id="languages"><li id="lan_en">EN</li><li id="lan_fr">FR</li></ul>
+				<div class="languages off" id="languages">
+          <ul id="enfr"><li class="lanchoice" id="lan_en">EN</li><li class="lanchoice" id="lan_fr">FR</li></ul>
         </div>
 			</div>		
 			<div class="content" id="content">	

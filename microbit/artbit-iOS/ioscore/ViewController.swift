@@ -45,6 +45,8 @@ class ViewController: UIViewController, WKNavigationDelegate, WKScriptMessageHan
     
     @objc func appMovedToBackground() {
         print("App moved to background!")
+        let cmd = nativeclass + "appMovedToBackground()"
+        webview!.evaluateJavaScript(cmd, completionHandler: nil)
     }
     
     @objc func appMovedToActive() {
@@ -54,14 +56,16 @@ class ViewController: UIViewController, WKNavigationDelegate, WKScriptMessageHan
     }
 
     func loadPage (){
-        let hostkind = UserDefaults.standard.string(forKey: "host")!
-        if(hostkind=="0"){
+        let html = UserDefaults.standard.string(forKey: "html")!
+        let debug = (html.count > 7) && (html.prefix(7) == "artbit:")
+        if  (!debug) {
             let topurl = Bundle.main.url(forResource: "html5", withExtension: nil)!
             let starturl = Bundle.main.url(forResource: "html5/index", withExtension: "html")!
             webview!.loadFileURL(starturl, allowingReadAccessTo: topurl)
             print (topurl)
-        } else {
-            let url: URL = URL(string: UserDefaults.standard.string(forKey: "html")!)!
+       } else {
+            let str = "http://" + html.suffix(html.count - 7);
+            let url: URL = URL(string: str)!
             let req = URLRequest(url:url)
             webview!.load(req)
             print (url)
@@ -87,6 +91,9 @@ class ViewController: UIViewController, WKNavigationDelegate, WKScriptMessageHan
         addMessage(ucc, "stmt", doStmt)
         addMessage(ucc, "query", doQuery)
         addMessage(ucc, "resourceToString", resourceToString)
+        addMessage(ucc, "fileToString", fileToString)
+        addMessage(ucc, "stringToFile", stringToFile)
+        addMessage(ucc, "eraseFile", eraseFile)
     }
     
     func addMessage(_ ucc: WKUserContentController, _ name: String, _ fcn: @escaping (String)->(String)){
@@ -160,7 +167,6 @@ class ViewController: UIViewController, WKNavigationDelegate, WKScriptMessageHan
         return "sound registered"
     }
     
-    
     func playSound(_ str: String) -> String {
         let args = NSString(string: str).components(separatedBy: "\n")
         if (sounds[args[0]] !=  nil) {playAudio(args[0]) }
@@ -200,11 +206,8 @@ class ViewController: UIViewController, WKNavigationDelegate, WKScriptMessageHan
     let service = CBUUID(string: "6E400001-B5A3-F393-E0A9-E50E24DCCA9E") //    Nordic UART Service
     var rxchars : [String: CBCharacteristic] = [:] // rx charactereristics
     var txchars : [String: CBCharacteristic] = [:] // tx charactereristics
-    var foundDeviceCallback = "iOS.founddevice"
     
     func doScan(_ str: String) -> String {
-        let args = NSString(string: str).components(separatedBy: "\n")
-        foundDeviceCallback = args[0];
         manager!.scanForPeripherals(withServices: nil, options:  [CBCentralManagerScanOptionAllowDuplicatesKey: true, CBAdvertisementDataOverflowServiceUUIDsKey: [service, txuuid, rxuuid]])
         print ("scanStarted");
         webview!.evaluateJavaScript(nativeclass + "scanStarted()", completionHandler: nil)
@@ -212,8 +215,13 @@ class ViewController: UIViewController, WKNavigationDelegate, WKScriptMessageHan
     }
   
     func centralManagerDidUpdateState(_ central: CBCentralManager){
-        print ("ble started")
-        webview!.evaluateJavaScript(nativeclass + "bleStarted()", completionHandler: nil)
+        if (central.state == CBManagerState.poweredOff) {
+            bledevices  = [:] // all discovered devices
+            connected  = [:] // connected devices
+        }
+        let cmd =  nativeclass + "bleChangedStatus (\"\(central.state == CBManagerState.poweredOn)\")"
+         print ("bleChangedStatus", cmd)
+        webview!.evaluateJavaScript(cmd, completionHandler: nil)
     }
 
     func centralManager(_ central: CBCentralManager,
@@ -229,7 +237,7 @@ class ViewController: UIViewController, WKNavigationDelegate, WKScriptMessageHan
     func foundPeripheral(_ name:String, _ p:CBPeripheral, RSSI:NSNumber){
         let id = p.identifier.uuidString
       //  if let _ = bledevices[id] {return }
-    //    print ("foundPeripheral ", id, name)
+      //  print ("foundPeripheral ", id, name)
         bledevices[id] = p;
         let cmd = nativeclass + "founddevice (\"\(name)\", \"\(id)\", \"\(RSSI)\")"
         webview!.evaluateJavaScript(cmd, completionHandler: nil)
@@ -288,15 +296,17 @@ class ViewController: UIViewController, WKNavigationDelegate, WKScriptMessageHan
         p.discoverServices(nil)
         let id = p.identifier.uuidString
         connected[id] = p;
-        let cmd = nativeclass + "connectedTo (\"\(id)\")"
+        let cmd = nativeclass + "connectionEstablished (\"\(id)\")"
         webview!.evaluateJavaScript(cmd, completionHandler: nil)
+        // peripheral(_ p: CBPeripheral, didDiscoverCharacteristicsFor s:
+        // will send message to the client to communicate that the device is ready
     }
     
     func centralManager(_ c: CBCentralManager, didFailToConnect p: CBPeripheral, error: Error?) {
         p.delegate = self
         print("didFailToConnectPeripheral", p.name as Any)
         manager!.cancelPeripheralConnection(p)
-        let cmd = nativeclass + "failToConnect (\"\(p.name!)\")"
+        let cmd = nativeclass + "failToConnect (\"\(p.identifier.uuidString)\")"
         webview!.evaluateJavaScript(cmd, completionHandler: nil)
     }
     
@@ -308,7 +318,7 @@ class ViewController: UIViewController, WKNavigationDelegate, WKScriptMessageHan
     func centralManager(_ c: CBCentralManager, didDisconnectPeripheral p: CBPeripheral,
         error: Error?) {
         let id = p.identifier.uuidString
-        print ("disconnect", id)
+        print ("didDisconnect", id)
       //  if (bledevices.index(forKey: id) != nil) {bledevices.removeValue(forKey: id)}
         if (connected.index(forKey: id) != nil) {connected.removeValue(forKey: id)}
         let cmd = nativeclass + "disconnectedFrom (\"\(id)\")"
@@ -326,7 +336,8 @@ class ViewController: UIViewController, WKNavigationDelegate, WKScriptMessageHan
         error: Error?){
        
         let id = p.identifier.uuidString
-   //     print ("didDiscoverCharacteristicsFor",p, "sevice", s, "char",  s.characteristics!)
+     //   print ("didDiscoverCharacteristicsFor",p, "sevice", s, "char",  s.characteristics!)
+        
         for c in s.characteristics! {
             if c.uuid == rxuuid {
                 rxchars[id] = c
@@ -336,13 +347,14 @@ class ViewController: UIViewController, WKNavigationDelegate, WKScriptMessageHan
             if c.uuid == txuuid {
                 txchars[id] = c
                 let cmd = nativeclass + "deviceIsReady (\"\(id)\")"
+                print (cmd)
                 webview!.evaluateJavaScript(cmd, completionHandler: nil)
             }
         }
     }
     
     func doSendMessage(_ str: String) -> String {
-     //   print ("send message ", str)
+       // print ("send message ", str)
         let args = NSString(string: str).components(separatedBy: "\n")
         if (connected.index(forKey: args[0]) == nil) {return "notconnected"}
         if (txchars.index(forKey: args[0]) == nil) {return "unkowncharacteristics"}
@@ -352,12 +364,12 @@ class ViewController: UIViewController, WKNavigationDelegate, WKScriptMessageHan
         var arr = [UInt8](repeating: 0, count: list.count)
         for i in 0 ..< list.count { arr [i]  =  UInt8(list[i])! }
         let data = Data(bytes: UnsafePointer<UInt8>(arr as [UInt8]), count: arr.count)
+      //   print ("send message", str, p.state as Any)
         p.writeValue(data, for: c, type: CBCharacteristicWriteType.withoutResponse)
         return "doSendMessage"
     }
 
     func doSendMessageWithResponse(_ str: String) -> String {
-    //    print ("send message ", str)
         let args = NSString(string: str).components(separatedBy: "\n")
         if (connected.index(forKey: args[0]) == nil) {return "notconnected"}
         if (txchars.index(forKey: args[0]) == nil) {return "unkowncharacteristics"}
@@ -367,9 +379,11 @@ class ViewController: UIViewController, WKNavigationDelegate, WKScriptMessageHan
         var arr = [UInt8](repeating: 0, count: list.count)
         for i in 0 ..< list.count { arr [i]  =  UInt8(list[i])! }
         let data = Data(bytes: UnsafePointer<UInt8>(arr as [UInt8]), count: arr.count)
+        print ("send message with response", str,  p.state.rawValue)
         p.writeValue(data, for: c, type: CBCharacteristicWriteType.withResponse)
-        return "doSendMessage"
+        return "doSendMessageWithResponse"
     }
+    
     func peripheral(_ p: CBPeripheral,
         didWriteValueFor characteristic: CBCharacteristic,
         error: Error?) {
@@ -379,19 +393,20 @@ class ViewController: UIViewController, WKNavigationDelegate, WKScriptMessageHan
                 print (error as Any)
             str = (error?.localizedDescription)!
         }
-        let cmd = nativeclass + "writeValueResult (\"\(str)\", \"\(p.identifier.uuidString)\")"
+        let cmd = nativeclass + "didWriteValueFor (\"\(str)\", \"\(p.identifier.uuidString)\")"
         webview!.evaluateJavaScript(cmd, completionHandler: nil)
     }
  
     func peripheral(_ p: CBPeripheral, didUpdateValueFor c: CBCharacteristic,
         error: Error?){
+        if (error != nil) {print (error as Any)}
             let data = c.value
             var values = [UInt8](repeating: 0, count: data!.count)
             (data! as NSData).getBytes(&values, length:data!.count)
             var str = ""
             for s in values {str = "\(str)\(s),"}
             str = String(str[..<str.endIndex])
-          //  print ("gotpacket", str)
+           // print ("gotpacket", str)
             let id = p.identifier.uuidString
             let name = p.name
             let cmd = nativeclass + "gotpacket (\"\(name!)\", \"\(id)\",\"\(str)\")"
@@ -414,12 +429,6 @@ class ViewController: UIViewController, WKNavigationDelegate, WKScriptMessageHan
             let entry = "\(name!),\(id)"
             res.append(entry)
         }
-     //   let lastone = UserDefaults.standard.string(forKey: "lastconnected")
-    //    let lastconnectedTo : [String] = (lastone != nil) ? [lastone!] : []
-     //   var response = [String]()
-     //   response.append (res.joined(separator: "|"))
-     //   response.append(lastconnectedTo.joined(separator: "|"))
-     //   return response.joined(separator: "&")
         return res.joined(separator: "|");
     }
     
@@ -496,6 +505,24 @@ class ViewController: UIViewController, WKNavigationDelegate, WKScriptMessageHan
         else {return "renameFile Error"}
     }
     
+    func fileToString(_ str: String) -> String {
+        let args = NSString(string: str).components(separatedBy: "\n")
+        let contents = try? String(contentsOf: getDocumentPath(args[0]), encoding: String.Encoding.utf8)
+        if let res =  contents {return toBase64(res)}
+        else {return ""}
+    }
+    
+    func stringToFile(_ str: String) -> String {
+        let crloc = str.range(of: "\n")!.lowerBound
+        let name = String(str[..<crloc])
+        let idx = str.index(after: crloc)
+        let contents = String(str[idx...])
+        let url = getDocumentPath(name)
+        if let _ = try? contents.write(to: url, atomically: false, encoding:String.Encoding.utf8)
+        {return "stringToFile \(name)"}
+        else {return "stringToFile error"}
+    }
+    
     func getDocumentPath(_ str: String) -> URL{
         let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
         let docs = URL(fileURLWithPath: paths[0])
@@ -511,3 +538,4 @@ class ViewController: UIViewController, WKNavigationDelegate, WKScriptMessageHan
 fileprivate func convertFromAVAudioSessionCategory(_ input: AVAudioSession.Category) -> String {
 	return input.rawValue
 }
+

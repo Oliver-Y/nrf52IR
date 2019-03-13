@@ -27,6 +27,7 @@ UI.undoStack = [];
 UI.redoStack = [];
 UI.blocklyStacks = {undo: 0, redo: 0};
 UI.version = 2.0;
+UI.busy = false;
 
 UI.setup = function(){
 	gn('nametag').textContent = Translation.strings["editor"]["shapes"];
@@ -55,8 +56,6 @@ UI.resize = function(e) {
 	gn("contents").style.width = (w - gn("rightpanel").offsetWidth)+ "px";
 	gn("rightpanel").style.height = (h - dh)+ "px";
 	gn("palette").style.height = (h - gn("grid").offsetTop - gn("grid").offsetHeight - dh - gn("shapesbar").offsetHeight)+ "px";
-	gn("alertdialog").style.top = Math.floor((h-292) / 2) + "px";
-	gn("alertdialog").style.left = Math.floor((w-670) / 2) + "px";
 	gn('playbutton').style.left = (gn('extratools').offsetLeft +  gn('extratools').offsetWidth) + "px";
 	Blockly.hideChaff(true);
   Blockly.svgResize(Code.workspace);	
@@ -88,21 +87,23 @@ UI.unfocus =  function (){
 UI.toggleMenu = function (e){
 	e.preventDefault();
 	e.stopPropagation();
+	CC.hideMenu();
+	SimpleAudio.play("tap");
 	let menus = Translation.strings["editor"]["menu"];
 	if (gn('appmenu')) UI.closeDropdown();
 	else {	
 		var hasValidName = UI.projectName && !UI.projectSamples[UI.projectName];	
-		var options = [menus["savecopy"], menus["close"], menus["download"]];
-		var optionfcns = ["savecopy", "close", 'download'];
-		UI.openBalloon(frame,"topright", options, optionfcns);
+		var options = iOS.devices.length > 0 ? [menus["savecopy"], menus["close"], menus["download"]] : [menus["savecopy"], menus["close"]];
+		var optionfcns = iOS.devices.length > 0 ? ["savecopy", "close", 'download'] : ["savecopy", "close"] ;
+		UI.openBalloon(frame, options, optionfcns);
 		gn('appmenu')[eventDispatch["start"]] = UI.doAction;
 	}
 }
 
-UI.openBalloon = function(p, type,  labels, fcns){
-	var mm = newHTML("div", 'dropdownballoon ' + type, p);
-	var barrow = newHTML("div", "menuarrow " + type, mm);
-	let csstype = type == 'topleft' ? "dropdown " + Defs.lang : 'dropdown en';
+UI.openBalloon = function(p,  labels, fcns){
+	var mm = newHTML("div", 'dropdownballoon ' + Defs.lan, p);
+	var barrow = newHTML("div", "menuarrow "  + Defs.lan, mm);
+	let csstype =  "dropdown " + Defs.lan;
 	var mdd= newHTML("div",csstype, mm);
 	mm.setAttribute('id', 'appmenu');
 	for (var i=0; i < labels.length; i++) {
@@ -137,7 +138,7 @@ UI.cleanUndo = function (){
 	UI.redoStack = [];
 	UI.blocklyStacks = {undo: 0, redo: 0};
 	Code.workspace.clearUndo();
-	UI.updateToolsState(undefined);
+	UI.selectTool(undefined);
 }
 
 UI.closeDropdown =  function (){if (gn('appmenu')) gn('appmenu').parentNode.removeChild(gn('appmenu'))}
@@ -158,6 +159,7 @@ UI.pressTool = function(e){
 	Code.unfocus();
 	UI.unfocus();
 	var t = e.target;
+	SimpleAudio.play("tap");
 	UI.selectTool(t);
 	UI.tooldown = true;
 }
@@ -214,6 +216,7 @@ UI.newProject =  function (e){
 UI.close = function (e){
 	e.preventDefault();
 	e.stopPropagation();
+	SimpleAudio.play("tap");
 	setTimeout(function (){window.location.href = "index.html?ts="+ Date.now();}, 500);   
 }
 
@@ -224,6 +227,7 @@ UI.close = function (e){
 UI.download =  function (e){
 	e.preventDefault();
 	e.stopPropagation();
+	SimpleAudio.play("download");
 	Code.download();
 }
 
@@ -235,9 +239,12 @@ UI.download =  function (e){
 UI.savecopy =  function (e){
 	e.preventDefault();
 	e.stopPropagation();
+	if (UI.busy) return;
+	SimpleAudio.play("shapecopied");
+	UI.busy = true;
 	if ((UI.projectID < 0) ||  !UI.projectdata.name) UI.createProject(ignore);
 	else UI.createCopy(UI.projectID, UI.projectdata.name);	
-	function ignore(){}
+	function ignore(){	UI.busy = false;}
 }
 
 UI.createCopy =  function (id, name){
@@ -260,7 +267,12 @@ UI.createCopy =  function (id, name){
 		json.values = [name, UI.version, "NO", iOS.utf8Tob64(data), UI.projectPosition, iOS.utf8Tob64(thumb)];
 		console.log (json.values)
 		json.stmt = "insert into "+ iOS.database + " ("+  keylist.toString() + ") values ("+values +")";
-		iOS.stmt(json, console.log);
+		iOS.stmt(json, changeID);
+	}
+	
+	function  changeID(id){
+		UI.projectID =  Number (id).toString() == 'NaN'  ? -1 :  Number (id);
+		UI.busy = false;
 	}
 }
 	
@@ -306,6 +318,10 @@ UI.getNextNumber = function (str, name){
 UI.saveProject = function (e){
 	e.preventDefault();
 	e.stopPropagation();
+	console.log ("saveProject", UI.busy)
+	if (UI.busy) return;
+	SimpleAudio.play("tap");
+	UI.busy = true;
 	if (UI.projectID < 0) UI.createProject(switchPage);
 	else UI.updateDB(UI.projectID, switchPage);	
 	function switchPage(){
@@ -386,6 +402,20 @@ UI.loadProject = function (id){
   }
 }
 
+UI.loadUnsavedWork = function (){
+ 	UI.cleanWorkspace();
+ 	iOS.fileToString('unsaved-work', next);
+
+  function next(str){
+		var data = str.split('\n');
+		UI.projectID = data[3];
+		if(data[4]>-1) UI.projectdata = {};
+		if(data[5]) UI.projectdata.name = data[5];
+		UI.loadXML(str, UI.finishSetup); 
+		iOS.eraseFile('unsaved-work');
+	}
+}
+
  UI.finishSetup = function (){
 		Code.createDefaultVars();
 		Code.updatePalette()	
@@ -420,6 +450,14 @@ UI.loadXML = function (str, whenDone){
 	
 }
 	
+UI.getExtendedProjectContents = function (){
+	var str = UI.getProjectContents();
+	str += UI.projectID;
+	str += '\n';
+	if(UI.projectdata&&UI.projectdata.name) str = str+UI.projectdata.name+'\n';
+	return str;
+}
+
 UI.getProjectContents = function (){
 	var xml = Blockly.Xml.workspaceToDom(Code.workspace, true);
 	let str = "art:bit 2.0";
@@ -458,6 +496,7 @@ UI.saveForUndo = function(state){
 	}
 		
 UI.undo = function(){
+	Runtime.stopThreads(Code.scripts)
 	var obj = UI.undoStack.pop();		
 	if (obj) {
 		if (obj.isEditor) UI.redoStack.push(UI.getShapesState(true));
@@ -466,9 +505,11 @@ UI.undo = function(){
 	}
 	else if (Code.workspace.undoStack_.length > 0) Code.workspace.undo(false);
 	UI.updateToolsState(undefined);
+	Code.updatePalette();
 }
 
 UI.redo = function(){
+	Runtime.stopThreads(Code.scripts)
 	var obj = UI.redoStack.pop();
 	if (obj) {
 		if (obj.isEditor) UI.undoStack.push(UI.getShapesState(true));
@@ -477,6 +518,7 @@ UI.redo = function(){
 	}
 	else if (Code.workspace.redoStack_.length > 0) Code.workspace.undo(true);
 	UI.updateToolsState(undefined);
+	Code.updatePalette();
 }
 
 
@@ -528,3 +570,5 @@ Blockly.WorkspaceSvg.prototype.showContextMenu_ = function(e) {
 // DISABLE individual blocks BLOCKLY context menus
 
 Blockly.BlockSvg.prototype.showContextMenu_ = function(e) {}
+
+

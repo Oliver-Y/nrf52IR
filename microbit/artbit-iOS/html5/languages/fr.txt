@@ -1,11 +1,13 @@
 {
-	"home":{
+	"home": {
 		"project": "Projet",
 		"title": "Mes projets"
 	},
-	"CC":{
-		"powerup" : "powerup a microbit",
-		"badhex" : "re-install HEX"
+	"CC": {
+		"powerup": "allumer un microbit",
+		"badhex": "incapable de se connecter",
+		"bleoff": "activer Bluetooth",
+		"disconnect": "déconnecter"
 	},
 	"editor": {
 		"categories": {
@@ -14,20 +16,20 @@
 			"control": "Contrôle",
 			"event": "Événements",
 			"operators": "Opérateurs",
-			"more": "Autres blocs"	
+			"more": "Mes blocs"
 		},
 		"cleanup": "Aligner",
 		"shapes": "Formes",
 		"menu": {
 			"savecopy": "Créer une copie",
-			"close": "Oublier",
+			"close": "Oublier modifications",
 			"download": "Télécharger",
 			"save": "Enregistrer",
 			"saveas": "Enregistrer sous"
 		},
-		 "true": "vrai",
-		 "false": "faux",
-		 "blocks": {
+		"true": "vrai",
+		"false": "faux",
+		"blocks": {
 			"clean": "éteindre tout",
 			"setshape": "afficher forme %1",
 			"nextshape": "afficher forme suivante",
@@ -47,7 +49,7 @@
 			"setbrightness": "luminosité %1",
 			"print": "afficher",
 			"shape": "forme",
- 			"onpressed": "Quand %1 pressé",
+			"onpressed": "Quand %1 pressé",
 			"onpressed2": "Quand %1 et %2 pressés",
 			"onreceive": "Quand je reçois %1",
 			"menu_coral": "rose",
@@ -78,7 +80,7 @@
 			"and": "%1 et %2",
 			"or": "%1 ou %2",
 			"not": "non %1",
-		  "define": "Définir",
+			"define": "Définir",
 			"set": "mettre %1 à %2",
 			"change": "changer %1 par %2",
 			"box": "boîte",
@@ -88,8 +90,3 @@
 		}
 	}
 }
-
-
-
-
-

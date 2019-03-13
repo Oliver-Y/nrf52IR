@@ -50,6 +50,9 @@
   height: 60px;
 }
 
+.languages.on {display: block;}
+.languages.off {display: none;}
+
 .languages ul {
 	position: relative;
   list-style-position: none;
@@ -80,11 +83,6 @@
  }​
  
 .languages li:active {
-  background-color: #3BB2F7;
-  color: #fff;
-}
-
-.languages li:hover {
   background-color: #3BB2F7;
   color: #fff;
 }

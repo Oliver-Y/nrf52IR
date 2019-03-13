@@ -20,9 +20,16 @@ BLE.ticker = 20;
 BLE.status = "ok";
 	
 BLE.init = function (){
-	gn("microbit0")[eventDispatch["start"]] =  CC.rescan;
-	iOS.stopscan();
-	if (iOS.devices.length == 0) iOS.getBLEstatus(BLE.chooseDefaultMicrobit);
+	CC.close();
+	if (BLE.statusIntervalId != undefined) window.clearInterval(BLE.statusIntervalId);
+	if (!iOS.bleIsOn) {
+		BLE.statusIntervalId = window.setInterval(function (){BLE.tickTask();}, BLE.ticker);	
+	}		
+	else {	
+		iOS.stopscan();
+		if (iOS.devices.length == 0) iOS.getBLEstatus(BLE.chooseDefaultMicrobit);
+	}
+	
 }
 
 BLE.chooseDefaultMicrobit= function (obj){ 
@@ -30,7 +37,7 @@ BLE.chooseDefaultMicrobit= function (obj){
 	BLE.status = (iOS.devices.length == 0) ? "connecting" :  "ok";
 	if (iOS.devices.length == 0) {
 		var device = getConnectedDevice(reconnect);
-		if (device) iOS.connectedTo (device.id);
+		if (device) CC.updateConnection (device.id);
 	}
 	
 	if (BLE.statusIntervalId != undefined) window.clearInterval(BLE.statusIntervalId);
@@ -42,9 +49,11 @@ BLE.chooseDefaultMicrobit= function (obj){
 		if (keys.length == 0) return null;
 		return reconnect[keys[0]]
 	}
+	
+	gn("microbit0")[eventDispatch["start"]] =  CC.rescan;
 } 
 
-BLE.connectionStatus = function(str, trigger){
+BLE.connectionStatus = function(str){
 	var data = str.split(":");
 	switch (data[0]) {
 		case "notallowed": 
@@ -52,16 +61,15 @@ BLE.connectionStatus = function(str, trigger){
 		case "disconnecting":
 			break;
 		case "connected":
-			console.log ("previouslyDiscovered", data)
-			iOS.connectedTo (data[1]);
+	//		console.log ("previouslyDiscovered", data)
+			iOS.updateConnection (data[1]);
 			break;
 	}
 }
 
-			
 BLE.displayState = function (){ 
 	var state = BLE.status;
-	
+	// BLE status can be: ok, connecting, download
 	let id =  "microbit0";
 	if (gn(id+"_scanicon")) gn(id+"_scanicon").className = "ble "+ state;
 	var div  = gn("microbit0_image");
@@ -70,15 +78,17 @@ BLE.displayState = function (){
 		var svg = SVGTools.create (div, 33, 35);
 		var off = div.className.indexOf("topbar") > -1 ? "#3bb2f7" :"#ffffff";
 		CC.drawIcon(svg, "#d81637", off, iOS.deviceIcon [iOS.devices[0]])
+		CC.hideMenu();
 	}	
 	else if(isUnplugged()) {
+		console.log ("unplugged")
 		div.className = div.className.replace("on" , "off");
 		while (div.childElementCount > 0) div.removeChild(div.childNodes[0]);	
 	}
 	else CC.checkConnectionStatus();
 	
 	function isUnplugged(){
-		if ((CC.connecting != undefined) && iOS.queue[CC.connecting]) return false;
+		if ((CC.connectingToID != undefined) && iOS.queue[CC.connectingToID]) return false;
 		if ((state != 'ok') && (div.className.indexOf("on") > -1)) return true;
 	}
 }
@@ -88,7 +98,8 @@ BLE.tickTask = function (){
 	//	console.log ("downloading")
 		return;
 	}
-	if (!CC.statusIntervalId && (iOS.devices.length == 0)) BLE.status = "failed"; // scanning not active and no connection
+ 	if (!iOS.bleIsOn) BLE.status = ""
+	else if (!CC.statusIntervalId && (iOS.devices.length == 0)) BLE.status = "failed"; // scanning not active and no connection
 	else if (iOS.devices.length > 0) BLE.status  = "ok"; // has a connection
 	else BLE.status  = "connecting"; // whether or not has a connection indicate if it is scanning
 	BLE.displayState();

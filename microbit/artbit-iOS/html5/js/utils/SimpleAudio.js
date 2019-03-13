@@ -9,7 +9,7 @@ SimpleAudio = function() {};
 SimpleAudio.uiSounds ={};
 SimpleAudio.isNative = false;
 
-SimpleAudio.defaultSounds=["tap", "delete", "snap"];
+SimpleAudio.defaultSounds=["tap", "delete", "snap", "swish", "download", "shapecopied"];
 
 SimpleAudio.init = function (isIpad){
 	SimpleAudio.isNative = isIpad;

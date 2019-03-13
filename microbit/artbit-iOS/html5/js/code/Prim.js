@@ -44,6 +44,7 @@ Prim.doClean = function (){
 	var t = Runtime.thread;
 	Runtime.stopThreads(Code.scripts)
 	Prim.currentShape = {n: undefined, dx:0, dy: 0}
+	Runtime.shape = [0,0,0,0,1]; // force always a refresh not matter what
 	HW.shape = [0,0,0,0,0];
 	t.thisblock = undefined;		
 }
@@ -75,7 +76,6 @@ Prim.control_wait = function() {
 	value = Math.max(0,value)
 	var future = (1000 * value) + Date.now()
 	if (future > 0) thread.waitFcn = function (){return Prim.waitForTime(future);}
-	Prim.doNext();
 }
 
 Prim.control_step = function (){		
@@ -89,19 +89,13 @@ Prim.control_step = function (){
 	var flow = t.getSubStack (b, "SUBSTACK");
 	var dir  = (from < to);
 	Code.variables[varname] = from;
-	if (n < 1){
-		Prim.doNext();
-	}
-	else {	
-		t.stack.push(t.next());
-		t.stack.push(varname);
-		t.stack.push(dir);
-		t.stack.push(to);
-		t.stack.push(flow);
-		t.stack.push('stepAgain');
-		t.thisblock = flow;
-	//	console.log ("start", t.stack.length);
-	}
+	t.stack.push(t.next());
+	t.stack.push(varname);
+	t.stack.push(dir);
+	t.stack.push(to);
+	t.stack.push(flow);
+	t.stack.push('stepAgain');
+	t.thisblock = flow;
 }
 
 Prim.stepAgain = function(){
@@ -167,15 +161,16 @@ Prim.control_forever = function (){
 	var t = Runtime.thread;
 	var b = t.thisblock;
 	var flow = t.getSubStack (b, "SUBSTACK")
-	t.stack.push(flow);
+	t.stack.push(b);
 	t.stack.push('foreverLoop');
 	t.thisblock = flow;
 }
 
 Prim.foreverLoop = function(){
 	var t = Runtime.thread;
-	var flow = t.stack.pop();
-	t.stack.push(flow);
+	var b = t.stack.pop();
+	var flow = t.getSubStack (b, "SUBSTACK")
+	t.stack.push(b);
 	t.stack.push('foreverLoop');
 	t.thisblock = flow;
 }
@@ -281,6 +276,7 @@ Prim.events_broadcast = function (){
 Prim.lights_clean = function (){
 	var thread =  Runtime.thread;
 	Prim.currentShape = {n: undefined, dx:0, dy: 0}
+	Runtime.shape = [0,0,0,0,1]; // force always a refresh not matter what
 	HW.shape = [0,0,0,0,0];		
 	Prim.doNext();
 }
@@ -319,7 +315,6 @@ Prim.lights_setshape = function (){
 	Prim.currentShape = {n: n, dx:0, dy: 0}
 	let shape = ShapeEditor.getShapeData(Prim.currentShape)
 	Prim.setShape(thread, shape);
-	Prim.doNext();
 }
 
 Prim.lights_setpace = function (){
@@ -352,7 +347,6 @@ Prim.lights_nextshape = function (){
 	Prim.nextShape();
 	let shape = ShapeEditor.getShapeData(Prim.currentShape)
 	Prim.setShape(thread, shape);		
-	Prim.doNext();
 }
 
 Prim.lights_previousshape = function (){
@@ -361,7 +355,6 @@ Prim.lights_previousshape = function (){
 	Prim.previousShape()
 	let shape = ShapeEditor.getShapeData(Prim.currentShape)
 	Prim.setShape(thread, shape);		
-	Prim.doNext();
 }
 
 Prim.nextShape = function (){
@@ -417,7 +410,6 @@ Prim.lights_scroll = function (){
 	}
 	let shape = ShapeEditor.getShapeData(Prim.currentShape)
 	Prim.setShape(thread, shape, true);		
-	Prim.doNext();
 }
 
 ///////////////////////

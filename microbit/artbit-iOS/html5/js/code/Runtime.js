@@ -35,7 +35,7 @@ Runtime.brightness = 100;
 Runtime.startTimer = function() {
 	resett()
 	Runtime.stopTimer ();
-	console.log ("startTimer")
+//	console.log ("startTimer")
 	Runtime.intervalId = window.setInterval(function (){Runtime.tickTask();}, Runtime.ticker);
 }
 
@@ -64,6 +64,62 @@ Runtime.stopOthers = function(t) {
 			Runtime.stopThread(Runtime.threadsRunning[i]);
 		}
 	}	
+}
+
+Runtime.checkDetach = function(e) {
+	if (!e.blockId) return;
+	var detached = Code.scripts.blocksContainer._blocks[e.blockId]
+	var did = detached ? detached.id : detached;
+//console.log ("checkDetach", e.blockId)
+	for (var i=0; i <  Runtime.threadsRunning.length; i++) {
+		if (Runtime.threadsRunning[i].isRunning) {
+			var fbid = Runtime.threadsRunning[i].firstBlock.id;
+			var b = Runtime.threadsRunning[i].thisblock;
+			if (did == fbid) {
+			//		console.log ("unclear but must stop",  detached.id, parent, fbid, b)
+					Runtime.stopThread(Runtime.threadsRunning[i]);
+					return;
+			}
+		
+			else if (Runtime.threadsRunning[i].thisblock) {
+				var parent = getParent (b.id)	
+				if (parent != fbid) {
+				//	console.log ("running",  detached.id, parent, fbid, b)
+					Runtime.stopThread(Runtime.threadsRunning[i]);
+					return;
+				}
+			} 
+		  else {
+		  	var ids =  getstackIds(Runtime.threadsRunning[i].stack)
+		  	for (let j=0; j < ids.length; j++) {
+					var p = getParent (ids[j])
+					if (p != fbid) {
+				//		console.log ("in stack")
+						Runtime.stopThread(Runtime.threadsRunning[i]);
+						return;
+					}
+		  	}
+		  } 
+		}
+	//	console.log ("nothing stops good")
+	}	
+	
+	function getstackIds(stack) {
+		var res  = [];
+		for (let j=0; j < stack.length; j++) {
+			var key  = stack[j]
+			if (typeof key == "string") continue;
+			if (key.id) res.push(key.id)
+		}
+		return res;
+	}
+	
+	function getParent (id) {
+		var data = Code.scripts.blocksContainer._blocks;
+	//	console.log (id)
+		while (data[id] && (data[id].parent != null)) id = data[id].parent ;
+		return id;
+	}
 }
 
 Runtime.turnOffStacks = function(sc) {
@@ -124,7 +180,10 @@ Runtime.step = function (n){
 				Runtime.yield=true;
 				break;
 			}
-			else Runtime.thread.waitFcn = undefined
+			else {
+				Runtime.thread.waitFcn = undefined
+				Runtime.thread.thisblock =  Runtime.thread.next();
+			 }
 			} 
 		if (Runtime.yield) break;
 		if (Runtime.thread.thisblock == undefined) {
@@ -171,7 +230,7 @@ Runtime.runBlock = function(b) {
 		Runtime.unglowBlock(Runtime.thread, Runtime.thread.onblock);
 		Runtime.thread.onblock = null;
 	}
-	var setoff = ["missing", 'control_repeat', 'events_onbuttona', 'events_onbuttonb', 'events_onreceive']
+	var setoff = ["missing", "control_repeat", "control_forever", 'events_onbuttona', 'events_onbuttonb', 'events_onreceive']
 	if (setoff.indexOf(b.opcode) < 0) {
 		Runtime.time = new Date().getTime();
 		Runtime.glowBlock(Runtime.thread, b);

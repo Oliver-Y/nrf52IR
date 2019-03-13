@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "DAD126711C586F3900491F80"
-               BuildableName = "artbit.app"
-               BlueprintName = "artbit"
+               BuildableName = "art:bit.app"
+               BlueprintName = "art:bit"
                ReferencedContainer = "container:artbit.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -33,8 +33,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "DAD126711C586F3900491F80"
-            BuildableName = "artbit.app"
-            BlueprintName = "artbit"
+            BuildableName = "art:bit.app"
+            BlueprintName = "art:bit"
             ReferencedContainer = "container:artbit.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -56,8 +56,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "DAD126711C586F3900491F80"
-            BuildableName = "artbit.app"
-            BlueprintName = "artbit"
+            BuildableName = "art:bit.app"
+            BlueprintName = "art:bit"
             ReferencedContainer = "container:artbit.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -75,8 +75,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "DAD126711C586F3900491F80"
-            BuildableName = "artbit.app"
-            BlueprintName = "artbit"
+            BuildableName = "art:bit.app"
+            BlueprintName = "art:bit"
             ReferencedContainer = "container:artbit.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

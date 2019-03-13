@@ -68,7 +68,7 @@ runCommandLine(str, fcn){
 }
 
 downloadProcs(str, shapes, fcn){
-	console.log (str)
+//	console.log (str)
 	this.pc = this.vectorlen;
 	try {
 		this.setup();
@@ -512,7 +512,7 @@ dump(list){
 			line+= ' ';
 			addr++;
 		}
-		console.log(line)
+	//	console.log(line)
 	}
 	function hexByte(n){return (n+256).toString(16).substring(1);}
 	function hexWord(n){return (n+65536).toString(16).substring(1);}

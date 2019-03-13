@@ -2,12 +2,12 @@
   "images" : [
     {
       "idiom" : "ipad",
-      "filename" : "launch_1024px.png",
+      "filename" : "ArtBit_Assets_iOS.png",
       "scale" : "1x"
     },
     {
       "idiom" : "ipad",
-      "filename" : "launch_2048px.png",
+      "filename" : "ArtBit_Assets_iOS_2048x1536.png",
       "scale" : "2x"
     }
   ],

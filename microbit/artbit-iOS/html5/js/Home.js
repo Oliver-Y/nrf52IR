@@ -7,6 +7,7 @@ Home.caret;
 Home.shaking = false;
 Home.menu;
 Home.timeoutEvent = undefined;
+Home.swicthInProgress = false;
 
 //////////////////////////////////////////////////
 // Home Screen
@@ -17,11 +18,31 @@ Home.setUpTimer = function() {}
 Home.init = function (){
 	libInit();
 	document.body.addEventListener('touchmove', (e)=>{}, {passive: false, useCapture: false});
-	var cond = function(){return iOS.ready;};
+	var cond = function(){return iOS && iOS.ready;};
   waituntil (cond, Home.start); 
-//	if (isiPad) document.body.addEventListener('touchmove', (e)=>{e.preventDefault();}, {passive: false});	
 }
 
+Home.init = function (){
+  iOS.SQLopen("artbit", dbopen);	
+
+	function dbopen(str){
+		var cmd = "create table if not exists projects (id integer primary key autoincrement, ctime datetime default current_timestamp, name text, nameflag text, thumb text, projectdata text, owner text, pos integer, deletedflag text, version text)"
+		iOS.SQLexe(cmd);
+		iOS.fileToString('unsaved-work', next);
+	}
+
+	function next(str){
+		if(str.length==0) startHome();
+		else window.location.href = 'editor.html?pid=-2&ts='+ Date.now();
+	}
+
+	function startHome(){
+		libInit();
+		document.body.addEventListener('touchmove', (e)=>{}, {passive: false, useCapture: false});
+		var cond = function(){return iOS.ready;};
+	  waituntil (cond, Home.start); 
+	}
+}
 
 //////////////////////////////////
 // BLE
@@ -41,18 +62,12 @@ Home.init = function (){
 Home.start = function (){
 	Translation.setLanguage(doNext);
 	BLE.init();
-	SimpleAudio.init();
 	Home.setup();	
 	window[eventDispatch["end"]] =  Home.handleTouchEnd;
 	window[eventDispatch["start"]] =  Home.handleTouchStart;
 	Home.caret =  newHTML("div", "thumb caret");
 	SimpleAudio.init(true);
 	Home.prev = Home.emptyProjectThumbnail(); 
-  iOS.SQLopen("artbit", nextStep);
-	function nextStep(str){
-		var cmd = "create table if not exists projects (id integer primary key autoincrement, ctime datetime default current_timestamp, name text, nameflag text, thumb text, projectdata text, owner text, pos integer, deletedflag text, version text)"
-		iOS.SQLexe(cmd);
-	}
 	
 	function doNext(lan) {
 		Home.showLanguageChoice(lan);
@@ -70,28 +85,44 @@ Home.start = function (){
 Home.switchLanguageTo = function(e, lan) {
 	e.preventDefault();
 	e.stopPropagation();
-//	console.log ("switchLanguageTo", lan)
+	if (Translation.lan == lan) return;
+	if (Home.swicthInProgress)return;
+	SimpleAudio.play("tap");
+	Home.swicthInProgress = true;
+	
 	iOS.changeSetting("lan", lan, console.log);
 	Translation.loadLanguage (lan, doNext);
 	function doNext(val){
-		Home.showLanguageChoice(val);
+		Home.showLanguageChoice(lan);
 		Home.changeDefaultNames();
+		Home.swicthInProgress = false;
 	}
 }
 
 Home.changeDefaultNames = function (){
+	gn('title').textContent = Translation.strings['home']['title'];
 	if (!Home.metadata) return;
-	let data = Home.metadata;
-	for (var i = 0; i < data.length; i++) {
-		 var d = data[i];
+	for (var id in Home.metadata) {
+		 var d = Home.metadata[id];
 		 if (d.name) continue;
-		 else console.log (d.id, gn(d.id))
+		 else Home.translateName (gn("thumb_" + d.id), d)
 	}
 }
 
+Home.translateName = function(div, data){
+	if (!div) return;
+	var id = data.id;
+	var name = data.name;
+	name = !name ? Translation.strings['home']['project']+ " " +data.id : name;
+	if (div.childElementCount < 3) return;
+	if (div.childNodes[1].childElementCount < 1) return;
+	div.childNodes[1].childNodes[0].childNodes[0].value =  name;
+}
+
 Home.showLanguageChoice = function (val){
-	gn('title').textContent = Translation.strings['home']['title'];
-	let div  = gn("languages")
+	var langdiv  = gn("languages")
+ 	langdiv.className = 'languages on';
+ 	var div = gn("enfr")
 	for (let i=0; i < div.childElementCount; i++) div.childNodes[i].className ='';
 	gn('lan_'+val).className = "selected";	
 }
@@ -147,7 +178,7 @@ Home.showQuery = function (){
 		if (str == "no webkit") return;
 		else {
 			var data = JSON.parse(str);
-			Home.metadata = data;
+			Home.metadata =  new Object();
 			Home.displayProjects (data)
 		}
 	}
@@ -176,6 +207,7 @@ Home.doQuery = function (fcn){
 };
 
 Home.addProject = function(data){
+	
 	var name = data.name;
 	var info = data.info ? unescape(data.info) : undefined;
 	var t = newHTML ("div", "thumb",  gn('scrollarea'));	
@@ -184,10 +216,14 @@ Home.addProject = function(data){
 		var div = newHTML ("div", "svgimage", t);
 		div.innerHTML = str
 		} 
+	// for old project compatibility
 	t.pid = data.id;
 	t.name = data.name;
+	Home.metadata[data.id] = data;
+	t.id  = "thumb_" +t.pid;
 	name = !name ? Translation.strings['home']['project']+ " " +data.id : name;
 	var info = newHTML ("div", "projectinfo", t);
+	
 	Home.addEditableField(info, name);
  	var cb = newHTML('div', 'delete', t);
  	return t;
@@ -201,16 +237,21 @@ Home.addEditableField = function(p, name) {
   ti.autocapitalize = "off";
   ti.maxLength = 25;
   ti.autocorrect = false;
-  ti.onfocus = function(evt){ti.oldname=ti.value; ti.className =  "instruction select";}; 
+  ti.onfocus = function(evt){
+  	ti.oldname=ti.value; ti.className =  "instruction select";
+  	var n = ti.value.length;	
+  	ti.setSelectionRange(n, n);
+  }; 
   ti.onblur = function(evt){Home.unfocusText(evt);}; 
   ti.onkeypress = function(evt) {Home.handleWrite(evt);};
-  ti.onsubmit= function(evt){Home.unfocusText();};
+  ti.onsubmit= function(evt){Home.unfocusText(evt);};
 	return field;
 }
 
 Home.handleWrite = function(e){
   var key=e.keyCode || e.which;
   var ti = e.target;
+//  console.log (e, key)
   if (key==13) {
     e.preventDefault();
     e.target.blur();
@@ -227,6 +268,7 @@ Home.handleTouchStart = function(e){
 	if (Home.timeoutEvent) clearTimeout(Home.timeoutEvent);
 	Home.timeoutEvent = undefined;
 	var t =e.target;
+	if (t.nodeName == 'INPUT') return;
 	if (t.className == "delete") {
 		Home.deleteProject(e);
 		Home.stopShaking();
@@ -363,24 +405,27 @@ Home.stopShaking = function (){
 //////////////////
 
 Home.unfocusText = function(e){ 	
+	e.preventDefault();
+	e.stopPropagation();
 	var ti = e.target;
 	ti.className = "instruction";
 	var tb = ti.parentNode.parentNode.parentNode;
-	var id = tb.pid;
 	if(ti.value=='') {ti.value=ti.oldname; return;}
 	var newname = ti.value;
 	ti.value = newname;
 	if(tb.name==newname) return;
 	tb.name = newname;
+	Home.setName (newname, tb.pid);
+	SimpleAudio.play("snap");
+}
+
+Home.setName = function (name, id){
 	var obj = {};
 	var keylist = [ "name = ?" , "nameflag = ?"];	
-	obj.values = [newname , "YES"];
+	obj.values = [name , "YES"];	
 	obj.stmt = "update "+ iOS.database + " set "	+  keylist.toString() + " where id = " + id;
-	iOS.stmt(obj, doNext);
-	SimpleAudio.play("snap");
-	function doNext(str){
-	//	 console.log ("name " + str);
-	}
+	iOS.stmt(obj, console.log);
+	Home.metadata[id].name = name;
 }
 
 Home.updateField = function (id, fieldname, value, fcn){

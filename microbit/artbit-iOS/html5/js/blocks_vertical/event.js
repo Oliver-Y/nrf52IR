@@ -99,7 +99,8 @@ Blockly.Blocks['events_onreceive'] = {
     		{
     		  "type": "field_texticon",
           "name": "BROADCAST_OPTION",
-          "labelInFiled": true,        
+          "labelInFiled": true,     
+          "columns": 3,   
           "icons": Defs.getEnvelops
     		}
       ],
@@ -118,6 +119,7 @@ Blockly.Blocks['events_broadcast'] = {
         {
 					"type": "field_texticon",
           "name": "BROADCAST_OPTION",
+          "columns": 3,   
           "labelInFiled": true,       
 					"icons": 	Defs.getLetters
     		}

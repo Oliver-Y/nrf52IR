@@ -61,7 +61,8 @@ Doc.addMainStack = function (svg, rect){
 	else mainstack = ref[0]
 	var stacks = topblocks [mainstack];
 	stacks = stacks.sort(function(a, b) {		
-			return list[a].stacksize  - list[b].stacksize
+		if (!list[a] || !list[b]) return 0;
+		return list[a].stacksize  - list[b].stacksize
 	});
 	let scale = 0.4;
 	var stack = stacks[stacks.length - 1];
@@ -298,11 +299,11 @@ Doc.stripOutSVGWrapper = function(svg){
 	return g;
 }
 					
-Doc.getText = function(kid, p){			
-	let white  = 'fill: rgb(255, 255, 255); ';
-	let black =  'fill: rgb(87, 94, 117); '
+Doc.getText = function(kid, p){
+	let white = 'fill: rgb(255, 255, 255); ';
+	let black = 'fill: rgb(87, 94, 117); '
 	var style = 'font-family: "Helvetica Neue", Helvetica, sans-serif; font-size: 16px; font-weight: 500;'
-	let attrlist  = kid.getAttributeNames();
+	let attrlist = getSVGattributes(kid);
 	var attr = {}
 	for (let i = 0; i <attrlist.length; i++) {
 		if (attrlist[i] == 'class') continue;
@@ -329,8 +330,17 @@ Doc.getText = function(kid, p){
 	txt.setAttribute("style", style)
 	if (t) txt.setAttribute("transform",t);
 	return txt;
+	
+	function getSVGattributes(kid) {
+    var attributes = kid.attributes;
+    var length = attributes.length;
+    var result = new Array(length);
+    for (var i = 0; i < length; i++)  result[i] = attributes[i].name;
+    return result;
+  }
+
 }
- 
+
 Doc.saveContent = function (str){		
 	let name =  'noname.svg';                
 	chrome.fileSystem.chooseEntry({type: "saveFile", suggestedName: name}, next1)

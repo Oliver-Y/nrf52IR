@@ -75,10 +75,11 @@ Events.startDrag = function (c, atstart, atend, atdrag, atclick, athold){
   Events.dragdistance = (isiPad) ? 15 : 7;
 	function holdit(c, fcn) {
   	var repeat = function () {
-    	Events.clearEvents();
+   // 	Events.clearEvents();
    	 	fcn(Events.jsobject);
-    	Events.clearDragAndDrop();
-    	Events.unregisterTouch();
+   	 	 if (Events.timeoutEvent) clearTimeout(Events.timeoutEvent);
+   // 	Events.clearDragAndDrop();
+   // 	Events.unregisterTouch();
     }
   Events.timeoutEvent = setTimeout(repeat, 500);
 	}

@@ -5,7 +5,9 @@
 	},
 	"CC":{
 	"powerup" : "powerup or reset a microbit",
-	"badhex" : "re-install HEX"
+	"badhex" : "Unable to connect",
+	"bleoff": "enable Bluetooth",
+	"disconnect": "disconnect"
 	},
 	"editor": {
 		"categories": {
