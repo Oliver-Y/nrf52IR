@@ -1,0 +1,1473 @@
+Archive member included to satisfy reference by file (symbol)
+
+/usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-exit.o)
+                              /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/crt0.o (exit)
+/usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-impure.o)
+                              /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-exit.o) (_global_impure_ptr)
+/usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-init.o)
+                              /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/crt0.o (__libc_init_array)
+/usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-memset.o)
+                              /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/crt0.o (memset)
+/usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libnosys.a(_exit.o)
+                              /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-exit.o) (_exit)
+/usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/libgcc.a(_udivsi3.o)
+                              output/nrfvm_lib.c.o (__aeabi_uidiv)
+/usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/libgcc.a(_divsi3.o)
+                              output/nrfvm_vm.c.o (__aeabi_idiv)
+/usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/libgcc.a(_dvmd_tls.o)
+                              /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/libgcc.a(_udivsi3.o) (__aeabi_idiv0)
+/usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/libgcc.a(addsf3.o)
+                              output/nrfvm_vm.c.o (__aeabi_fadd)
+/usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/libgcc.a(divsf3.o)
+                              output/nrfvm_vm.c.o (__aeabi_fdiv)
+/usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/libgcc.a(mulsf3.o)
+                              output/nrfvm_vm.c.o (__aeabi_fmul)
+/usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/libgcc.a(fixsfsi.o)
+                              output/nrfvm_vm.c.o (__aeabi_f2iz)
+/usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/libgcc.a(floatsisf.o)
+                              output/nrfvm_vm.c.o (__aeabi_i2f)
+/usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/libgcc.a(floatunsisf.o)
+                              output/nrfvm_lib.c.o (__aeabi_ui2f)
+/usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/libgcc.a(divdf3.o)
+                              output/nrfvm_vm.c.o (__aeabi_ddiv)
+/usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/libgcc.a(muldf3.o)
+                              output/nrfvm_vm.c.o (__aeabi_dmul)
+/usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/libgcc.a(fixdfsi.o)
+                              output/nrfvm_vm.c.o (__aeabi_d2iz)
+/usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/libgcc.a(floatsidf.o)
+                              output/nrfvm_vm.c.o (__aeabi_i2d)
+/usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/libgcc.a(_clzsi2.o)
+                              /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/libgcc.a(addsf3.o) (__clzsi2)
+/usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-memcpy-stub.o)
+                              output/nrfvm_ble_flash.c.o (memcpy)
+/usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-rand.o)
+                              output/nrfvm_vm.c.o (rand)
+/usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-sprintf.o)
+                              output/nrfvm_lib.c.o (sprintf)
+/usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-strlen.o)
+                              output/nrfvm_lib.c.o (strlen)
+/usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-malloc.o)
+                              /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-rand.o) (malloc)
+/usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-nano-freer.o)
+                              /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-malloc.o) (_free_r)
+/usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-nano-mallocr.o)
+                              /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-malloc.o) (_malloc_r)
+/usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-nano-svfprintf.o)
+                              /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-sprintf.o) (_svfprintf_r)
+/usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-nano-vfprintf_i.o)
+                              /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-nano-svfprintf.o) (_printf_i)
+/usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-sbrkr.o)
+                              /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-nano-mallocr.o) (_sbrk_r)
+/usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-memchr-stub.o)
+                              /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-nano-svfprintf.o) (memchr)
+/usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-memmove.o)
+                              /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-nano-svfprintf.o) (memmove)
+/usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-mlock.o)
+                              /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-nano-freer.o) (__malloc_lock)
+/usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-nano-reallocr.o)
+                              /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-nano-svfprintf.o) (_realloc_r)
+/usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-reent.o)
+                              /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-sbrkr.o) (errno)
+/usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-lock.o)
+                              /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-mlock.o) (__retarget_lock_acquire_recursive)
+/usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-nano-msizer.o)
+                              /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-nano-reallocr.o) (_malloc_usable_size_r)
+/usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/libgcc.a(_muldi3.o)
+                              /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-rand.o) (__aeabi_lmul)
+/usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libnosys.a(sbrk.o)
+                              /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-sbrkr.o) (_sbrk)
+
+Allocating common symbols
+Common symbol       size              file
+
+__lock___atexit_recursive_mutex
+                    0x1               /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-lock.o)
+ip                  0x4               output/nrfvm_vm.c.o
+__lock___arc4random_mutex
+                    0x1               /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-lock.o)
+fp                  0x4               output/nrfvm_vm.c.o
+errno               0x4               /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-reent.o)
+btnb_evt            0x4               output/nrfvm_lib.c.o
+yieldnow            0x1               output/nrfvm_vm.c.o
+__lock___env_recursive_mutex
+                    0x1               /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-lock.o)
+__lock___sinit_recursive_mutex
+                    0x1               /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-lock.o)
+stack               0x4               output/nrfvm_vm.c.o
+boxes               0x50              output/nrfvm_vm.c.o
+prptr               0x4               output/nrfvm_lib.c.o
+__lock___malloc_recursive_mutex
+                    0x1               /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-lock.o)
+eoltype             0x4               output/nrfvm_vm.c.o
+matrix              0x6               output/nrfvm_lib.c.o
+t0                  0x4               output/nrfvm_lib.c.o
+sp                  0x4               output/nrfvm_vm.c.o
+btna_evt            0x4               output/nrfvm_lib.c.o
+__lock___at_quick_exit_mutex
+                    0x1               /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-lock.o)
+code                0x80              output/nrfvm_main.c.o
+stacks              0x1000            output/nrfvm_vm.c.o
+__lock___dd_hash_mutex
+                    0x1               /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-lock.o)
+__lock___tz_mutex   0x1               /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-lock.o)
+__lock___sfp_recursive_mutex
+                    0x1               /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-lock.o)
+prbuf               0x80              output/nrfvm_lib.c.o
+
+Discarded input sections
+
+ .text          0x0000000000000000        0x0 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/crti.o
+ .data          0x0000000000000000        0x0 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/crti.o
+ .bss           0x0000000000000000        0x0 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/crti.o
+ .data          0x0000000000000000        0x4 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/crtbegin.o
+ .data          0x0000000000000000        0x0 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/crt0.o
+ .bss           0x0000000000000000        0x0 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/crt0.o
+ .ARM.extab     0x0000000000000000        0x0 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/crt0.o
+ .text          0x0000000000000000        0x0 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-exit.o)
+ .data          0x0000000000000000        0x0 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-exit.o)
+ .bss           0x0000000000000000        0x0 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-exit.o)
+ .text          0x0000000000000000        0x0 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-impure.o)
+ .data          0x0000000000000000        0x0 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-impure.o)
+ .bss           0x0000000000000000        0x0 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-impure.o)
+ .text          0x0000000000000000        0x0 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-init.o)
+ .data          0x0000000000000000        0x0 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-init.o)
+ .bss           0x0000000000000000        0x0 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-init.o)
+ .text          0x0000000000000000        0x0 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-memset.o)
+ .data          0x0000000000000000        0x0 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-memset.o)
+ .bss           0x0000000000000000        0x0 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-memset.o)
+ .text          0x0000000000000000        0x0 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libnosys.a(_exit.o)
+ .data          0x0000000000000000        0x0 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libnosys.a(_exit.o)
+ .bss           0x0000000000000000        0x0 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libnosys.a(_exit.o)
+ .group         0x0000000000000000        0xc output/nrfvm_main.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_main.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_main.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_main.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_main.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_main.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_main.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_main.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_main.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_main.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_main.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_main.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_main.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_main.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_main.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_main.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_main.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_main.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_main.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_main.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_main.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_main.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_main.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_main.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_main.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_main.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_main.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_main.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_main.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_main.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_main.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_main.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_main.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_main.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_main.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_main.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_main.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_main.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_main.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_main.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_main.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_main.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_main.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_main.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_main.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_main.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_main.c.o
+ .text          0x0000000000000000        0x0 output/nrfvm_main.c.o
+ .data          0x0000000000000000        0x0 output/nrfvm_main.c.o
+ .bss           0x0000000000000000        0x0 output/nrfvm_main.c.o
+ .text.send     0x0000000000000000       0x30 output/nrfvm_main.c.o
+ .text.sendresponse
+                0x0000000000000000       0x40 output/nrfvm_main.c.o
+ .text.read32   0x0000000000000000       0x78 output/nrfvm_main.c.o
+ .text.ping     0x0000000000000000       0x40 output/nrfvm_main.c.o
+ .text.eraseflash
+                0x0000000000000000       0xe8 output/nrfvm_main.c.o
+ .text.uart_init
+                0x0000000000000000       0x54 output/nrfvm_main.c.o
+ .text.ugetc    0x0000000000000000       0x20 output/nrfvm_main.c.o
+ .text.uavail   0x0000000000000000       0x18 output/nrfvm_main.c.o
+ .text.timer_init
+                0x0000000000000000       0x48 output/nrfvm_main.c.o
+ .text.flash_word_write
+                0x0000000000000000       0x40 output/nrfvm_main.c.o
+ .text.flash_page_erase
+                0x0000000000000000       0x40 output/nrfvm_main.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_vm.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_vm.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_vm.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_vm.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_vm.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_vm.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_vm.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_vm.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_vm.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_vm.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_vm.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_vm.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_vm.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_vm.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_vm.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_vm.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_vm.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_vm.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_vm.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_vm.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_vm.c.o
+ .text          0x0000000000000000        0x0 output/nrfvm_vm.c.o
+ .data          0x0000000000000000        0x0 output/nrfvm_vm.c.o
+ .bss           0x0000000000000000        0x0 output/nrfvm_vm.c.o
+ .text.vm_start
+                0x0000000000000000      0x624 output/nrfvm_vm.c.o
+ .text.toggle_stack
+                0x0000000000000000       0x28 output/nrfvm_vm.c.o
+ .text.setup_stack
+                0x0000000000000000       0x24 output/nrfvm_vm.c.o
+ .text.resume   0x0000000000000000       0x5c output/nrfvm_vm.c.o
+ .text.yield    0x0000000000000000       0x58 output/nrfvm_vm.c.o
+ .text.yield_vm
+                0x0000000000000000       0x5c output/nrfvm_vm.c.o
+ .text.get_local_address
+                0x0000000000000000       0x2c output/nrfvm_vm.c.o
+ .text.vm_wait  0x0000000000000000       0xb4 output/nrfvm_vm.c.o
+ .text.vm_pop_float
+                0x0000000000000000       0x20 output/nrfvm_vm.c.o
+ .debug_macro   0x0000000000000000      0xa6c output/nrfvm_vm.c.o
+ .debug_macro   0x0000000000000000       0x22 output/nrfvm_vm.c.o
+ .debug_macro   0x0000000000000000       0x56 output/nrfvm_vm.c.o
+ .debug_macro   0x0000000000000000       0x51 output/nrfvm_vm.c.o
+ .debug_macro   0x0000000000000000       0xef output/nrfvm_vm.c.o
+ .debug_macro   0x0000000000000000       0x6a output/nrfvm_vm.c.o
+ .debug_macro   0x0000000000000000      0x1df output/nrfvm_vm.c.o
+ .debug_macro   0x0000000000000000       0x18 output/nrfvm_vm.c.o
+ .debug_macro   0x0000000000000000       0x5e output/nrfvm_vm.c.o
+ .debug_macro   0x0000000000000000       0x35 output/nrfvm_vm.c.o
+ .debug_macro   0x0000000000000000       0x34 output/nrfvm_vm.c.o
+ .debug_macro   0x0000000000000000       0x16 output/nrfvm_vm.c.o
+ .debug_macro   0x0000000000000000       0x58 output/nrfvm_vm.c.o
+ .debug_macro   0x0000000000000000       0x1f output/nrfvm_vm.c.o
+ .debug_macro   0x0000000000000000       0x43 output/nrfvm_vm.c.o
+ .debug_macro   0x0000000000000000       0x20 output/nrfvm_vm.c.o
+ .debug_macro   0x0000000000000000      0x18e output/nrfvm_vm.c.o
+ .debug_macro   0x0000000000000000      0x35c output/nrfvm_vm.c.o
+ .debug_macro   0x0000000000000000       0x22 output/nrfvm_vm.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_lib.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_lib.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_lib.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_lib.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_lib.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_lib.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_lib.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_lib.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_lib.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_lib.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_lib.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_lib.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_lib.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_lib.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_lib.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_lib.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_lib.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_lib.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_lib.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_lib.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_lib.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_lib.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_lib.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_lib.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_lib.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_lib.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_lib.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_lib.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_lib.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_lib.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_lib.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_lib.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_lib.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_lib.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_lib.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_lib.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_lib.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_lib.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_lib.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_lib.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_lib.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_lib.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_lib.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_lib.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_lib.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_lib.c.o
+ .text          0x0000000000000000        0x0 output/nrfvm_lib.c.o
+ .data          0x0000000000000000        0x0 output/nrfvm_lib.c.o
+ .bss           0x0000000000000000        0x0 output/nrfvm_lib.c.o
+ .text.sendprbuf
+                0x0000000000000000       0x38 output/nrfvm_lib.c.o
+ .text.print    0x0000000000000000       0x50 output/nrfvm_lib.c.o
+ .debug_macro   0x0000000000000000      0xa6c output/nrfvm_lib.c.o
+ .debug_macro   0x0000000000000000       0x22 output/nrfvm_lib.c.o
+ .debug_macro   0x0000000000000000       0x56 output/nrfvm_lib.c.o
+ .debug_macro   0x0000000000000000       0x51 output/nrfvm_lib.c.o
+ .debug_macro   0x0000000000000000       0xef output/nrfvm_lib.c.o
+ .debug_macro   0x0000000000000000       0x6a output/nrfvm_lib.c.o
+ .debug_macro   0x0000000000000000      0x1df output/nrfvm_lib.c.o
+ .debug_macro   0x0000000000000000       0x5e output/nrfvm_lib.c.o
+ .debug_macro   0x0000000000000000       0x18 output/nrfvm_lib.c.o
+ .debug_macro   0x0000000000000000       0x35 output/nrfvm_lib.c.o
+ .debug_macro   0x0000000000000000       0x34 output/nrfvm_lib.c.o
+ .debug_macro   0x0000000000000000       0x58 output/nrfvm_lib.c.o
+ .debug_macro   0x0000000000000000       0x1f output/nrfvm_lib.c.o
+ .debug_macro   0x0000000000000000       0x43 output/nrfvm_lib.c.o
+ .debug_macro   0x0000000000000000       0x20 output/nrfvm_lib.c.o
+ .debug_macro   0x0000000000000000      0x18e output/nrfvm_lib.c.o
+ .debug_macro   0x0000000000000000      0x35c output/nrfvm_lib.c.o
+ .debug_macro   0x0000000000000000       0x35 output/nrfvm_lib.c.o
+ .debug_macro   0x0000000000000000       0x10 output/nrfvm_lib.c.o
+ .debug_macro   0x0000000000000000       0x10 output/nrfvm_lib.c.o
+ .debug_macro   0x0000000000000000       0xb6 output/nrfvm_lib.c.o
+ .debug_macro   0x0000000000000000       0x16 output/nrfvm_lib.c.o
+ .debug_macro   0x0000000000000000      0x129 output/nrfvm_lib.c.o
+ .debug_macro   0x0000000000000000       0x1c output/nrfvm_lib.c.o
+ .debug_macro   0x0000000000000000       0x22 output/nrfvm_lib.c.o
+ .debug_macro   0x0000000000000000       0x3a output/nrfvm_lib.c.o
+ .debug_macro   0x0000000000000000       0x26 output/nrfvm_lib.c.o
+ .debug_macro   0x0000000000000000      0x30d output/nrfvm_lib.c.o
+ .debug_macro   0x0000000000000000      0x1b6 output/nrfvm_lib.c.o
+ .debug_macro   0x0000000000000000     0x6504 output/nrfvm_lib.c.o
+ .debug_macro   0x0000000000000000      0x97c output/nrfvm_lib.c.o
+ .debug_macro   0x0000000000000000       0x22 output/nrfvm_lib.c.o
+ .debug_macro   0x0000000000000000      0x168 output/nrfvm_lib.c.o
+ .debug_macro   0x0000000000000000       0x22 output/nrfvm_lib.c.o
+ .debug_macro   0x0000000000000000       0x8e output/nrfvm_lib.c.o
+ .debug_macro   0x0000000000000000      0x35e output/nrfvm_lib.c.o
+ .debug_macro   0x0000000000000000       0x8e output/nrfvm_lib.c.o
+ .debug_macro   0x0000000000000000      0x16d output/nrfvm_lib.c.o
+ .debug_macro   0x0000000000000000       0x2b output/nrfvm_lib.c.o
+ .debug_macro   0x0000000000000000       0x10 output/nrfvm_lib.c.o
+ .debug_macro   0x0000000000000000       0x16 output/nrfvm_lib.c.o
+ .debug_macro   0x0000000000000000       0x22 output/nrfvm_lib.c.o
+ .debug_macro   0x0000000000000000       0x16 output/nrfvm_lib.c.o
+ .data          0x0000000000000000        0x0 output/nrfvm_gcc_startup_nrf51.S.o
+ .bss           0x0000000000000000        0x0 output/nrfvm_gcc_startup_nrf51.S.o
+ .group         0x0000000000000000        0xc output/nrfvm_system_nrf51.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_system_nrf51.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_system_nrf51.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_system_nrf51.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_system_nrf51.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_system_nrf51.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_system_nrf51.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_system_nrf51.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_system_nrf51.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_system_nrf51.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_system_nrf51.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_system_nrf51.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_system_nrf51.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_system_nrf51.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_system_nrf51.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_system_nrf51.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_system_nrf51.c.o
+ .text          0x0000000000000000        0x0 output/nrfvm_system_nrf51.c.o
+ .data          0x0000000000000000        0x0 output/nrfvm_system_nrf51.c.o
+ .bss           0x0000000000000000        0x0 output/nrfvm_system_nrf51.c.o
+ .text.SystemCoreClockUpdate
+                0x0000000000000000       0x10 output/nrfvm_system_nrf51.c.o
+ .debug_macro   0x0000000000000000      0xa6c output/nrfvm_system_nrf51.c.o
+ .debug_macro   0x0000000000000000       0x22 output/nrfvm_system_nrf51.c.o
+ .debug_macro   0x0000000000000000       0x56 output/nrfvm_system_nrf51.c.o
+ .debug_macro   0x0000000000000000       0x51 output/nrfvm_system_nrf51.c.o
+ .debug_macro   0x0000000000000000       0xef output/nrfvm_system_nrf51.c.o
+ .debug_macro   0x0000000000000000       0x6a output/nrfvm_system_nrf51.c.o
+ .debug_macro   0x0000000000000000      0x1df output/nrfvm_system_nrf51.c.o
+ .debug_macro   0x0000000000000000       0x22 output/nrfvm_system_nrf51.c.o
+ .debug_macro   0x0000000000000000       0x1c output/nrfvm_system_nrf51.c.o
+ .debug_macro   0x0000000000000000       0x22 output/nrfvm_system_nrf51.c.o
+ .debug_macro   0x0000000000000000       0x3a output/nrfvm_system_nrf51.c.o
+ .debug_macro   0x0000000000000000       0x26 output/nrfvm_system_nrf51.c.o
+ .debug_macro   0x0000000000000000      0x30d output/nrfvm_system_nrf51.c.o
+ .debug_macro   0x0000000000000000      0x1b6 output/nrfvm_system_nrf51.c.o
+ .debug_macro   0x0000000000000000     0x6504 output/nrfvm_system_nrf51.c.o
+ .debug_macro   0x0000000000000000      0x97c output/nrfvm_system_nrf51.c.o
+ .debug_macro   0x0000000000000000       0x22 output/nrfvm_system_nrf51.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_ble_flash.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_ble_flash.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_ble_flash.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_ble_flash.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_ble_flash.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_ble_flash.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_ble_flash.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_ble_flash.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_ble_flash.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_ble_flash.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_ble_flash.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_ble_flash.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_ble_flash.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_ble_flash.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_ble_flash.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_ble_flash.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_ble_flash.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_ble_flash.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_ble_flash.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_ble_flash.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_ble_flash.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_ble_flash.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_ble_flash.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_ble_flash.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_ble_flash.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_ble_flash.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_ble_flash.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_ble_flash.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_ble_flash.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_ble_flash.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_ble_flash.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_ble_flash.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_ble_flash.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_ble_flash.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_ble_flash.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_ble_flash.c.o
+ .group         0x0000000000000000        0xc output/nrfvm_ble_flash.c.o
+ .text          0x0000000000000000        0x0 output/nrfvm_ble_flash.c.o
+ .data          0x0000000000000000        0x0 output/nrfvm_ble_flash.c.o
+ .bss           0x0000000000000000        0x0 output/nrfvm_ble_flash.c.o
+ .text.ble_flash_crc16_compute
+                0x0000000000000000       0x44 output/nrfvm_ble_flash.c.o
+ .text.ble_flash_word_write
+                0x0000000000000000       0x5c output/nrfvm_ble_flash.c.o
+ .text.ble_flash_block_write
+                0x0000000000000000       0x94 output/nrfvm_ble_flash.c.o
+ .text.ble_flash_page_erase
+                0x0000000000000000       0x50 output/nrfvm_ble_flash.c.o
+ .text.ble_flash_page_write
+                0x0000000000000000      0x1a0 output/nrfvm_ble_flash.c.o
+ .text.ble_flash_page_read
+                0x0000000000000000       0x90 output/nrfvm_ble_flash.c.o
+ .text.ble_flash_page_addr
+                0x0000000000000000       0x14 output/nrfvm_ble_flash.c.o
+ .text.ble_flash_on_radio_active_evt
+                0x0000000000000000        0xc output/nrfvm_ble_flash.c.o
+ .bss.m_radio_active
+                0x0000000000000000        0x1 output/nrfvm_ble_flash.c.o
+ .debug_info    0x0000000000000000     0x13bb output/nrfvm_ble_flash.c.o
+ .debug_abbrev  0x0000000000000000      0x41e output/nrfvm_ble_flash.c.o
+ .debug_loc     0x0000000000000000      0x92b output/nrfvm_ble_flash.c.o
+ .debug_aranges
+                0x0000000000000000       0x58 output/nrfvm_ble_flash.c.o
+ .debug_ranges  0x0000000000000000      0x158 output/nrfvm_ble_flash.c.o
+ .debug_macro   0x0000000000000000      0x1e5 output/nrfvm_ble_flash.c.o
+ .debug_macro   0x0000000000000000      0xa6c output/nrfvm_ble_flash.c.o
+ .debug_macro   0x0000000000000000       0x22 output/nrfvm_ble_flash.c.o
+ .debug_macro   0x0000000000000000       0x56 output/nrfvm_ble_flash.c.o
+ .debug_macro   0x0000000000000000       0x51 output/nrfvm_ble_flash.c.o
+ .debug_macro   0x0000000000000000       0xef output/nrfvm_ble_flash.c.o
+ .debug_macro   0x0000000000000000       0x6a output/nrfvm_ble_flash.c.o
+ .debug_macro   0x0000000000000000      0x1df output/nrfvm_ble_flash.c.o
+ .debug_macro   0x0000000000000000       0x22 output/nrfvm_ble_flash.c.o
+ .debug_macro   0x0000000000000000       0x1c output/nrfvm_ble_flash.c.o
+ .debug_macro   0x0000000000000000       0x22 output/nrfvm_ble_flash.c.o
+ .debug_macro   0x0000000000000000       0x3a output/nrfvm_ble_flash.c.o
+ .debug_macro   0x0000000000000000       0x26 output/nrfvm_ble_flash.c.o
+ .debug_macro   0x0000000000000000      0x30d output/nrfvm_ble_flash.c.o
+ .debug_macro   0x0000000000000000      0x1b6 output/nrfvm_ble_flash.c.o
+ .debug_macro   0x0000000000000000     0x6504 output/nrfvm_ble_flash.c.o
+ .debug_macro   0x0000000000000000      0x97c output/nrfvm_ble_flash.c.o
+ .debug_macro   0x0000000000000000       0x22 output/nrfvm_ble_flash.c.o
+ .debug_macro   0x0000000000000000       0x1c output/nrfvm_ble_flash.c.o
+ .debug_macro   0x0000000000000000       0x18 output/nrfvm_ble_flash.c.o
+ .debug_macro   0x0000000000000000       0x5e output/nrfvm_ble_flash.c.o
+ .debug_macro   0x0000000000000000       0x35 output/nrfvm_ble_flash.c.o
+ .debug_macro   0x0000000000000000       0x34 output/nrfvm_ble_flash.c.o
+ .debug_macro   0x0000000000000000       0x16 output/nrfvm_ble_flash.c.o
+ .debug_macro   0x0000000000000000      0x10e output/nrfvm_ble_flash.c.o
+ .debug_macro   0x0000000000000000       0x86 output/nrfvm_ble_flash.c.o
+ .debug_macro   0x0000000000000000       0x58 output/nrfvm_ble_flash.c.o
+ .debug_macro   0x0000000000000000       0x1f output/nrfvm_ble_flash.c.o
+ .debug_macro   0x0000000000000000       0x43 output/nrfvm_ble_flash.c.o
+ .debug_macro   0x0000000000000000       0x20 output/nrfvm_ble_flash.c.o
+ .debug_macro   0x0000000000000000      0x18e output/nrfvm_ble_flash.c.o
+ .debug_macro   0x0000000000000000      0x35c output/nrfvm_ble_flash.c.o
+ .debug_macro   0x0000000000000000       0x22 output/nrfvm_ble_flash.c.o
+ .debug_macro   0x0000000000000000       0x16 output/nrfvm_ble_flash.c.o
+ .debug_macro   0x0000000000000000       0x35 output/nrfvm_ble_flash.c.o
+ .debug_macro   0x0000000000000000      0x16d output/nrfvm_ble_flash.c.o
+ .debug_macro   0x0000000000000000       0x8e output/nrfvm_ble_flash.c.o
+ .debug_macro   0x0000000000000000      0x395 output/nrfvm_ble_flash.c.o
+ .debug_line    0x0000000000000000      0xc04 output/nrfvm_ble_flash.c.o
+ .debug_str     0x0000000000000000    0x3144b output/nrfvm_ble_flash.c.o
+ .comment       0x0000000000000000       0x76 output/nrfvm_ble_flash.c.o
+ .debug_frame   0x0000000000000000       0xec output/nrfvm_ble_flash.c.o
+ .ARM.attributes
+                0x0000000000000000       0x2c output/nrfvm_ble_flash.c.o
+ .data          0x0000000000000000        0x0 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/libgcc.a(_udivsi3.o)
+ .bss           0x0000000000000000        0x0 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/libgcc.a(_udivsi3.o)
+ .data          0x0000000000000000        0x0 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/libgcc.a(_divsi3.o)
+ .bss           0x0000000000000000        0x0 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/libgcc.a(_divsi3.o)
+ .data          0x0000000000000000        0x0 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/libgcc.a(_dvmd_tls.o)
+ .bss           0x0000000000000000        0x0 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/libgcc.a(_dvmd_tls.o)
+ .data          0x0000000000000000        0x0 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/libgcc.a(addsf3.o)
+ .bss           0x0000000000000000        0x0 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/libgcc.a(addsf3.o)
+ .data          0x0000000000000000        0x0 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/libgcc.a(divsf3.o)
+ .bss           0x0000000000000000        0x0 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/libgcc.a(divsf3.o)
+ .data          0x0000000000000000        0x0 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/libgcc.a(mulsf3.o)
+ .bss           0x0000000000000000        0x0 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/libgcc.a(mulsf3.o)
+ .data          0x0000000000000000        0x0 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/libgcc.a(fixsfsi.o)
+ .bss           0x0000000000000000        0x0 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/libgcc.a(fixsfsi.o)
+ .data          0x0000000000000000        0x0 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/libgcc.a(floatsisf.o)
+ .bss           0x0000000000000000        0x0 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/libgcc.a(floatsisf.o)
+ .data          0x0000000000000000        0x0 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/libgcc.a(floatunsisf.o)
+ .bss           0x0000000000000000        0x0 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/libgcc.a(floatunsisf.o)
+ .data          0x0000000000000000        0x0 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/libgcc.a(divdf3.o)
+ .bss           0x0000000000000000        0x0 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/libgcc.a(divdf3.o)
+ .data          0x0000000000000000        0x0 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/libgcc.a(muldf3.o)
+ .bss           0x0000000000000000        0x0 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/libgcc.a(muldf3.o)
+ .data          0x0000000000000000        0x0 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/libgcc.a(fixdfsi.o)
+ .bss           0x0000000000000000        0x0 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/libgcc.a(fixdfsi.o)
+ .data          0x0000000000000000        0x0 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/libgcc.a(floatsidf.o)
+ .bss           0x0000000000000000        0x0 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/libgcc.a(floatsidf.o)
+ .data          0x0000000000000000        0x0 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/libgcc.a(_clzsi2.o)
+ .bss           0x0000000000000000        0x0 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/libgcc.a(_clzsi2.o)
+ .text          0x0000000000000000        0x0 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-memcpy-stub.o)
+ .data          0x0000000000000000        0x0 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-memcpy-stub.o)
+ .bss           0x0000000000000000        0x0 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-memcpy-stub.o)
+ .text          0x0000000000000000        0x0 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-rand.o)
+ .data          0x0000000000000000        0x0 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-rand.o)
+ .bss           0x0000000000000000        0x0 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-rand.o)
+ .text.srand    0x0000000000000000       0x48 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-rand.o)
+ .text          0x0000000000000000        0x0 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-sprintf.o)
+ .data          0x0000000000000000        0x0 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-sprintf.o)
+ .bss           0x0000000000000000        0x0 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-sprintf.o)
+ .text._sprintf_r
+                0x0000000000000000       0x38 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-sprintf.o)
+ .data          0x0000000000000000        0x0 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-strlen.o)
+ .bss           0x0000000000000000        0x0 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-strlen.o)
+ .text          0x0000000000000000        0x0 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-malloc.o)
+ .data          0x0000000000000000        0x0 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-malloc.o)
+ .bss           0x0000000000000000        0x0 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-malloc.o)
+ .text.free     0x0000000000000000       0x14 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-malloc.o)
+ .text          0x0000000000000000        0x0 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-nano-freer.o)
+ .data          0x0000000000000000        0x0 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-nano-freer.o)
+ .bss           0x0000000000000000        0x0 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-nano-freer.o)
+ .text          0x0000000000000000        0x0 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-nano-mallocr.o)
+ .data          0x0000000000000000        0x0 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-nano-mallocr.o)
+ .bss           0x0000000000000000        0x0 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-nano-mallocr.o)
+ .text          0x0000000000000000        0x0 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-nano-svfprintf.o)
+ .data          0x0000000000000000        0x0 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-nano-svfprintf.o)
+ .bss           0x0000000000000000        0x0 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-nano-svfprintf.o)
+ .text.__ssprint_r
+                0x0000000000000000       0xfc /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-nano-svfprintf.o)
+ .text          0x0000000000000000        0x0 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-nano-vfprintf_i.o)
+ .data          0x0000000000000000        0x0 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-nano-vfprintf_i.o)
+ .bss           0x0000000000000000        0x0 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-nano-vfprintf_i.o)
+ .text          0x0000000000000000        0x0 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-sbrkr.o)
+ .data          0x0000000000000000        0x0 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-sbrkr.o)
+ .bss           0x0000000000000000        0x0 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-sbrkr.o)
+ .text          0x0000000000000000        0x0 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-memchr-stub.o)
+ .data          0x0000000000000000        0x0 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-memchr-stub.o)
+ .bss           0x0000000000000000        0x0 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-memchr-stub.o)
+ .text          0x0000000000000000        0x0 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-memmove.o)
+ .data          0x0000000000000000        0x0 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-memmove.o)
+ .bss           0x0000000000000000        0x0 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-memmove.o)
+ .text          0x0000000000000000        0x0 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-mlock.o)
+ .data          0x0000000000000000        0x0 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-mlock.o)
+ .bss           0x0000000000000000        0x0 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-mlock.o)
+ .text          0x0000000000000000        0x0 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-nano-reallocr.o)
+ .data          0x0000000000000000        0x0 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-nano-reallocr.o)
+ .bss           0x0000000000000000        0x0 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-nano-reallocr.o)
+ .text          0x0000000000000000        0x0 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-reent.o)
+ .data          0x0000000000000000        0x0 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-reent.o)
+ .bss           0x0000000000000000        0x0 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-reent.o)
+ .text.cleanup_glue
+                0x0000000000000000       0x1a /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-reent.o)
+ .text._reclaim_reent
+                0x0000000000000000       0xcc /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-reent.o)
+ .text          0x0000000000000000        0x0 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-lock.o)
+ .data          0x0000000000000000        0x0 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-lock.o)
+ .bss           0x0000000000000000        0x0 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-lock.o)
+ .text.__retarget_lock_init
+                0x0000000000000000        0x2 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-lock.o)
+ .text.__retarget_lock_init_recursive
+                0x0000000000000000        0x2 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-lock.o)
+ .text.__retarget_lock_close
+                0x0000000000000000        0x2 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-lock.o)
+ .text.__retarget_lock_close_recursive
+                0x0000000000000000        0x2 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-lock.o)
+ .text.__retarget_lock_acquire
+                0x0000000000000000        0x2 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-lock.o)
+ .text.__retarget_lock_try_acquire
+                0x0000000000000000        0x4 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-lock.o)
+ .text.__retarget_lock_try_acquire_recursive
+                0x0000000000000000        0x4 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-lock.o)
+ .text.__retarget_lock_release
+                0x0000000000000000        0x2 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-lock.o)
+ .text          0x0000000000000000        0x0 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-nano-msizer.o)
+ .data          0x0000000000000000        0x0 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-nano-msizer.o)
+ .bss           0x0000000000000000        0x0 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-nano-msizer.o)
+ .data          0x0000000000000000        0x0 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/libgcc.a(_muldi3.o)
+ .bss           0x0000000000000000        0x0 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/libgcc.a(_muldi3.o)
+ .text          0x0000000000000000        0x0 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/crtend.o
+ .data          0x0000000000000000        0x0 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/crtend.o
+ .bss           0x0000000000000000        0x0 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/crtend.o
+ .text          0x0000000000000000        0x0 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/crtn.o
+ .data          0x0000000000000000        0x0 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/crtn.o
+ .bss           0x0000000000000000        0x0 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/crtn.o
+ .text          0x0000000000000000        0x0 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libnosys.a(sbrk.o)
+ .data          0x0000000000000000        0x0 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libnosys.a(sbrk.o)
+ .bss           0x0000000000000000        0x0 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libnosys.a(sbrk.o)
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+FLASH            0x0000000000000000 0x0000000000040000 xr
+RAM              0x0000000020000000 0x0000000000004000 xrw
+*default*        0x0000000000000000 0xffffffffffffffff
+
+Linker script and memory map
+
+
+.text           0x0000000000000000     0x4d18
+ *(.isr_vector)
+ .isr_vector    0x0000000000000000       0xc0 output/nrfvm_gcc_startup_nrf51.S.o
+                0x0000000000000000                __isr_vector
+ *(.text*)
+ .text          0x00000000000000c0       0x48 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/crtbegin.o
+ .text          0x0000000000000108       0x78 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/crt0.o
+                0x0000000000000108                _mainCRTStartup
+                0x0000000000000108                _start
+ .text.exit     0x0000000000000180       0x2c /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-exit.o)
+                0x0000000000000180                exit
+ .text.__libc_init_array
+                0x00000000000001ac       0x48 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-init.o)
+                0x00000000000001ac                __libc_init_array
+ .text.memset   0x00000000000001f4       0x10 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-memset.o)
+                0x00000000000001f4                memset
+ .text._exit    0x0000000000000204        0x4 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libnosys.a(_exit.o)
+                0x0000000000000204                _exit
+ .text.readmemory
+                0x0000000000000208       0xf4 output/nrfvm_main.c.o
+                0x0000000000000208                readmemory
+ .text.writememory
+                0x00000000000002fc      0x124 output/nrfvm_main.c.o
+                0x00000000000002fc                writememory
+ .text.writeflash
+                0x0000000000000420      0x184 output/nrfvm_main.c.o
+                0x0000000000000420                writeflash
+ .text.runcc    0x00000000000005a4       0xd0 output/nrfvm_main.c.o
+                0x00000000000005a4                runcc
+ .text.dispatch
+                0x0000000000000674      0x14c output/nrfvm_main.c.o
+                0x0000000000000674                dispatch
+ .text.startup.main
+                0x00000000000007c0      0x17c output/nrfvm_main.c.o
+                0x00000000000007c0                main
+ .text.uputc    0x000000000000093c       0x20 output/nrfvm_main.c.o
+                0x000000000000093c                uputc
+ .text.TIMER1_IRQHandler
+                0x000000000000095c       0x28 output/nrfvm_main.c.o
+                0x000000000000095c                TIMER1_IRQHandler
+ .text.now      0x0000000000000984        0xc output/nrfvm_main.c.o
+                0x0000000000000984                now
+ .text.eval_done
+                0x0000000000000990        0x4 output/nrfvm_vm.c.o
+                0x0000000000000990                eval_done
+ .text.eval_byte
+                0x0000000000000994       0x24 output/nrfvm_vm.c.o
+                0x0000000000000994                eval_byte
+ .text.eval_num
+                0x00000000000009b8       0x3c output/nrfvm_vm.c.o
+                0x00000000000009b8                eval_num
+ .text.eval_list
+                0x00000000000009f4       0x2c output/nrfvm_vm.c.o
+                0x00000000000009f4                eval_list
+ .text.eval_eol
+                0x0000000000000a20       0x10 output/nrfvm_vm.c.o
+                0x0000000000000a20                eval_eol
+ .text.eval_lthing
+                0x0000000000000a30       0x3c output/nrfvm_vm.c.o
+                0x0000000000000a30                eval_lthing
+ .text.eval_lset
+                0x0000000000000a6c       0x3c output/nrfvm_vm.c.o
+                0x0000000000000a6c                eval_lset
+ .text.eval_lchange
+                0x0000000000000aa8       0x44 output/nrfvm_vm.c.o
+                0x0000000000000aa8                eval_lchange
+ .text.eval_ufun
+                0x0000000000000aec       0x6c output/nrfvm_vm.c.o
+                0x0000000000000aec                eval_ufun
+ .text.vm       0x0000000000000b58       0x68 output/nrfvm_vm.c.o
+                0x0000000000000b58                vm
+ .text.prim_stop
+                0x0000000000000bc0       0x4c output/nrfvm_vm.c.o
+                0x0000000000000bc0                prim_stop
+ .text.prim_output
+                0x0000000000000c0c       0x54 output/nrfvm_vm.c.o
+                0x0000000000000c0c                prim_output
+ .text.prim_stopall
+                0x0000000000000c60       0x70 output/nrfvm_vm.c.o
+                0x0000000000000c60                prim_stopall
+ .text.prim_repeatuntil
+                0x0000000000000cd0       0x3c output/nrfvm_vm.c.o
+                0x0000000000000cd0                prim_repeatuntil
+ .text.prim_waituntil
+                0x0000000000000d0c       0x3c output/nrfvm_vm.c.o
+                0x0000000000000d0c                prim_waituntil
+ .text.prim_if  0x0000000000000d48       0x44 output/nrfvm_vm.c.o
+                0x0000000000000d48                prim_if
+ .text.prim_ifelse
+                0x0000000000000d8c       0x4c output/nrfvm_vm.c.o
+                0x0000000000000d8c                prim_ifelse
+ .text.eol_list
+                0x0000000000000dd8       0x28 output/nrfvm_vm.c.o
+                0x0000000000000dd8                eol_list
+ .text.prim_add
+                0x0000000000000e00       0x20 output/nrfvm_vm.c.o
+                0x0000000000000e00                prim_add
+ .text.prim_subtract
+                0x0000000000000e20       0x20 output/nrfvm_vm.c.o
+                0x0000000000000e20                prim_subtract
+ .text.prim_multiply
+                0x0000000000000e40       0x58 output/nrfvm_vm.c.o
+                0x0000000000000e40                prim_multiply
+ .text.prim_divide
+                0x0000000000000e98       0x58 output/nrfvm_vm.c.o
+                0x0000000000000e98                prim_divide
+ .text.prim_mod
+                0x0000000000000ef0       0x50 output/nrfvm_vm.c.o
+                0x0000000000000ef0                prim_mod
+ .text.prim_equal
+                0x0000000000000f40       0x28 output/nrfvm_vm.c.o
+                0x0000000000000f40                prim_equal
+ .text.prim_ne  0x0000000000000f68       0x28 output/nrfvm_vm.c.o
+                0x0000000000000f68                prim_ne
+ .text.prim_greater
+                0x0000000000000f90       0x24 output/nrfvm_vm.c.o
+                0x0000000000000f90                prim_greater
+ .text.prim_less
+                0x0000000000000fb4       0x24 output/nrfvm_vm.c.o
+                0x0000000000000fb4                prim_less
+ .text.prim_and
+                0x0000000000000fd8       0x20 output/nrfvm_vm.c.o
+                0x0000000000000fd8                prim_and
+ .text.prim_or  0x0000000000000ff8       0x20 output/nrfvm_vm.c.o
+                0x0000000000000ff8                prim_or
+ .text.prim_xor
+                0x0000000000001018       0x20 output/nrfvm_vm.c.o
+                0x0000000000001018                prim_xor
+ .text.prim_not
+                0x0000000000001038       0x20 output/nrfvm_vm.c.o
+                0x0000000000001038                prim_not
+ .text.prim_setbox
+                0x0000000000001058       0x28 output/nrfvm_vm.c.o
+                0x0000000000001058                prim_setbox
+ .text.prim_box
+                0x0000000000001080       0x28 output/nrfvm_vm.c.o
+                0x0000000000001080                prim_box
+ .text.prim_changebox
+                0x00000000000010a8       0x30 output/nrfvm_vm.c.o
+                0x00000000000010a8                prim_changebox
+ .text.prim_broadcast
+                0x00000000000010d8      0x660 output/nrfvm_vm.c.o
+                0x00000000000010d8                prim_broadcast
+ .text.prim_random
+                0x0000000000001738       0x4c output/nrfvm_vm.c.o
+                0x0000000000001738                prim_random
+ .text.prim_stopothers
+                0x0000000000001784       0x64 output/nrfvm_vm.c.o
+                0x0000000000001784                prim_stopothers
+ .text.eol_repeatuntil_action
+                0x00000000000017e8       0x70 output/nrfvm_vm.c.o
+                0x00000000000017e8                eol_repeatuntil_action
+ .text.prim_forever
+                0x0000000000001858       0x6c output/nrfvm_vm.c.o
+                0x0000000000001858                prim_forever
+ .text.wait_loop
+                0x00000000000018c4       0x78 output/nrfvm_vm.c.o
+                0x00000000000018c4                wait_loop
+ .text.eol_waituntil
+                0x000000000000193c       0xa8 output/nrfvm_vm.c.o
+                0x000000000000193c                eol_waituntil
+ .text.eol_repeatuntil_cond
+                0x00000000000019e4       0x94 output/nrfvm_vm.c.o
+                0x00000000000019e4                eol_repeatuntil_cond
+ .text.eol_repeat
+                0x0000000000001a78       0x90 output/nrfvm_vm.c.o
+                0x0000000000001a78                eol_repeat
+ .text.eol_step
+                0x0000000000001b08       0xd4 output/nrfvm_vm.c.o
+                0x0000000000001b08                eol_step
+ .text.prim_repeat
+                0x0000000000001bdc       0xa8 output/nrfvm_vm.c.o
+                0x0000000000001bdc                prim_repeat
+ .text.prim_wait
+                0x0000000000001c84       0xa0 output/nrfvm_vm.c.o
+                0x0000000000001c84                prim_wait
+ .text.prim_step
+                0x0000000000001d24      0x15c output/nrfvm_vm.c.o
+                0x0000000000001d24                prim_step
+ .text.vm_run   0x0000000000001e80       0x94 output/nrfvm_vm.c.o
+                0x0000000000001e80                vm_run
+ .text.vm_runcc
+                0x0000000000001f14       0x38 output/nrfvm_vm.c.o
+                0x0000000000001f14                vm_runcc
+ .text.vm_stop  0x0000000000001f4c       0x64 output/nrfvm_vm.c.o
+                0x0000000000001f4c                vm_stop
+ .text.vm_run_toggle
+                0x0000000000001fb0      0x434 output/nrfvm_vm.c.o
+                0x0000000000001fb0                vm_run_toggle
+ .text.vm_pop   0x00000000000023e4       0x3c output/nrfvm_vm.c.o
+                0x00000000000023e4                vm_pop
+ .text.vm_push  0x0000000000002420       0x14 output/nrfvm_vm.c.o
+                0x0000000000002420                vm_push
+ .text.vm_pop_raw
+                0x0000000000002434       0x10 output/nrfvm_vm.c.o
+                0x0000000000002434                vm_pop_raw
+ .text.vm_push_float
+                0x0000000000002444       0x20 output/nrfvm_vm.c.o
+                0x0000000000002444                vm_push_float
+ .text.prim_doton
+                0x0000000000002464       0x2c output/nrfvm_lib.c.o
+                0x0000000000002464                prim_doton
+ .text.prim_dotoff
+                0x0000000000002490       0x2c output/nrfvm_lib.c.o
+                0x0000000000002490                prim_dotoff
+ .text.prim_resett
+                0x00000000000024bc       0x10 output/nrfvm_lib.c.o
+                0x00000000000024bc                prim_resett
+ .text.prim_timer
+                0x00000000000024cc       0x24 output/nrfvm_lib.c.o
+                0x00000000000024cc                prim_timer
+ .text.prim_buttona
+                0x00000000000024f0       0x18 output/nrfvm_lib.c.o
+                0x00000000000024f0                prim_buttona
+ .text.lib_init
+                0x0000000000002508      0x108 output/nrfvm_lib.c.o
+                0x0000000000002508                lib_init
+ .text.lib_poll
+                0x0000000000002610       0x54 output/nrfvm_lib.c.o
+                0x0000000000002610                lib_poll
+ .text.lib_ticker
+                0x0000000000002664      0x204 output/nrfvm_lib.c.o
+                0x0000000000002664                lib_ticker
+ .text.printnum
+                0x0000000000002868       0x90 output/nrfvm_lib.c.o
+                0x0000000000002868                printnum
+ .text.prim_print
+                0x00000000000028f8       0x54 output/nrfvm_lib.c.o
+                0x00000000000028f8                prim_print
+ .text          0x000000000000294c       0x4c output/nrfvm_gcc_startup_nrf51.S.o
+                0x000000000000294c                Reset_Handler
+                0x000000000000298c                NMI_Handler
+                0x000000000000298e                HardFault_Handler
+                0x0000000000002990                SVC_Handler
+                0x0000000000002992                PendSV_Handler
+                0x0000000000002994                SysTick_Handler
+                0x0000000000002996                LPCOMP_IRQHandler
+                0x0000000000002996                SWI4_IRQHandler
+                0x0000000000002996                TEMP_IRQHandler
+                0x0000000000002996                QDEC_IRQHandler
+                0x0000000000002996                UART0_IRQHandler
+                0x0000000000002996                SWI5_IRQHandler
+                0x0000000000002996                TIMER0_IRQHandler
+                0x0000000000002996                SWI0_IRQHandler
+                0x0000000000002996                ECB_IRQHandler
+                0x0000000000002996                Default_Handler
+                0x0000000000002996                ADC_IRQHandler
+                0x0000000000002996                SWI3_IRQHandler
+                0x0000000000002996                CCM_AAR_IRQHandler
+                0x0000000000002996                WDT_IRQHandler
+                0x0000000000002996                SWI2_IRQHandler
+                0x0000000000002996                RNG_IRQHandler
+                0x0000000000002996                SPI1_TWI1_IRQHandler
+                0x0000000000002996                RTC1_IRQHandler
+                0x0000000000002996                TIMER2_IRQHandler
+                0x0000000000002996                SWI1_IRQHandler
+                0x0000000000002996                SPI0_TWI0_IRQHandler
+                0x0000000000002996                RTC0_IRQHandler
+                0x0000000000002996                GPIOTE_IRQHandler
+                0x0000000000002996                POWER_CLOCK_IRQHandler
+                0x0000000000002996                RADIO_IRQHandler
+ .text.SystemInit
+                0x0000000000002998       0xdc output/nrfvm_system_nrf51.c.o
+                0x0000000000002998                SystemInit
+ .text          0x0000000000002a74      0x114 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/libgcc.a(_udivsi3.o)
+                0x0000000000002a74                __udivsi3
+                0x0000000000002a74                __aeabi_uidiv
+                0x0000000000002b80                __aeabi_uidivmod
+ .text          0x0000000000002b88      0x1d4 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/libgcc.a(_divsi3.o)
+                0x0000000000002b88                __aeabi_idiv
+                0x0000000000002b88                __divsi3
+                0x0000000000002d54                __aeabi_idivmod
+ .text          0x0000000000002d5c        0x4 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/libgcc.a(_dvmd_tls.o)
+                0x0000000000002d5c                __aeabi_ldiv0
+                0x0000000000002d5c                __aeabi_idiv0
+ .text          0x0000000000002d60      0x2f8 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/libgcc.a(addsf3.o)
+                0x0000000000002d60                __aeabi_fadd
+ .text          0x0000000000003058      0x230 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/libgcc.a(divsf3.o)
+                0x0000000000003058                __aeabi_fdiv
+ .text          0x0000000000003288      0x22c /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/libgcc.a(mulsf3.o)
+                0x0000000000003288                __aeabi_fmul
+ .text          0x00000000000034b4       0x40 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/libgcc.a(fixsfsi.o)
+                0x00000000000034b4                __aeabi_f2iz
+ .text          0x00000000000034f4       0x94 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/libgcc.a(floatsisf.o)
+                0x00000000000034f4                __aeabi_i2f
+ .text          0x0000000000003588       0x80 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/libgcc.a(floatunsisf.o)
+                0x0000000000003588                __aeabi_ui2f
+ .text          0x0000000000003608      0x5ec /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/libgcc.a(divdf3.o)
+                0x0000000000003608                __aeabi_ddiv
+ .text          0x0000000000003bf4      0x510 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/libgcc.a(muldf3.o)
+                0x0000000000003bf4                __aeabi_dmul
+ .text          0x0000000000004104       0x6c /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/libgcc.a(fixdfsi.o)
+                0x0000000000004104                __aeabi_d2iz
+ .text          0x0000000000004170       0x78 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/libgcc.a(floatsidf.o)
+                0x0000000000004170                __aeabi_i2d
+ .text          0x00000000000041e8       0x3c /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/libgcc.a(_clzsi2.o)
+                0x00000000000041e8                __clzsi2
+ .text.memcpy   0x0000000000004224       0x12 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-memcpy-stub.o)
+                0x0000000000004224                memcpy
+ *fill*         0x0000000000004236        0x2 
+ .text.rand     0x0000000000004238       0x64 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-rand.o)
+                0x0000000000004238                rand
+ .text.sprintf  0x000000000000429c       0x40 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-sprintf.o)
+                0x000000000000429c                sprintf
+                0x000000000000429c                siprintf
+ .text          0x00000000000042dc        0xe /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-strlen.o)
+                0x00000000000042dc                strlen
+ *fill*         0x00000000000042ea        0x2 
+ .text.malloc   0x00000000000042ec       0x14 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-malloc.o)
+                0x00000000000042ec                malloc
+ .text._free_r  0x0000000000004300       0x94 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-nano-freer.o)
+                0x0000000000004300                _free_r
+ .text._malloc_r
+                0x0000000000004394       0xbc /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-nano-mallocr.o)
+                0x0000000000004394                _malloc_r
+ .text.__ssputs_r
+                0x0000000000004450       0xc4 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-nano-svfprintf.o)
+                0x0000000000004450                __ssputs_r
+ .text._svfprintf_r
+                0x0000000000004514      0x1fc /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-nano-svfprintf.o)
+                0x0000000000004514                _svfprintf_r
+                0x0000000000004514                _svfiprintf_r
+ .text._printf_common
+                0x0000000000004710       0xda /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-nano-vfprintf_i.o)
+                0x0000000000004710                _printf_common
+ *fill*         0x00000000000047ea        0x2 
+ .text._printf_i
+                0x00000000000047ec      0x214 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-nano-vfprintf_i.o)
+                0x00000000000047ec                _printf_i
+ .text._sbrk_r  0x0000000000004a00       0x24 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-sbrkr.o)
+                0x0000000000004a00                _sbrk_r
+ .text.memchr   0x0000000000004a24       0x16 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-memchr-stub.o)
+                0x0000000000004a24                memchr
+ .text.memmove  0x0000000000004a3a       0x26 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-memmove.o)
+                0x0000000000004a3a                memmove
+ .text.__malloc_lock
+                0x0000000000004a60       0x10 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-mlock.o)
+                0x0000000000004a60                __malloc_lock
+ .text.__malloc_unlock
+                0x0000000000004a70       0x10 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-mlock.o)
+                0x0000000000004a70                __malloc_unlock
+ .text._realloc_r
+                0x0000000000004a80       0x4c /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-nano-reallocr.o)
+                0x0000000000004a80                _realloc_r
+ .text.__retarget_lock_acquire_recursive
+                0x0000000000004acc        0x2 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-lock.o)
+                0x0000000000004acc                __retarget_lock_acquire_recursive
+ .text.__retarget_lock_release_recursive
+                0x0000000000004ace        0x2 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-lock.o)
+                0x0000000000004ace                __retarget_lock_release_recursive
+ .text._malloc_usable_size_r
+                0x0000000000004ad0       0x10 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-nano-msizer.o)
+                0x0000000000004ad0                _malloc_usable_size_r
+ .text          0x0000000000004ae0       0x54 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/libgcc.a(_muldi3.o)
+                0x0000000000004ae0                __aeabi_lmul
+                0x0000000000004ae0                __muldi3
+ .text._sbrk    0x0000000000004b34       0x1c /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libnosys.a(sbrk.o)
+                0x0000000000004b34                _sbrk
+ *(.init)
+ .init          0x0000000000004b50        0x4 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/crti.o
+                0x0000000000004b50                _init
+ .init          0x0000000000004b54        0x8 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/crtn.o
+ *(.fini)
+ .fini          0x0000000000004b5c        0x4 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/crti.o
+                0x0000000000004b5c                _fini
+ .fini          0x0000000000004b60        0x8 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/crtn.o
+ *crtbegin.o(.ctors)
+ *crtbegin?.o(.ctors)
+ *(EXCLUDE_FILE(*crtend.o *crtend?.o) .ctors)
+ *(SORT_BY_NAME(.ctors.*))
+ *(.ctors)
+ *crtbegin.o(.dtors)
+ *crtbegin?.o(.dtors)
+ *(EXCLUDE_FILE(*crtend.o *crtend?.o) .dtors)
+ *(SORT_BY_NAME(.dtors.*))
+ *(.dtors)
+ *(.rodata*)
+ .rodata._global_impure_ptr
+                0x0000000000004b68        0x4 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-impure.o)
+                0x0000000000004b68                _global_impure_ptr
+ .rodata.prim_print.str1.4
+                0x0000000000004b6c        0x2 output/nrfvm_lib.c.o
+ *fill*         0x0000000000004b6e        0x2 
+ .rodata.printnum.str1.4
+                0x0000000000004b70        0x4 output/nrfvm_lib.c.o
+                                          0x3 (size before relaxing)
+ .rodata        0x0000000000004b74       0xac /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/libgcc.a(divsf3.o)
+ .rodata        0x0000000000004c20       0x40 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/libgcc.a(mulsf3.o)
+ .rodata        0x0000000000004c60       0x40 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/libgcc.a(divdf3.o)
+ .rodata        0x0000000000004ca0       0x40 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/libgcc.a(muldf3.o)
+ .rodata._svfprintf_r.str1.1
+                0x0000000000004ce0       0x11 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-nano-svfprintf.o)
+ .rodata._printf_i.str1.1
+                0x0000000000004cf1       0x22 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-nano-vfprintf_i.o)
+ *(.eh_frame*)
+ *fill*         0x0000000000004d13        0x1 
+ .eh_frame      0x0000000000004d14        0x0 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/crtbegin.o
+ .eh_frame      0x0000000000004d14        0x4 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/crtend.o
+
+.glue_7         0x0000000000004d18        0x0
+ .glue_7        0x0000000000004d18        0x0 linker stubs
+
+.glue_7t        0x0000000000004d18        0x0
+ .glue_7t       0x0000000000004d18        0x0 linker stubs
+
+.vfp11_veneer   0x0000000000004d18        0x0
+ .vfp11_veneer  0x0000000000004d18        0x0 linker stubs
+
+.v4_bx          0x0000000000004d18        0x0
+ .v4_bx         0x0000000000004d18        0x0 linker stubs
+
+.iplt           0x0000000000004d18        0x0
+ .iplt          0x0000000000004d18        0x0 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/crtbegin.o
+
+.ARM.extab
+ *(.ARM.extab* .gnu.linkonce.armextab.*)
+                0x0000000000004d18                __exidx_start = .
+
+.ARM.exidx      0x0000000000004d18        0x8
+ *(.ARM.exidx* .gnu.linkonce.armexidx.*)
+ .ARM.exidx     0x0000000000004d18        0x8 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/crt0.o
+                0x0000000000004d20                __exidx_end = .
+                0x0000000000004d20                __etext = .
+
+.rel.dyn        0x0000000000004d20        0x0
+ .rel.iplt      0x0000000000004d20        0x0 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/crtbegin.o
+
+.data           0x0000000020000000      0x21c load address 0x0000000000004d20
+                0x0000000020000000                __data_start__ = .
+ *(vtable)
+ *(.data*)
+ .data._impure_ptr
+                0x0000000020000000        0x4 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-impure.o)
+                0x0000000020000000                _impure_ptr
+ .data.impure_data
+                0x0000000020000004       0x60 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-impure.o)
+ .data.prims    0x0000000020000064       0x9c output/nrfvm_vm.c.o
+                0x0000000020000064                prims
+ .data.colpins  0x0000000020000100       0x24 output/nrfvm_lib.c.o
+                0x0000000020000100                colpins
+ .data.leddecode
+                0x0000000020000124       0xc8 output/nrfvm_lib.c.o
+                0x0000000020000124                leddecode
+ .data.libprims
+                0x00000000200001ec       0x18 output/nrfvm_lib.c.o
+                0x00000000200001ec                libprims
+ .data.rowpins  0x0000000020000204        0xc output/nrfvm_lib.c.o
+                0x0000000020000204                rowpins
+ .data.SystemCoreClock
+                0x0000000020000210        0x4 output/nrfvm_system_nrf51.c.o
+                0x0000000020000210                SystemCoreClock
+                0x0000000020000214                . = ALIGN (0x4)
+                0x0000000020000214                PROVIDE (__preinit_array_start = .)
+ *(.preinit_array)
+                0x0000000020000214                PROVIDE (__preinit_array_end = .)
+                0x0000000020000214                . = ALIGN (0x4)
+                0x0000000020000214                PROVIDE (__init_array_start = .)
+ *(SORT_BY_NAME(.init_array.*))
+ *(.init_array)
+ .init_array    0x0000000020000214        0x4 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/crtbegin.o
+                0x0000000020000218                PROVIDE (__init_array_end = .)
+                0x0000000020000218                . = ALIGN (0x4)
+                [!provide]                        PROVIDE (__fini_array_start = .)
+ *(SORT_BY_NAME(.fini_array.*))
+ *(.fini_array)
+ .fini_array    0x0000000020000218        0x4 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/crtbegin.o
+                [!provide]                        PROVIDE (__fini_array_end = .)
+ *(.jcr*)
+                0x000000002000021c                . = ALIGN (0x4)
+                0x000000002000021c                __data_end__ = .
+LOAD /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/crti.o
+LOAD /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/crtbegin.o
+LOAD /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/crt0.o
+LOAD /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a
+LOAD /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libnosys.a
+LOAD output/nrfvm_main.c.o
+LOAD output/nrfvm_vm.c.o
+LOAD output/nrfvm_lib.c.o
+LOAD output/nrfvm_gcc_startup_nrf51.S.o
+LOAD output/nrfvm_system_nrf51.c.o
+LOAD output/nrfvm_ble_flash.c.o
+LOAD /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libm.a
+START GROUP
+LOAD /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/libgcc.a
+LOAD /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a
+END GROUP
+START GROUP
+LOAD /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/libgcc.a
+LOAD /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a
+END GROUP
+LOAD /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/crtend.o
+LOAD /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/crtn.o
+START GROUP
+LOAD /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/libgcc.a
+LOAD /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a
+LOAD /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libnosys.a
+END GROUP
+
+.igot.plt       0x000000002000021c        0x0 load address 0x0000000000004f3c
+ .igot.plt      0x000000002000021c        0x0 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/crtbegin.o
+
+.fs_data        0x000000002000021c        0x0
+                [!provide]                        PROVIDE (__start_fs_data = .)
+ *(.fs_data)
+                [!provide]                        PROVIDE (__stop_fs_data = .)
+
+.pwr_mgmt_data  0x000000002000021c        0x0
+                [!provide]                        PROVIDE (__start_pwr_mgmt_data = .)
+ *(.pwr_mgmt_data)
+                [!provide]                        PROVIDE (__stop_pwr_mgmt_data = .)
+
+.bss            0x000000002000021c     0x11c8 load address 0x0000000000004f3c
+                0x000000002000021c                . = ALIGN (0x4)
+                0x000000002000021c                __bss_start__ = .
+ *(.bss*)
+ .bss           0x000000002000021c       0x1c /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/crtbegin.o
+ .bss.ticks     0x0000000020000238        0x4 output/nrfvm_main.c.o
+                0x0000000020000238                ticks
+ .bss.last_btna
+                0x000000002000023c        0x4 output/nrfvm_lib.c.o
+                0x000000002000023c                last_btna
+ .bss.last_btnb
+                0x0000000020000240        0x4 output/nrfvm_lib.c.o
+                0x0000000020000240                last_btnb
+ .bss.thisrow   0x0000000020000244        0x4 output/nrfvm_lib.c.o
+                0x0000000020000244                thisrow
+ .bss.__malloc_free_list
+                0x0000000020000248        0x4 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-nano-mallocr.o)
+                0x0000000020000248                __malloc_free_list
+ .bss.__malloc_sbrk_start
+                0x000000002000024c        0x4 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-nano-mallocr.o)
+                0x000000002000024c                __malloc_sbrk_start
+ .bss.heap_end.4194
+                0x0000000020000250        0x4 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libnosys.a(sbrk.o)
+ *(COMMON)
+ COMMON         0x0000000020000254       0x80 output/nrfvm_main.c.o
+                0x0000000020000254                code
+ COMMON         0x00000000200002d4     0x1068 output/nrfvm_vm.c.o
+                0x00000000200002d4                ip
+                0x00000000200002d8                fp
+                0x00000000200002dc                yieldnow
+                0x00000000200002e0                stack
+                0x00000000200002e4                boxes
+                0x0000000020000334                eoltype
+                0x0000000020000338                sp
+                0x000000002000033c                stacks
+ COMMON         0x000000002000133c       0x98 output/nrfvm_lib.c.o
+                0x000000002000133c                btnb_evt
+                0x0000000020001340                prptr
+                0x0000000020001344                matrix
+                0x000000002000134c                t0
+                0x0000000020001350                btna_evt
+                0x0000000020001354                prbuf
+ COMMON         0x00000000200013d4        0x4 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-reent.o)
+                0x00000000200013d4                errno
+ COMMON         0x00000000200013d8        0x9 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-lock.o)
+                0x00000000200013d8                __lock___atexit_recursive_mutex
+                0x00000000200013d9                __lock___arc4random_mutex
+                0x00000000200013da                __lock___env_recursive_mutex
+                0x00000000200013db                __lock___sinit_recursive_mutex
+                0x00000000200013dc                __lock___malloc_recursive_mutex
+                0x00000000200013dd                __lock___at_quick_exit_mutex
+                0x00000000200013de                __lock___dd_hash_mutex
+                0x00000000200013df                __lock___tz_mutex
+                0x00000000200013e0                __lock___sfp_recursive_mutex
+                0x00000000200013e4                . = ALIGN (0x4)
+ *fill*         0x00000000200013e1        0x3 
+                0x00000000200013e4                __bss_end__ = .
+
+.heap           0x00000000200013e8      0x800
+                0x00000000200013e8                __HeapBase = .
+                0x00000000200013e8                __end__ = .
+                0x00000000200013e8                PROVIDE (end = .)
+ *(.heap*)
+ .heap          0x00000000200013e8      0x800 output/nrfvm_gcc_startup_nrf51.S.o
+                0x0000000020001be8                __HeapLimit = .
+
+.stack_dummy    0x00000000200013e8      0x800
+ *(.stack*)
+ .stack         0x00000000200013e8      0x800 output/nrfvm_gcc_startup_nrf51.S.o
+                0x0000000020004000                __StackTop = (ORIGIN (RAM) + LENGTH (RAM))
+                0x0000000020003800                __StackLimit = (__StackTop - SIZEOF (.stack_dummy))
+                0x0000000020004000                PROVIDE (__stack = __StackTop)
+                0x0000000000000001                ASSERT ((__StackLimit >= __HeapLimit), region RAM overflowed with stack)
+OUTPUT(output/nrfvm.out elf32-littlearm)
+
+.ARM.attributes
+                0x0000000000000000       0x28
+ .ARM.attributes
+                0x0000000000000000       0x1e /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/crti.o
+ .ARM.attributes
+                0x000000000000001e       0x2c /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/crtbegin.o
+ .ARM.attributes
+                0x000000000000004a       0x1b /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/crt0.o
+ .ARM.attributes
+                0x0000000000000065       0x2c /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-exit.o)
+ .ARM.attributes
+                0x0000000000000091       0x2c /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-impure.o)
+ .ARM.attributes
+                0x00000000000000bd       0x2c /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-init.o)
+ .ARM.attributes
+                0x00000000000000e9       0x2c /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-memset.o)
+ .ARM.attributes
+                0x0000000000000115       0x2c /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libnosys.a(_exit.o)
+ .ARM.attributes
+                0x0000000000000141       0x2c output/nrfvm_main.c.o
+ .ARM.attributes
+                0x000000000000016d       0x2c output/nrfvm_vm.c.o
+ .ARM.attributes
+                0x0000000000000199       0x2c output/nrfvm_lib.c.o
+ .ARM.attributes
+                0x00000000000001c5       0x1b output/nrfvm_gcc_startup_nrf51.S.o
+ .ARM.attributes
+                0x00000000000001e0       0x2c output/nrfvm_system_nrf51.c.o
+ .ARM.attributes
+                0x000000000000020c       0x1e /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/libgcc.a(_udivsi3.o)
+ .ARM.attributes
+                0x000000000000022a       0x1e /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/libgcc.a(_divsi3.o)
+ .ARM.attributes
+                0x0000000000000248       0x1e /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/libgcc.a(_dvmd_tls.o)
+ .ARM.attributes
+                0x0000000000000266       0x2c /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/libgcc.a(addsf3.o)
+ .ARM.attributes
+                0x0000000000000292       0x2c /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/libgcc.a(divsf3.o)
+ .ARM.attributes
+                0x00000000000002be       0x2c /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/libgcc.a(mulsf3.o)
+ .ARM.attributes
+                0x00000000000002ea       0x2c /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/libgcc.a(fixsfsi.o)
+ .ARM.attributes
+                0x0000000000000316       0x2c /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/libgcc.a(floatsisf.o)
+ .ARM.attributes
+                0x0000000000000342       0x2c /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/libgcc.a(floatunsisf.o)
+ .ARM.attributes
+                0x000000000000036e       0x2c /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/libgcc.a(divdf3.o)
+ .ARM.attributes
+                0x000000000000039a       0x2c /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/libgcc.a(muldf3.o)
+ .ARM.attributes
+                0x00000000000003c6       0x2c /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/libgcc.a(fixdfsi.o)
+ .ARM.attributes
+                0x00000000000003f2       0x2c /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/libgcc.a(floatsidf.o)
+ .ARM.attributes
+                0x000000000000041e       0x1e /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/libgcc.a(_clzsi2.o)
+ .ARM.attributes
+                0x000000000000043c       0x2c /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-memcpy-stub.o)
+ .ARM.attributes
+                0x0000000000000468       0x2c /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-rand.o)
+ .ARM.attributes
+                0x0000000000000494       0x2c /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-sprintf.o)
+ .ARM.attributes
+                0x00000000000004c0       0x1c /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-strlen.o)
+ .ARM.attributes
+                0x00000000000004dc       0x2c /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-malloc.o)
+ .ARM.attributes
+                0x0000000000000508       0x2c /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-nano-freer.o)
+ .ARM.attributes
+                0x0000000000000534       0x2c /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-nano-mallocr.o)
+ .ARM.attributes
+                0x0000000000000560       0x2c /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-nano-svfprintf.o)
+ .ARM.attributes
+                0x000000000000058c       0x2c /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-nano-vfprintf_i.o)
+ .ARM.attributes
+                0x00000000000005b8       0x2c /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-sbrkr.o)
+ .ARM.attributes
+                0x00000000000005e4       0x2c /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-memchr-stub.o)
+ .ARM.attributes
+                0x0000000000000610       0x2c /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-memmove.o)
+ .ARM.attributes
+                0x000000000000063c       0x2c /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-mlock.o)
+ .ARM.attributes
+                0x0000000000000668       0x2c /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-nano-reallocr.o)
+ .ARM.attributes
+                0x0000000000000694       0x2c /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-reent.o)
+ .ARM.attributes
+                0x00000000000006c0       0x2c /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-lock.o)
+ .ARM.attributes
+                0x00000000000006ec       0x2c /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-nano-msizer.o)
+ .ARM.attributes
+                0x0000000000000718       0x2c /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/libgcc.a(_muldi3.o)
+ .ARM.attributes
+                0x0000000000000744       0x2c /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/crtend.o
+ .ARM.attributes
+                0x0000000000000770       0x1e /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/crtn.o
+ .ARM.attributes
+                0x000000000000078e       0x2c /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libnosys.a(sbrk.o)
+
+.comment        0x0000000000000000       0x75
+ .comment       0x0000000000000000       0x75 output/nrfvm_main.c.o
+                                         0x76 (size before relaxing)
+ .comment       0x0000000000000075       0x76 output/nrfvm_vm.c.o
+ .comment       0x0000000000000075       0x76 output/nrfvm_lib.c.o
+ .comment       0x0000000000000075       0x76 output/nrfvm_system_nrf51.c.o
+
+.debug_frame    0x0000000000000000     0x10f0
+ .debug_frame   0x0000000000000000       0x28 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-exit.o)
+ .debug_frame   0x0000000000000028       0x2c /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-init.o)
+ .debug_frame   0x0000000000000054       0x20 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-memset.o)
+ .debug_frame   0x0000000000000074       0x20 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libnosys.a(_exit.o)
+ .debug_frame   0x0000000000000094      0x224 output/nrfvm_main.c.o
+ .debug_frame   0x00000000000002b8      0x61c output/nrfvm_vm.c.o
+ .debug_frame   0x00000000000008d4      0x154 output/nrfvm_lib.c.o
+ .debug_frame   0x0000000000000a28       0x30 output/nrfvm_system_nrf51.c.o
+ .debug_frame   0x0000000000000a58       0x20 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/libgcc.a(_udivsi3.o)
+ .debug_frame   0x0000000000000a78       0x20 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/libgcc.a(_divsi3.o)
+ .debug_frame   0x0000000000000a98       0x38 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/libgcc.a(addsf3.o)
+ .debug_frame   0x0000000000000ad0       0x38 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/libgcc.a(divsf3.o)
+ .debug_frame   0x0000000000000b08       0x38 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/libgcc.a(mulsf3.o)
+ .debug_frame   0x0000000000000b40       0x20 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/libgcc.a(fixsfsi.o)
+ .debug_frame   0x0000000000000b60       0x2c /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/libgcc.a(floatsisf.o)
+ .debug_frame   0x0000000000000b8c       0x2c /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/libgcc.a(floatunsisf.o)
+ .debug_frame   0x0000000000000bb8       0x3c /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/libgcc.a(divdf3.o)
+ .debug_frame   0x0000000000000bf4       0x3c /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/libgcc.a(muldf3.o)
+ .debug_frame   0x0000000000000c30       0x2c /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/libgcc.a(fixdfsi.o)
+ .debug_frame   0x0000000000000c5c       0x2c /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/libgcc.a(floatsidf.o)
+ .debug_frame   0x0000000000000c88       0x28 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-memcpy-stub.o)
+ .debug_frame   0x0000000000000cb0       0x44 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-rand.o)
+ .debug_frame   0x0000000000000cf4       0x48 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-sprintf.o)
+ .debug_frame   0x0000000000000d3c       0x40 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-malloc.o)
+ .debug_frame   0x0000000000000d7c       0x2c /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-nano-freer.o)
+ .debug_frame   0x0000000000000da8       0x30 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-nano-mallocr.o)
+ .debug_frame   0x0000000000000dd8       0x74 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-nano-svfprintf.o)
+ .debug_frame   0x0000000000000e4c       0x54 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-nano-vfprintf_i.o)
+ .debug_frame   0x0000000000000ea0       0x2c /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-sbrkr.o)
+ .debug_frame   0x0000000000000ecc       0x20 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-memchr-stub.o)
+ .debug_frame   0x0000000000000eec       0x28 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-memmove.o)
+ .debug_frame   0x0000000000000f14       0x40 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-mlock.o)
+ .debug_frame   0x0000000000000f54       0x30 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-nano-reallocr.o)
+ .debug_frame   0x0000000000000f84       0x48 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-reent.o)
+ .debug_frame   0x0000000000000fcc       0xb0 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-lock.o)
+ .debug_frame   0x000000000000107c       0x20 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-nano-msizer.o)
+ .debug_frame   0x000000000000109c       0x34 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v6-m/nofp/libgcc.a(_muldi3.o)
+ .debug_frame   0x00000000000010d0       0x20 /usr/local/gcc-arm-none-eabi-8-2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libnosys.a(sbrk.o)
+
+.debug_info     0x0000000000000000     0x666b
+ .debug_info    0x0000000000000000     0x2b88 output/nrfvm_main.c.o
+ .debug_info    0x0000000000002b88     0x1ef3 output/nrfvm_vm.c.o
+ .debug_info    0x0000000000004a7b     0x19f5 output/nrfvm_lib.c.o
+ .debug_info    0x0000000000006470      0x1fb output/nrfvm_system_nrf51.c.o
+
+.debug_abbrev   0x0000000000000000     0x113d
+ .debug_abbrev  0x0000000000000000      0x57d output/nrfvm_main.c.o
+ .debug_abbrev  0x000000000000057d      0x62d output/nrfvm_vm.c.o
+ .debug_abbrev  0x0000000000000baa      0x46f output/nrfvm_lib.c.o
+ .debug_abbrev  0x0000000000001019      0x124 output/nrfvm_system_nrf51.c.o
+
+.debug_loc      0x0000000000000000     0x9839
+ .debug_loc     0x0000000000000000      0xe6b output/nrfvm_main.c.o
+ .debug_loc     0x0000000000000e6b     0x7729 output/nrfvm_vm.c.o
+ .debug_loc     0x0000000000008594     0x12a5 output/nrfvm_lib.c.o
+
+.debug_aranges  0x0000000000000000      0x368
+ .debug_aranges
+                0x0000000000000000       0xb8 output/nrfvm_main.c.o
+ .debug_aranges
+                0x00000000000000b8      0x210 output/nrfvm_vm.c.o
+ .debug_aranges
+                0x00000000000002c8       0x78 output/nrfvm_lib.c.o
+ .debug_aranges
+                0x0000000000000340       0x28 output/nrfvm_system_nrf51.c.o
+
+.debug_ranges   0x0000000000000000     0x1c38
+ .debug_ranges  0x0000000000000000      0xb10 output/nrfvm_main.c.o
+ .debug_ranges  0x0000000000000b10      0x970 output/nrfvm_vm.c.o
+ .debug_ranges  0x0000000000001480      0x750 output/nrfvm_lib.c.o
+ .debug_ranges  0x0000000000001bd0       0x68 output/nrfvm_system_nrf51.c.o
+
+.debug_macro    0x0000000000000000     0x9f86
+ .debug_macro   0x0000000000000000      0x2a3 output/nrfvm_main.c.o
+ .debug_macro   0x00000000000002a3      0xa6c output/nrfvm_main.c.o
+ .debug_macro   0x0000000000000d0f       0x22 output/nrfvm_main.c.o
+ .debug_macro   0x0000000000000d31       0x22 output/nrfvm_main.c.o
+ .debug_macro   0x0000000000000d53       0x56 output/nrfvm_main.c.o
+ .debug_macro   0x0000000000000da9       0x51 output/nrfvm_main.c.o
+ .debug_macro   0x0000000000000dfa       0xef output/nrfvm_main.c.o
+ .debug_macro   0x0000000000000ee9       0x6a output/nrfvm_main.c.o
+ .debug_macro   0x0000000000000f53      0x1df output/nrfvm_main.c.o
+ .debug_macro   0x0000000000001132       0x1c output/nrfvm_main.c.o
+ .debug_macro   0x000000000000114e       0x22 output/nrfvm_main.c.o
+ .debug_macro   0x0000000000001170       0x3a output/nrfvm_main.c.o
+ .debug_macro   0x00000000000011aa       0x26 output/nrfvm_main.c.o
+ .debug_macro   0x00000000000011d0      0x30d output/nrfvm_main.c.o
+ .debug_macro   0x00000000000014dd      0x1b6 output/nrfvm_main.c.o
+ .debug_macro   0x0000000000001693     0x6504 output/nrfvm_main.c.o
+ .debug_macro   0x0000000000007b97      0x97c output/nrfvm_main.c.o
+ .debug_macro   0x0000000000008513       0x22 output/nrfvm_main.c.o
+ .debug_macro   0x0000000000008535      0x168 output/nrfvm_main.c.o
+ .debug_macro   0x000000000000869d       0x5e output/nrfvm_main.c.o
+ .debug_macro   0x00000000000086fb       0x18 output/nrfvm_main.c.o
+ .debug_macro   0x0000000000008713       0x35 output/nrfvm_main.c.o
+ .debug_macro   0x0000000000008748       0x34 output/nrfvm_main.c.o
+ .debug_macro   0x000000000000877c       0x16 output/nrfvm_main.c.o
+ .debug_macro   0x0000000000008792       0x97 output/nrfvm_main.c.o
+ .debug_macro   0x0000000000008829      0x35c output/nrfvm_main.c.o
+ .debug_macro   0x0000000000008b85       0xf6 output/nrfvm_main.c.o
+ .debug_macro   0x0000000000008c7b       0x10 output/nrfvm_main.c.o
+ .debug_macro   0x0000000000008c8b       0x58 output/nrfvm_main.c.o
+ .debug_macro   0x0000000000008ce3       0x1f output/nrfvm_main.c.o
+ .debug_macro   0x0000000000008d02       0x43 output/nrfvm_main.c.o
+ .debug_macro   0x0000000000008d45       0x20 output/nrfvm_main.c.o
+ .debug_macro   0x0000000000008d65      0x18e output/nrfvm_main.c.o
+ .debug_macro   0x0000000000008ef3       0x10 output/nrfvm_main.c.o
+ .debug_macro   0x0000000000008f03       0xb6 output/nrfvm_main.c.o
+ .debug_macro   0x0000000000008fb9       0x16 output/nrfvm_main.c.o
+ .debug_macro   0x0000000000008fcf      0x129 output/nrfvm_main.c.o
+ .debug_macro   0x00000000000090f8       0x8e output/nrfvm_main.c.o
+ .debug_macro   0x0000000000009186      0x35e output/nrfvm_main.c.o
+ .debug_macro   0x00000000000094e4       0x8e output/nrfvm_main.c.o
+ .debug_macro   0x0000000000009572      0x16d output/nrfvm_main.c.o
+ .debug_macro   0x00000000000096df       0x2b output/nrfvm_main.c.o
+ .debug_macro   0x000000000000970a       0x10 output/nrfvm_main.c.o
+ .debug_macro   0x000000000000971a       0x16 output/nrfvm_main.c.o
+ .debug_macro   0x0000000000009730       0x35 output/nrfvm_main.c.o
+ .debug_macro   0x0000000000009765       0x22 output/nrfvm_main.c.o
+ .debug_macro   0x0000000000009787       0x16 output/nrfvm_main.c.o
+ .debug_macro   0x000000000000979d       0x10 output/nrfvm_main.c.o
+ .debug_macro   0x00000000000097ad      0x142 output/nrfvm_vm.c.o
+ .debug_macro   0x00000000000098ef      0x10e output/nrfvm_vm.c.o
+ .debug_macro   0x00000000000099fd       0x86 output/nrfvm_vm.c.o
+ .debug_macro   0x0000000000009a83      0x28b output/nrfvm_lib.c.o
+ .debug_macro   0x0000000000009d0e      0x16d output/nrfvm_lib.c.o
+ .debug_macro   0x0000000000009e7b       0x10 output/nrfvm_lib.c.o
+ .debug_macro   0x0000000000009e8b       0x1c output/nrfvm_lib.c.o
+ .debug_macro   0x0000000000009ea7       0xdf output/nrfvm_system_nrf51.c.o
+
+.debug_line     0x0000000000000000     0x6b4a
+ .debug_line    0x0000000000000000     0x1d69 output/nrfvm_main.c.o
+ .debug_line    0x0000000000001d69     0x34f2 output/nrfvm_vm.c.o
+ .debug_line    0x000000000000525b     0x14be output/nrfvm_lib.c.o
+ .debug_line    0x0000000000006719      0x431 output/nrfvm_system_nrf51.c.o
+
+.debug_str      0x0000000000000000    0x3092e
+ .debug_str     0x0000000000000000    0x30361 output/nrfvm_main.c.o
+                                      0x30667 (size before relaxing)
+ .debug_str     0x0000000000030361      0x38e output/nrfvm_vm.c.o
+                                       0x6f30 (size before relaxing)
+ .debug_str     0x00000000000306ef      0x118 output/nrfvm_lib.c.o
+                                      0x301de (size before relaxing)
+ .debug_str     0x0000000000030807      0x127 output/nrfvm_system_nrf51.c.o
+                                      0x2a76e (size before relaxing)

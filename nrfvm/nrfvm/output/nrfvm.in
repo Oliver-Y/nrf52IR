@@ -1,0 +1,1 @@
+output/nrfvm_main.c.o output/nrfvm_vm.c.o output/nrfvm_lib.c.o output/nrfvm_gcc_startup_nrf51.S.o output/nrfvm_system_nrf51.c.o output/nrfvm_ble_flash.c.o 

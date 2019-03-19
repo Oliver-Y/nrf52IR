@@ -1,0 +1,237 @@
+;---------------
+; monitor
+;
+to ticktask
+let [c .recc res " p []]
+if :c = -1 [stop]
+make "p gather-packet :c
+if (count :p) < 3  [stop]
+dolist [c bf bf bl :p][monstr-add :c]
+end
+
+to monstr-add :c
+if :c = $cf [stop]
+if :c = 13 [stop]
+ifelse :c = 10
+  [print :monstr make "monstr "]
+  [make "monstr word :monstr char :c]]
+end
+
+to get-packet 
+let [type recc]
+if :type = -1 [output []]
+output gather-packet :type
+end
+
+to gather-packet :type
+let [len recc
+     packet se :type :len]
+repeat :len + 1 [make "packet se :packet recc]
+output :packet
+end
+
+
+;---------------
+;
+; comms
+;
+
+to dump :addr :len
+let [res []]
+if :len = 0 [make "len 1]
+make "len 16 * int (:len + 15) / 16
+repeat :len / 16
+ [make "res se hw :addr "-
+  make "l rl :addr 16
+  repeat 16 [make "res se :res hb first :l make "l bf :l]
+  print :res
+  make "addr :addr + 16]
+end
+
+to dumpheap :start :end
+let [w 0 l 0]
+loop 
+ [if not :start < :end [print hw :start stop]
+  make "w rw :start
+  make "l logand :w $ffff
+  ifelse :w < 10000 
+   [print se hw :start :l]
+   [print (se hw :start  :l "f) ]
+  make "start :start + 4 * :l]
+end
+
+to rw :addr
+let [l rl :addr 4]
+output (nth 0 :l) + (lsh nth 1 :l 8) + (lsh nth 2 :l 16) + (lsh nth 3 :l 24) 
+end
+
+to rl :addr :count
+let [res []]
+clearcom
+sendl (se $fe 
+          byte0 :addr byte1 :addr
+          byte2 :addr byte3 :addr
+          :count)
+output bf bf bl get-packet
+end
+
+to wl :addr :l
+let [count count :l]
+clearcom
+sendl (se $fd
+         byte0 :addr byte1 :addr
+         byte2 :addr byte3 :addr
+         :count
+         :l)
+ignore get-packet
+end
+
+to flash-write :dst :l
+loop
+ [if empty? :l [stop]
+  flash-write-chunk :dst first128 :l
+  make "l bf128 :l
+  make "dst :dst + 128]
+end
+
+to flash-write-chunk :dst :l
+clearcom
+make "l pad4 :l
+sendl (se $fc
+         byte0 :dst byte1 :dst
+         byte2 :dst byte3 :dst
+         count :l :l)
+if empty? get-packet [print se [flash write-chunk error] hw :dst stopme]
+end
+
+to pad4 :l
+loop
+ [if (remainder count :l 4) = 0 [output :l]
+  make "l se :l $ff]
+end
+
+to erp :addr
+clearcom
+sendl (se $fb
+          byte0 :addr byte1 :addr
+          byte2 :addr byte3 :addr)
+if empty? get-packet [print [flash erase error]]
+end
+
+to setsh :l
+sendl se $f7 :l
+end
+
+to check
+clearcom
+send $ff
+let [resp get-packet]
+if (count :resp) > 0 [if and (first :resp) = $ff (last :resp) = $ed [output true]]
+open-serial-port
+wait 15
+clearcom
+send $ff
+let [resp get-packet]
+if (count :resp) > 0 [if and (first :resp) = $ff (last :resp) = $ed [output true]]
+output false
+end
+
+to startvm
+send $fc
+end
+
+to stopvm
+send $f8
+end
+
+to io-state
+clearcom
+send $f6
+output (se recc recc recc recc16 recc16 recc16 recc16)
+end
+
+to first128 :l
+if (count :l) < 128 [output :l]
+let [res []]
+dotimes [i 128][make "res se :res nth :i :l]
+output :res
+end
+
+to bf128 :l
+if (count :l) < 128 [output []]
+repeat 128 [make "l bf :l]
+output :l
+end
+
+to recc16
+let [n recc + 256 * recc]
+if :n < 32768 [output :n]
+output :n - 65536
+end
+
+define recc32[][output recc + (lsh recc 8) + (lsh recc 16) + (lsh recc 24)]
+
+;---------------
+;
+; low level comms
+;
+
+to send :n
+.send :n
+end
+
+to recc
+output trecc 100
+end
+
+to trecc :n
+let [c 0 starttime timer]
+loop
+ [make "c .recc
+  if :c > -1 [output :c]
+  if (timer - :starttime) > :n [output -1]]
+end
+
+to open-serial-port
+make "monstr "
+let [os getproperty "os.name]
+if windows? [open-windows-port stop]
+if member? "Linux :os [open-linux-port stop]
+open-mac-port
+end
+
+to open-windows-port
+let [name portname $2341 $0043]
+if empty? :name [make "name portname $0403 $6015]
+if empty? :name [make "name portname $0D28 $0204]
+if empty? :name [stop]
+openport :name
+setportparams 19200 8 1 0
+end
+
+to open-mac-port
+let [port find-mac-port]
+if empty? :port [stop]
+openport :port
+ignore exec (word "|stty -f | :port "| 19200|)
+end
+
+to find-mac-port
+dolist [i files "/dev][if member? "cu.usbmodem :i [output :i]]
+dolist [i files "/dev][if member? "cu.usbserial :i [output :i]]
+output "
+end
+
+to open-linux-port
+let [port find-linux-port]
+if empty? :port [stop]
+openport :port
+ignore exec (word "|stty -F | :port "| raw -echo 19200|)
+end
+
+to find-linux-port
+dolist [i files "/dev][if member? "ttyACM0 :i [output :i]]
+output "
+end
+
+
