@@ -2,10 +2,11 @@
 
 #include "nordic_common.h"
 #include "nrf.h"
+#include "nrf_soc.h"
 #include "nrf_gpio.h"
 #include "nrf_nvic.h"
 #include "app_timer.h"
-#include "fstorage.h"
+#include "softdevice_handler.h"
 
 #include "microbit.h"
 #include "lib/vm.h"
@@ -15,9 +16,12 @@
 #define APP_TIMER_PRESCALER      0
 #define APP_TIMER_OP_QUEUE_SIZE  4
 
+#define MAJOR_VERSION 0
+#define MINOR_VERSION 1
+
 volatile uint32_t ticks = 0;
 
-static uint8_t fs_callback_flag;
+static uint8_t flash_busy;
 
 static void cfg_led_row(uint32_t pin)
 {
@@ -38,9 +42,32 @@ static void cfg_led_matrix(void)
   nrf_gpio_pin_set(4);
 }
 
-void send(uint8_t *buf, int len){
+void send(uint8_t *buf, int len)
+{
   int i;
   for(i=0;i<len;i++) uputc(*buf++);
+}
+
+void sendresponse(uint8_t resp)
+{
+  uint8_t buf[3];
+  buf[0] = resp;
+  buf[1] = 0;
+  buf[2] = 0xed;
+  send(buf,3);
+}
+
+void ping()
+{
+  nrf_gpio_pin_set(13);
+  nrf_gpio_pin_clear(4);
+  uint8_t buf[5];
+  buf[0] = 0xff;
+  buf[1] = 2;
+  buf[2] = MAJOR_VERSION;
+  buf[3] = MINOR_VERSION;
+  buf[4] = 0xed;
+  send(buf,5);
 }
 
 void ble_data_received(uint8_t *data, uint16_t length)
@@ -89,67 +116,45 @@ void TIMER1_IRQHandler()
   }
 }
 
-static void fs_evt_handler(fs_evt_t const * const evt, fs_ret_t result)
+void flash_word_write(uint32_t *p_address, uint32_t value)
 {
-  if (result == FS_SUCCESS) {
-    if (evt->id == FS_EVT_STORE) {
-      fs_callback_flag = 0;
-    }
+  flash_busy = 1;
+  sd_flash_write(p_address, (uint32_t*) &value, 1);
+  while(flash_busy == 1){power_manage();}
+}
+
+void flash_page_erase(uint32_t *p_page)
+{
+  flash_busy = 1;
+  sd_flash_page_erase(*p_page);
+  while(flash_busy == 1){power_manage();}
+}
+
+void writeflash(){
+  uint32_t addr = read32();
+  uint8_t count = ugetc();
+  uint8_t i;
+  for(i=0; i<count; i++) {
+    flash_word_write((uint32_t*)addr, read32());
   }
+  sendresponse(0xfc);
 }
 
-FS_REGISTER_CFG(fs_config_t fs_config) =
-{
-  .p_start_addr = (uint32_t*) 0x30000,
-  .callback = fs_evt_handler,
-  .num_pages = 32,
-  .priority = 0xfe
-};
-
-void flash_write(uint8_t page, uint32_t value)
-{
-  fs_ret_t ret = fs_store(&fs_config, fs_config.p_start_addr + page, &value, 1, NULL);
-  APP_ERROR_CHECK(ret);
-  while(fs_callback_flag == 1){power_manage();}
-}
-
-void flash_erase(uint8_t page)
-{
-  fs_callback_flag = 1;
-  fs_ret_t ret = fs_erase(&fs_config, fs_config.p_start_addr + page, 1, NULL);
-  APP_ERROR_CHECK(ret);
-}
-
-uint32_t flash_read(uint8_t page)
-{
-  return *(fs_config.p_start_addr + page);
-}
-
-void fstorage_init()
-{
-  fs_ret_t ret = fs_init();
-  APP_ERROR_CHECK(ret);
-}
-
-/* void dispatch(uint8_t c){ */
-  /* if(c==0xff) ping(); */
+void dispatch(uint8_t c){
+  if(c==0xff) ping();
   /* else if(c==0xfe) readmemory(); */
   /* else if(c==0xfd) writememory(); */
-  /* else if(c==0xfc) writeflash(); */
+  else if(c==0xfc) writeflash();
   /* else if(c==0xfb) eraseflash(); */
   /* else if(c==0xf8) runcc(); */
-/* } */
+}
 
-/* void writeflash(){ */
-  /* uint32_t addr = read32(); */
-  /* uint32_t count = ugetc(); */
-  /* uint32_t i; */
-  /* for(i=0;i<count;i+=4) { */
-      /* flash_word_write((uint32_t*)addr, read32()); */
-      /* addr+=4; */
-    /* } */
-  /* [> sendresponse(0xfc); <] */
-/* } */
+static void sys_evt_dispatch(uint32_t sys_evt)
+{
+  if (sys_evt == NRF_EVT_FLASH_OPERATION_SUCCESS) {
+    flash_busy = 0;
+  }
+}
 
 int main(void)
 {
@@ -166,24 +171,23 @@ int main(void)
   err_code = ble_begin();
   APP_ERROR_CHECK(err_code);
 
-  fstorage_init();
+  err_code = softdevice_sys_evt_handler_set(sys_evt_dispatch);
+  APP_ERROR_CHECK(err_code);
 
-  flash_erase(0);
-  static uint32_t data = 0x47414147;
-  flash_write(0, data);
-
-  uint32_t rdata = flash_read(0);
-  for (int i=0; i<4; i++) {
-    uputc(rdata >> (8 * i));
-  }
-  send("\r\n", 2);
+  uint32_t *addr = (uint32_t *) 0x30000;
+  uint32_t page = 0x30000 / 0x400;
+  uint32_t *p_page = &page;
+  uint32_t data = 0x31;
+  flash_page_erase(p_page);
+  flash_word_write(addr, data);
+  uputc(*addr);
 
   vm_stop();
 
   for (;;)
   {
     if (NRF_UART0->EVENTS_RXDRDY==1) {
-      uputc(ugetc());
+      dispatch(ugetc());
     }
   }
 }

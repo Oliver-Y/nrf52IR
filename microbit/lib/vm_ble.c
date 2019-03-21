@@ -197,12 +197,6 @@ void ble_evt_dispatch(ble_evt_t * p_ble_evt)
 	ble_advertising_on_ble_evt(p_ble_evt);
 }
 
-static void sys_evt_dispatch(uint32_t sys_evt)
-{
-  fs_sys_event_handler(sys_evt);
-  ble_advertising_on_sys_evt(sys_evt);
-}
-
 void ble_stack_init(void)
 {
   uint32_t err_code;
@@ -228,9 +222,6 @@ void ble_stack_init(void)
   APP_ERROR_CHECK(err_code);
 
   err_code = softdevice_ble_evt_handler_set(ble_evt_dispatch);
-  APP_ERROR_CHECK(err_code);
-
-  err_code = softdevice_sys_evt_handler_set(sys_evt_dispatch);
   APP_ERROR_CHECK(err_code);
 }
 
