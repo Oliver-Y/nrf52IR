@@ -106,9 +106,9 @@ FS_REGISTER_CFG(fs_config_t fs_config) =
   .priority = 0xfe
 };
 
-void flash_write(uint32_t* p_address, uint32_t value)
+void flash_write(uint8_t page, uint32_t value)
 {
-  fs_ret_t ret = fs_store(&fs_config, fs_config.p_start_addr, &value, 1, NULL);
+  fs_ret_t ret = fs_store(&fs_config, fs_config.p_start_addr + page, &value, 1, NULL);
   APP_ERROR_CHECK(ret);
   while(fs_callback_flag == 1){power_manage();}
 }
@@ -170,7 +170,7 @@ int main(void)
 
   flash_erase(0);
   static uint32_t data = 0x47414147;
-  flash_write(fs_config.p_start_addr, data);
+  flash_write(0, data);
 
   uint32_t rdata = flash_read(0);
   for (int i=0; i<4; i++) {
