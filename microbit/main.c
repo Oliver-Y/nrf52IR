@@ -24,6 +24,9 @@
 #define ROW1 13
 #define COL1 4
 
+#define OP_ONBUTTONA 0x80
+#define OP_ONBUTTONB 0x81
+
 uint8_t code[128];
 volatile uint32_t ticks = 0;
 
@@ -72,16 +75,16 @@ void timer_init()
 {
   NRF_TIMER1->MODE      = TIMER_MODE_MODE_Timer;
   NRF_TIMER1->BITMODE   = TIMER_BITMODE_BITMODE_16Bit;
-  NRF_TIMER1->PRESCALER = 2;
+  NRF_TIMER1->PRESCALER = 1;
   NRF_TIMER1->TASKS_CLEAR = 1;
   NRF_TIMER1->EVENTS_COMPARE[0] = 0;
-  NRF_TIMER1->EVENTS_COMPARE[1] = 0;
-  NRF_TIMER1->CC[0] = 4000;
-  NRF_TIMER1->CC[1] = 25000;
+  /* NRF_TIMER1->EVENTS_COMPARE[1] = 0; */
+  NRF_TIMER1->CC[0] = 8000;
+  /* NRF_TIMER1->CC[1] = 25000; */
   NRF_TIMER1->INTENSET = TIMER_INTENSET_COMPARE0_Enabled << TIMER_INTENSET_COMPARE0_Pos;
   NRF_TIMER1->SHORTS = (TIMER_SHORTS_COMPARE0_CLEAR_Enabled << TIMER_SHORTS_COMPARE0_CLEAR_Pos);
-  NRF_TIMER1->INTENSET = TIMER_INTENSET_COMPARE1_Enabled << TIMER_INTENSET_COMPARE1_Pos;
-  NRF_TIMER1->SHORTS = (TIMER_SHORTS_COMPARE1_CLEAR_Enabled << TIMER_SHORTS_COMPARE1_CLEAR_Pos);
+  /* NRF_TIMER1->INTENSET = TIMER_INTENSET_COMPARE1_Enabled << TIMER_INTENSET_COMPARE1_Pos; */
+  /* NRF_TIMER1->SHORTS = (TIMER_SHORTS_COMPARE1_CLEAR_Enabled << TIMER_SHORTS_COMPARE1_CLEAR_Pos); */
   sd_nvic_SetPriority(TIMER1_IRQn, 3);
   sd_nvic_EnableIRQ(TIMER1_IRQn);
   /* NVIC_EnableIRQ(TIMER1_IRQn); */
@@ -96,11 +99,11 @@ void TIMER1_IRQHandler()
     ticks = (ticks+1)&0x7fffffff;
     lib_ticker();
   }
-  if ((NRF_TIMER1->EVENTS_COMPARE[1] != 0) &&
-     ((NRF_TIMER1->INTENSET & TIMER_INTENSET_COMPARE1_Msk) != 0)) {
-    NRF_TIMER1->EVENTS_COMPARE[1] = 0;
-    vm_run();
-  }
+  /* if ((NRF_TIMER1->EVENTS_COMPARE[1] != 0) && */
+     /* ((NRF_TIMER1->INTENSET & TIMER_INTENSET_COMPARE1_Msk) != 0)) { */
+    /* NRF_TIMER1->EVENTS_COMPARE[1] = 0; */
+    /* vm_run(); */
+  /* } */
 }
 
 void flash_word_write(uint32_t *p_address, uint32_t value)
@@ -146,8 +149,14 @@ void writeflash(){
   uint8_t count = ugetc();
   uint32_t value;
   uint8_t i;
-  for(i=0; i<count; i+=4) {
-    value = read32();
+  for(i=0; i<count; i++) {
+    code[i] = ugetc();
+    /* value = read32(); */
+    /* flash_word_write((uint32_t*)addr, value); */
+    /* addr+=4; */
+  }
+  for (i=0; i<count; i+=4) {
+    value = (code[i+3]<<24)+(code[i+2]<<16)+(code[i+1]<<8)+code[i];
     flash_word_write((uint32_t*)addr, value);
     addr+=4;
   }
@@ -216,21 +225,20 @@ int main(void)
   nrf_gpio_pin_clear(ROW1);
   nrf_gpio_pin_set(COL1);
 
-  // Test flash write
-  uint32_t *addr = (uint32_t *) 0x30000;
-  uint32_t page = 0x30000 / 0x400;
-  uint32_t *p_page = &page;
-  uint32_t data = 0x31;
-  flash_page_erase(p_page);
-  flash_word_write(addr, data);
-  uputc(*addr);
-
   vm_stop();
 
+  uint32_t end = now() + 50;
   for (;;)
   {
-    if (NRF_UART0->EVENTS_RXDRDY==1) {
-      dispatch(ugetc());
+    while (now()<end) {
+      if (NRF_UART0->EVENTS_RXDRDY==1) {
+        dispatch(ugetc());
+      }
+      if(btna_evt){btna_evt=0; vm_run_toggle(OP_ONBUTTONA);}
+      if(btnb_evt){btnb_evt=0; vm_run_toggle(OP_ONBUTTONB);}
     }
+    lib_poll();
+    vm_run();
+    end+=50;
   }
 }
