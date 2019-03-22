@@ -32,10 +32,11 @@ SRC_FILES += \
   $(SDK_ROOT)/components/toolchain/gcc/gcc_startup_nrf51.S \
   $(SDK_ROOT)/components/toolchain/system_nrf51.c \
   $(SDK_ROOT)/components/softdevice/common/softdevice_handler/softdevice_handler.c \
-  $(PROJ_DIR)/main.c \
+	$(PROJ_DIR)/lib/lib.c \
   $(PROJ_DIR)/lib/vm.c \
   $(PROJ_DIR)/lib/vm_ble.c \
 	$(PROJ_DIR)/lib/vm_uart.c \
+  $(PROJ_DIR)/main.c \
 
 # Include folders common to all targets
 INC_FOLDERS += \

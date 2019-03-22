@@ -21,6 +21,9 @@ int32_t eoltype;
 uint8_t yieldnow;
 int32_t boxes[20];
 
+extern void(*prims[])();
+extern void(*libprims[])();
+
 void vm_run(void)
 {
     int32_t *stack = stacks;

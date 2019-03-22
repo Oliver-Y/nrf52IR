@@ -10,13 +10,16 @@ void rsend(uint8_t);
 
 int rand(void);
 
-extern void(*prims[])();
-extern void(*libprims[])();
 uint32_t now(void);
 
 void vm(void);
 void vm_run(void);
 void vm_stop(void);
+void vm_runcc(uint32_t);
+int32_t vm_pop(void);
+int32_t vm_pop_raw(void);
+void vm_push(int32_t);
+void vm_push_float(float);
 void resume(int32_t*);
 void eol_repeat(void);
 void eol_list(void);
