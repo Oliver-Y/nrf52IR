@@ -211,28 +211,21 @@ void runcc(){
   vm_runcc((uint32_t)code+2);
 }
 
-void ble_dispatch(uint8_t c)
+void pollcmd()
 {
-  ble_comms = 1;
-  if(c==0xff) ping();
-  else if(c==0xfe) readmemory();
-  else if(c==0xfd) writememory();
-  else if(c==0xfc) writeflash();
-  else if(c==0xfb) eraseflash();
-  else if(c==0xf8) runcc();
-  ble_comms = 0;
+  vm_stop();
+  send(poll_sensors(), 20);
 }
 
 void dispatch(uint8_t c)
 {
-  usb_comms = 1;
   if(c==0xff) ping();
   else if(c==0xfe) readmemory();
   else if(c==0xfd) writememory();
   else if(c==0xfc) writeflash();
   else if(c==0xfb) eraseflash();
   else if(c==0xf8) runcc();
-  usb_comms = 0;
+  else if(c==0xf5) pollcmd();
 }
 
 static void sys_evt_dispatch(uint32_t sys_evt)
@@ -273,10 +266,14 @@ int main(void)
   {
     while (now()<end) {
       if (NRF_UART0->EVENTS_RXDRDY==1) {
+        usb_comms = 1;
         dispatch(ugetc());
+        usb_comms = 0;
       }
       if (ble_uart_available()) {
-        ble_dispatch(ble_ugetc());
+        ble_comms = 1;
+        dispatch(ble_ugetc());
+        ble_comms = 0;
       }
       if(btna_evt){btna_evt=0; vm_run_toggle(OP_ONBUTTONA);}
       if(btnb_evt){btnb_evt=0; vm_run_toggle(OP_ONBUTTONB);}
