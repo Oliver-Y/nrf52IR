@@ -23,6 +23,9 @@ void services_init();
 void advertising_init(void);
 uint32_t ble_begin(void);
 uint32_t ble_send_data(uint8_t *array, uint8_t length);
-void ble_init(void (*cb)(uint8_t *data, uint16_t length));
+void ble_init();
+uint8_t ble_ugetc(void);
+uint8_t ble_uart_available(void);
+uint8_t ble_uart_buff_length(void);
 
 #endif

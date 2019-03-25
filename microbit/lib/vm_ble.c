@@ -13,6 +13,8 @@
 
 #include "microbit.h"
 
+#include "vm_uart.h"
+
 #define APP_FEATURE_NOT_SUPPORTED       BLE_GATT_STATUS_ATTERR_APP_BEGIN + 2
 
 #define CENTRAL_LINK_COUNT 0
@@ -36,12 +38,15 @@
 #define APP_TIMER_PRESCALER      0
 #define APP_TIMER_OP_QUEUE_SIZE  4
 
-void (*ble_data_callback)(uint8_t *data, uint16_t length);
-
 ble_nus_t m_nus;
 uint16_t  m_conn_handle = BLE_CONN_HANDLE_INVALID;
 
 ble_uuid_t  m_adv_uuids[] = {{BLE_UUID_NUS_SERVICE, NUS_SERVICE_UUID_TYPE}};
+
+uint8_t* rxBuffer;
+uint8_t rxBufferHead;
+uint8_t rxBufferTail;
+uint8_t rxBufferSize = 255;
 
 void on_adv_evt(ble_adv_evt_t ble_adv_evt)
 {
@@ -249,9 +254,67 @@ void gap_params_init(void)
 	APP_ERROR_CHECK(err_code);
 }
 
+uint8_t ble_uart_available()
+{
+  return (rxBufferTail != rxBufferHead) ? 1 : 0;
+}
+
+uint8_t ble_uart_buff_length()
+{
+  if (rxBufferHead < rxBufferTail) {
+    return rxBufferHead + (rxBufferSize - rxBufferTail);
+  }
+  return rxBufferHead - rxBufferTail;
+}
+
+uint8_t ble_ugetc()
+{
+  if (!ble_uart_available()) return 0;
+  uint8_t c = rxBuffer[rxBufferTail];
+  rxBufferTail = (rxBufferTail + 1) % rxBufferSize;
+  return c;
+}
+
+uint32_t ble_send_data(uint8_t *array, uint8_t length)
+{
+  return ble_nus_string_send(&m_nus, array, length);
+}
+
 void nus_data_handler(ble_nus_t * p_nus, uint8_t * p_data, uint16_t length)
 {
-  (*ble_data_callback)(p_data, length);
+  /* (*ble_data_callback)(p_data, length); */
+  uputc('A');
+  for (int i=0; i<length; i++) {
+    int newHead = (rxBufferHead + 1) % rxBufferSize;
+    if (newHead != rxBufferTail) {
+      uint8_t c = p_data[i];
+      rxBuffer[rxBufferHead] = c;
+      rxBufferHead = newHead;
+    } else {
+      // Buffer full
+    }
+  }
+  /* ble_send_data(&rxBufferHead, 1); */
+  /* ble_send_data(&rxBufferTail, 1); */
+  /* uint8_t size = ble_uart_buff_length(); */
+  /* ble_send_data(&size, 1); */
+  /* for (int i=0; i<ble_uart_buff_length(); i+=20) { */
+    /* if (ble_uart_buff_length() - i < 20) { */
+      /* ble_send_data(rxBuffer+rxBufferTail+i, ble_uart_buff_length() - i); */
+    /* } else { */
+      /* if ((rxBufferTail + i) > rxBufferSize) { */
+        /* ble_send_data(rxBuffer+((rxBufferTail + i) - rxBufferSize), 20); */
+      /* } */
+      /* if (rxBufferSize - (rxBufferTail + i) < 20) { */
+        /* ble_send_data(rxBuffer+rxBufferTail+i, rxBufferSize - (rxBufferTail + i)); */
+        /* ble_send_data(rxBuffer, 20 - (rxBufferSize - (rxBufferTail + i))); */
+      /* } else { */
+        /* ble_send_data(rxBuffer+rxBufferTail+i, 20); */
+      /* } */
+    /* [> } <] */
+  /* } */
+  /* ble_send_data(&rxBufferHead, 1); */
+  /* ble_send_data(&rxBufferTail, 1); */
 }
 
 void services_init()
@@ -300,17 +363,15 @@ uint32_t ble_begin(void)
   return err_code;
 }
 
-uint32_t ble_send_data(uint8_t *array, uint8_t length)
+void ble_init()
 {
-  return ble_nus_string_send(&m_nus, array, length);
-}
-
-void ble_init(void (*cb)(uint8_t *data, uint16_t length))
-{
-  ble_data_callback = cb;
   ble_stack_init();
 	gap_params_init();
 	services_init();
   advertising_init();
 	conn_params_init();
+
+  rxBuffer = (uint8_t *)malloc(rxBufferSize);
+  rxBufferHead = 0;
+  rxBufferTail = 0;
 }

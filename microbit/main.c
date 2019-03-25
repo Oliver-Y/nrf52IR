@@ -32,10 +32,39 @@ volatile uint32_t ticks = 0;
 
 static uint8_t flash_busy;
 
+uint8_t ble_comms = 0;
+uint8_t usb_comms = 0;
+
 void send(uint8_t *buf, int len)
 {
   int i;
-  for(i=0;i<len;i++) uputc(*buf++);
+  if (usb_comms) {
+    for(i=0;i<len;i++) uputc(*buf++);
+  } else if (ble_comms) {
+    for (i=0; i<len; i+=20) {
+      if (len-i < 20) {
+        ble_send_data(buf+i, len-i);
+      } else {
+        ble_send_data(buf+i, 20);
+      }
+    }
+  }
+}
+
+uint8_t xgetc()
+{
+  if (usb_comms) return ugetc();
+  else if (ble_comms) return ble_ugetc();
+  return 0;
+}
+
+uint32_t read32(void)
+{
+  uint8_t c1 = xgetc();
+  uint8_t c2 = xgetc();
+  uint8_t c3 = xgetc();
+  uint8_t c4 = xgetc();
+  return (c4<<24)+(c3<<16)+(c2<<8)+c1;
 }
 
 void sendresponse(uint8_t resp)
@@ -44,7 +73,11 @@ void sendresponse(uint8_t resp)
   buf[0] = resp;
   buf[1] = 0;
   buf[2] = 0xed;
-  send(buf,3);
+  if (usb_comms) {
+    send(buf,3);
+  } else if (ble_comms) {
+    ble_send_data((uint8_t *)buf, 3);
+  }
 }
 
 void ping()
@@ -58,17 +91,6 @@ void ping()
   buf[3] = MINOR_VERSION;
   buf[4] = 0xed;
   send(buf,5);
-}
-
-void ble_data_received(uint8_t *data, uint16_t length)
-{
-  /* vm_uart_print(data, length); */
-}
-
-void uart_data_handle(uint8_t *data, uint16_t length)
-{
-  uint32_t err_code = ble_send_data(data, length);
-  APP_ERROR_CHECK(err_code);
 }
 
 void timer_init()
@@ -122,38 +144,42 @@ void flash_page_erase(uint32_t *p_page)
 
 void readmemory(){
   uint32_t addr = read32();
-  uint32_t count = ugetc();
+  uint32_t count = xgetc();
   uint32_t i;
-  uputc(0xfe);
-  uputc(count);
-  for(i=0;i<count;i++) uputc(*((uint8_t*) addr++));
-  uputc(0xed);
+  code[0] = 0xfe;
+  code[1] = count;
+  for(i=2; i<count+2; i++) {
+    code[i] = *((uint8_t*) addr++);
+  }
+  code[i] = 0xed;
+  send((uint8_t *)code, i+1);
 }
 
 void writememory(){
   uint32_t addr = read32();
-  uint32_t count = ugetc();
+  uint32_t count = xgetc();
   uint32_t i;
-  uputc(0xfd);
-  uputc(count);
-  for(i=0;i<count;i++){
-        uint8_t c = ugetc();
-        *((uint8_t*) addr++)=c;
-        uputc(c);
-    }
-  uputc(0xed);
+  code[0] = 0xfd;
+  code[1] = count;
+  for (i=2; i<count+2; i++) {
+    uint8_t c = xgetc();
+    *((uint8_t*) addr++)=c;
+    code[i] = c;
+  }
+  code[i] = 0xed;
+  send((uint8_t *)code, i+1);
 }
 
 void writeflash(){
   uint32_t addr = read32();
-  uint8_t count = ugetc();
+  uint8_t count = xgetc();
   uint32_t value;
   uint8_t i;
+  if (ble_comms) {
+    while (ble_uart_buff_length() < count) {power_manage();}
+  }
   for(i=0; i<count; i++) {
-    code[i] = ugetc();
-    /* value = read32(); */
-    /* flash_word_write((uint32_t*)addr, value); */
-    /* addr+=4; */
+    code[i] = xgetc();
   }
   for (i=0; i<count; i+=4) {
     value = (code[i+3]<<24)+(code[i+2]<<16)+(code[i+1]<<8)+code[i];
@@ -172,25 +198,41 @@ void eraseflash(){
 }
 
 void runcc(){
-  uint32_t count = ugetc();
-  uputc(0xf8);
-  uputc(count);
-  for(uint8_t i=0;i<count;i++){
-      uint8_t c = ugetc();
-      code[i] = c;
-      uputc(c);
-    }
-  uputc(0xed);
-  vm_runcc((uint32_t)code);
+  uint8_t i;
+  uint32_t count = xgetc();
+  code[0] = 0xf8;
+  code[1] = count;
+  for (i=2; i<count+2; i++){
+    uint8_t c = xgetc();
+    code[i] = c;
+  }
+  code[i] = 0xed;
+  send((uint8_t *)code, i+1);
+  vm_runcc((uint32_t)code+2);
 }
 
-void dispatch(uint8_t c){
+void ble_dispatch(uint8_t c)
+{
+  ble_comms = 1;
   if(c==0xff) ping();
   else if(c==0xfe) readmemory();
   else if(c==0xfd) writememory();
   else if(c==0xfc) writeflash();
   else if(c==0xfb) eraseflash();
   else if(c==0xf8) runcc();
+  ble_comms = 0;
+}
+
+void dispatch(uint8_t c)
+{
+  usb_comms = 1;
+  if(c==0xff) ping();
+  else if(c==0xfe) readmemory();
+  else if(c==0xfd) writememory();
+  else if(c==0xfc) writeflash();
+  else if(c==0xfb) eraseflash();
+  else if(c==0xf8) runcc();
+  usb_comms = 0;
 }
 
 static void sys_evt_dispatch(uint32_t sys_evt)
@@ -211,8 +253,7 @@ int main(void)
   lib_init();
   timer_init();
 
-  ble_init(ble_data_received);
-
+  ble_init();
   err_code = ble_begin();
   APP_ERROR_CHECK(err_code);
 
@@ -233,6 +274,9 @@ int main(void)
     while (now()<end) {
       if (NRF_UART0->EVENTS_RXDRDY==1) {
         dispatch(ugetc());
+      }
+      if (ble_uart_available()) {
+        ble_dispatch(ble_ugetc());
       }
       if(btna_evt){btna_evt=0; vm_run_toggle(OP_ONBUTTONA);}
       if(btnb_evt){btnb_evt=0; vm_run_toggle(OP_ONBUTTONB);}

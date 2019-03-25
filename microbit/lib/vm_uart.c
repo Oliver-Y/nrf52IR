@@ -70,15 +70,6 @@ void uputc(uint8_t c)
   NRF_UART0->EVENTS_TXDRDY = 0;
 }
 
-uint32_t read32(void)
-{
-  uint8_t c1 = ugetc();
-  uint8_t c2 = ugetc();
-  uint8_t c3 = ugetc();
-  uint8_t c4 = ugetc();
-  return (c4<<24)+(c3<<16)+(c2<<8)+c1;
-}
-
 /* uint32_t vm_uart_put(uint8_t c) */
 /* { */
   /* return app_uart_put(c); */
