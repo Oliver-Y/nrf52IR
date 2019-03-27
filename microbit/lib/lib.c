@@ -6,18 +6,18 @@
 #include "vm.h"
 #include "vm_uart.h"
 
-char prbuf[128];
+char prbuf[64];
 char* prptr;
 
 #define BTNA_PIN 17
 #define BTNB_PIN 26
 
-int rowpins[] = {13,14,15};
-int colpins[] = {4,5,6,7,8,9,10,11,12};
+const int rowpins[] = {13,14,15};
+const int colpins[] = {4,5,6,7,8,9,10,11,12};
 int btna_evt, last_btna=0;
 int btnb_evt, last_btnb=0;
 
-int leddecode[] = {
+const int leddecode[] = {
   0,1, 1,8, 0,2, 1,16, 0,4,
   2,8, 2,16, 2,32, 2,64, 2,128,
   1,2, 0,256, 1,4, 2,256, 1,1,
@@ -27,6 +27,17 @@ int leddecode[] = {
 
 uint16_t matrix[3];
 int thisrow = 0;
+
+uint8_t *sensor_data[20];
+
+uint8_t* poll_sensors()
+{
+  *sensor_data[0] = 0xf5;
+  *sensor_data[1] = btna_evt;
+  *sensor_data[2] = btnb_evt;
+  *sensor_data[3] = 0xed;
+  return *sensor_data;
+}
 
 static void cfg_led(uint32_t pin)
 {
@@ -125,7 +136,7 @@ void prim_timer(){
 
 void prim_buttona(){vm_push(nrf_gpio_pin_read(BTNA_PIN)?0:1);}
 
-void(*libprims[])() = {
+void(*const libprims[])() = {
   prim_print, prim_resett, prim_timer,
   prim_buttona,
   prim_doton, prim_dotoff

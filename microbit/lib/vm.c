@@ -5,8 +5,8 @@
 
 #define procs 0x30000
 #define code ((uint8_t*)procs)
-#define NSTACKS 10
-#define STACKLEN 64
+#define NSTACKS 16
+#define STACKLEN 48
 int32_t stacks[NSTACKS*STACKLEN];
 
 #define OP_ONSTART 5
@@ -21,8 +21,8 @@ int32_t eoltype;
 uint8_t yieldnow;
 int32_t boxes[20];
 
-extern void(*prims[])();
-extern void(*libprims[])();
+void(*const prims[])();
+extern void(*const libprims[])();
 
 void vm_run(void)
 {
@@ -431,10 +431,10 @@ int32_t vm_pop(){
 
 void vm_push(int32_t x){*sp++=x*100;}
 int32_t vm_pop_raw(){return *--sp;}
-void vm_push_float(float n){*sp++=(int32_t)(n*100);} 
+void vm_push_float(float n){*sp++=(int32_t)(n*100);}
 float vm_pop_float(){return ((float)*--sp)/100;}
 
-void(*prims[])() = {
+void(*const prims[])() = {
     eval_done,
     eval_byte, eval_num,
     eval_list, eval_eol,
