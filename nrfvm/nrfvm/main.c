@@ -2,12 +2,10 @@
 #include <stdint.h>
 #include "nrf_gpio.h"
 #include "nrf_delay.h"
+#include "nrf_nvic.h"
 
 #define MAJOR_VERSION 0
 #define MINOR_VERSION 1
-
-#define ROW1 13
-#define COL1 4
 
 #define OP_ONBUTTONA 0x80
 #define OP_ONBUTTONB 0x81
@@ -15,6 +13,16 @@
 uint8_t code[128];
 volatile uint32_t ticks = 0;
 extern int btna_evt, btnb_evt;
+
+uint8_t blebuf[64];
+volatile uint8_t ble_inptr = 0;
+uint8_t ble_outptr = 0;
+
+void print(int32_t);
+void prh(unsigned int);
+void prs(char*);
+
+void ble_init(void (*)(uint8_t*,uint16_t));
 
 void vm_runcc(uint32_t);
 void vm_run(void);
@@ -29,15 +37,38 @@ void uart_init(void);
 void uputc(uint8_t);
 uint8_t ugetc(void);
 bool uavail(void);
-void flash_word_write(uint32_t*, uint32_t);
+
+void bleputc(uint8_t);
+uint8_t blegetc(void);
+
+void ble_send_data(uint8_t*, uint8_t);
+
+void flash_init(void);
+void flash_word_write(uint32_t*, uint32_t*, uint32_t);
 void flash_page_erase(uint32_t*);
+
 uint32_t now(void);
 
 void timer_init(void);
 
+int usb_comms=0, ble_comms=0;
+
+void xputc(uint8_t c){
+  if(usb_comms) uputc(c);
+  else if(ble_comms) bleputc(c);
+}
+
+uint8_t xgetc(){
+  if(usb_comms) return ugetc();
+  else if(ble_comms){return blegetc();}
+  return 0;
+}
+
 void send(uint8_t *buf, int len){
-  int i;
-  for(i=0;i<len;i++) uputc(*buf++);
+  if(usb_comms){
+    int i;
+    for(i=0;i<len;i++) uputc(*buf++);
+  } else if(ble_comms) ble_send_data(buf, len);
 }
 
 void sendresponse(uint8_t resp){
@@ -49,10 +80,10 @@ void sendresponse(uint8_t resp){
 }
 
 uint32_t read32(){
-  uint8_t c1 = ugetc();
-  uint8_t c2 = ugetc();
-  uint8_t c3 = ugetc();
-  uint8_t c4 = ugetc();
+  uint8_t c1 = xgetc();
+  uint8_t c2 = xgetc();
+  uint8_t c3 = xgetc();
+  uint8_t c4 = xgetc();
   return (c4<<24)+(c3<<16)+(c2<<8)+c1;
 }
 
@@ -93,12 +124,13 @@ void writememory(){
 
 void writeflash(){
   uint32_t addr = read32();
-  uint32_t count = ugetc();
+  uint32_t count = xgetc();
   uint32_t i;
-  for(i=0;i<count;i+=4) {
-    flash_word_write((uint32_t*)addr, read32());
-    addr+=4;
+  for(i=0;i<count;i++){
+    uint8_t c = xgetc();
+    code[i] = c;
   }
+  flash_word_write((uint32_t*)addr, (uint32_t*)code, count);
   sendresponse(0xfc);
 }
 
@@ -109,21 +141,15 @@ void eraseflash(){
 }
 
 void runcc(){
-  uint32_t count = ugetc();
-  uputc(0xf8);
-  uputc(count);
-  for(uint8_t i=0;i<count;i++){
-    uint8_t c = ugetc();
+  int i;
+  uint32_t count = xgetc();
+  for(i=0;i<count;i++){
+    uint8_t c = xgetc();
     code[i] = c;
-    uputc(c);
   }
-  uputc(0xed);
+  sendresponse(0xf8);
   vm_runcc((uint32_t)code);
 }
-
-uint8_t rand8(void);
-
-
 
 void dispatch(uint8_t c){
   if(c==0xff) ping();
@@ -134,21 +160,46 @@ void dispatch(uint8_t c){
   else if(c==0xf8) runcc();
 }
 
+void ble_data_received(uint8_t *data, uint16_t length){
+  int i;
+//  print(length*100);
+  for(i=0;i<length;i++){
+    uint8_t newptr = ble_inptr;
+    blebuf[ble_inptr] = data[i];
+    newptr++; newptr%=64;
+    if(newptr==ble_outptr) return;
+    else ble_inptr = newptr;
+  }
+}
+
+void bleputc(uint8_t c){
+  ble_send_data(&c, 1);
+}
+
+uint8_t blegetc(){
+  uint8_t res;
+  while(ble_inptr==ble_outptr);
+  res = blebuf[ble_outptr++];
+  ble_outptr%=64;
+  return res;
+}
+
+uint8_t bleavail(){return (ble_inptr==ble_outptr)?0:1;}
+
 int main(void){
   uart_init();
   lib_init();
+  ble_init(ble_data_received);
+  flash_init();
   timer_init();
-  nrf_gpio_pin_set(ROW1);
-  nrf_gpio_pin_clear(COL1);
-  nrf_delay_ms(500);
-  nrf_gpio_pin_clear(ROW1);
-  nrf_gpio_pin_set(COL1);
+  prs("starting");
   vm_stop();
 
   uint32_t end = now()+50;
   while (1){
     while(now()<end){
-      if(uavail())dispatch(ugetc());
+      if(uavail()){usb_comms=1; dispatch(ugetc()); usb_comms=0;};
+      if(bleavail()){ble_comms=1; dispatch(blegetc()); ble_comms=0;};
       if(btna_evt){btna_evt=0; vm_run_toggle(OP_ONBUTTONA);}
       if(btnb_evt){btnb_evt=0; vm_run_toggle(OP_ONBUTTONB);}
     }
@@ -158,77 +209,4 @@ int main(void){
   }
 }
 
-
-
-#define TX_PIN_NUMBER 24
-#define RX_PIN_NUMBER 25
-
-void uart_init(){
-  nrf_gpio_cfg_output(TX_PIN_NUMBER);
-  nrf_gpio_cfg_input(RX_PIN_NUMBER, NRF_GPIO_PIN_NOPULL);  
-
-  NRF_UART0->PSELTXD = TX_PIN_NUMBER;
-  NRF_UART0->PSELRXD = RX_PIN_NUMBER;
-
-  NRF_UART0->BAUDRATE         = (UART_BAUDRATE_BAUDRATE_Baud19200 << UART_BAUDRATE_BAUDRATE_Pos);
-  NRF_UART0->ENABLE           = (UART_ENABLE_ENABLE_Enabled << UART_ENABLE_ENABLE_Pos);
-  NRF_UART0->TASKS_STARTTX    = 1;
-  NRF_UART0->TASKS_STARTRX    = 1;
-  NRF_UART0->EVENTS_RXDRDY    = 0;
-}
-
-uint8_t ugetc(void)
-{
-  while(NRF_UART0->EVENTS_RXDRDY!=1){} 
-  NRF_UART0->EVENTS_RXDRDY=0;
-  return (uint8_t)NRF_UART0->RXD;
-}
-
-void uputc(uint8_t c){
-  NRF_UART0->TXD = c;
-  while (NRF_UART0->EVENTS_TXDRDY!=1){}
-  NRF_UART0->EVENTS_TXDRDY=0;
-}
-
-bool uavail(){return NRF_UART0->EVENTS_RXDRDY==1;}
-
-void timer_init(){
-  NRF_TIMER1->MODE      = TIMER_MODE_MODE_Timer;
-  NRF_TIMER1->BITMODE   = TIMER_BITMODE_BITMODE_16Bit;
-  NRF_TIMER1->PRESCALER = 0;
-  NRF_TIMER1->TASKS_CLEAR = 1;
-  NRF_TIMER1->EVENTS_COMPARE[0] = 0;
-  NRF_TIMER1->CC[0] = 16000;
-  NRF_TIMER1->INTENSET = TIMER_INTENSET_COMPARE0_Enabled << TIMER_INTENSET_COMPARE0_Pos;
-  NRF_TIMER1->SHORTS = (TIMER_SHORTS_COMPARE0_CLEAR_Enabled << TIMER_SHORTS_COMPARE0_CLEAR_Pos);
-  NVIC_EnableIRQ(TIMER1_IRQn);
-  NRF_TIMER1->TASKS_START = 1;
-}
-
-void TIMER1_IRQHandler(){
-  NRF_TIMER1->EVENTS_COMPARE[0] = 0;
-  ticks = (ticks+1)&0x7fffffff;
-  lib_ticker();
-}
-
-void flash_word_write(uint32_t* p_address, uint32_t value){
-  NRF_NVMC->CONFIG = (NVMC_CONFIG_WEN_Wen << NVMC_CONFIG_WEN_Pos);
-  while (NRF_NVMC->READY == NVMC_READY_READY_Busy);
-  *p_address = value;
-  while (NRF_NVMC->READY == NVMC_READY_READY_Busy);
-  NRF_NVMC->CONFIG = (NVMC_CONFIG_WEN_Ren << NVMC_CONFIG_WEN_Pos);
-  while (NRF_NVMC->READY == NVMC_READY_READY_Busy);
-}
-
-void flash_page_erase(uint32_t* p_page){
-  NRF_NVMC->CONFIG = (NVMC_CONFIG_WEN_Een << NVMC_CONFIG_WEN_Pos);
-  while (NRF_NVMC->READY == NVMC_READY_READY_Busy);
-  NRF_NVMC->ERASEPAGE = (uint32_t)p_page;
-  while (NRF_NVMC->READY == NVMC_READY_READY_Busy);
-  NRF_NVMC->CONFIG = (NVMC_CONFIG_WEN_Ren << NVMC_CONFIG_WEN_Pos);
-  while (NRF_NVMC->READY == NVMC_READY_READY_Busy);
-}
-
-
-uint32_t now(){return ticks;}
 

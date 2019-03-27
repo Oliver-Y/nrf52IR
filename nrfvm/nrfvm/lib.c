@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include "nrf_gpio.h"
 
-char prbuf[128];
+char prbuf[64];
 char* prptr;
 
 #define BTNA_PIN 17
@@ -16,16 +16,16 @@ void vm_push_float(float);
 void vm_push(int32_t);
 uint32_t now(void);
 
-
+void ble_send_data(uint8_t*, uint8_t);
 void print(int32_t);
 
-int rowpins[] = {13,14,15};
-int colpins[] = {4,5,6,7,8,9,10,11,12};
+const int rowpins[] = {13,14,15};
+const int colpins[] = {4,5,6,7,8,9,10,11,12};
 int btna_evt, last_btna=0;
 int btnb_evt, last_btnb=0;
 
 
-int leddecode[] = {
+const int leddecode[] = {
   0,1, 1,8, 0,2, 1,16, 0,4,
   2,8, 2,16, 2,32, 2,64, 2,128,
   1,2, 0,256, 1,4, 2,256, 1,1,
@@ -105,10 +105,21 @@ void printnum(int32_t n){
   if(d2) prptr+= sprintf(prptr,"%d",(int)d2);
 }
 
+void bleprint(int32_t c){
+  prptr = &prbuf[2]; 
+  printnum(c); 
+  prbuf[0] = 0xf0;
+  prbuf[1] = strlen(&prbuf[2]);
+  *prptr = 0xed;
+  ble_send_data((uint8_t*)prbuf, prbuf[1]+3);
+}
+
 void print(int32_t c){prptr = prbuf; printnum(c); sprintf(prptr,"\n"); sendprbuf();}
-
-
 void prim_print(){print(vm_pop_raw());}
+void prim_bleprint(){bleprint(vm_pop_raw());}
+
+void prh(unsigned int n){prptr = prbuf; sprintf(prptr,"%08x\n", n); sendprbuf();}
+void prs(char *s){prptr = prbuf; sprintf(prptr,"%s\n", s); sendprbuf();}
 
 int32_t t0;
 
@@ -124,8 +135,10 @@ void prim_timer(){
 
 void prim_buttona(){vm_push(nrf_gpio_pin_read(BTNA_PIN)?0:1);}
 
-void(*libprims[])() = {
+
+void(* const libprims[])() = {
   prim_print, prim_resett, prim_timer,
   prim_buttona,
-  prim_doton, prim_dotoff
+  prim_doton, prim_dotoff,
+  prim_bleprint, 
 };

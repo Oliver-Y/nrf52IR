@@ -8,14 +8,31 @@ PROJ_DIR := .
 $(OUTPUT_DIRECTORY)/nrfvm.out: \
   LINKER_SCRIPT  := link.ld
 
+#  $(SDK_ROOT)/components/ble/common/ble_conn_params.c \
+
 # Source files common to all targets
 SRC_FILES += \
   $(PROJ_DIR)/main.c \
+  $(PROJ_DIR)/nrf51.c \
   $(PROJ_DIR)/vm.c \
   $(PROJ_DIR)/lib.c \
+  $(PROJ_DIR)/ble.c \
   $(SDK_ROOT)/components/toolchain/gcc/gcc_startup_nrf51.S \
   $(SDK_ROOT)/components/toolchain/system_nrf51.c \
   $(SDK_ROOT)/components/drivers_nrf/ble_flash/ble_flash.c \
+  $(SDK_ROOT)/components/drivers_nrf/clock/nrf_drv_clock.c \
+  $(SDK_ROOT)/components/drivers_nrf/common/nrf_drv_common.c \
+  $(SDK_ROOT)/components/softdevice/common/softdevice_handler/softdevice_handler.c \
+  $(SDK_ROOT)/components/libraries/timer/app_timer.c \
+  $(SDK_ROOT)/components/libraries/util/app_util_platform.c \
+  $(SDK_ROOT)/components/libraries/util/app_error.c \
+  $(SDK_ROOT)/components/libraries/util/app_error_weak.c \
+	$(SDK_ROOT)/components/libraries/fstorage/fstorage.c \
+  $(SDK_ROOT)/components/ble/common/ble_conn_params.c \
+  $(SDK_ROOT)/components/ble/common/ble_srv_common.c \
+  $(SDK_ROOT)/components/ble/common/ble_advdata.c \
+  $(SDK_ROOT)/components/ble/ble_advertising/ble_advertising.c \
+	$(SDK_ROOT)/components/ble/ble_services/ble_nus/ble_nus.c \
 
 # Include folders common to all targets
 INC_FOLDERS += \
@@ -23,26 +40,42 @@ INC_FOLDERS += \
   $(SDK_ROOT)/components/toolchain/cmsis/include \
   $(SDK_ROOT)/components/drivers_nrf/hal \
   $(SDK_ROOT)/components/drivers_nrf/delay \
-  $(SDK_ROOT)/components/drivers_nrf/nrf_soc_nosd \
   $(SDK_ROOT)/components/drivers_nrf/ble_flash \
+  $(SDK_ROOT)/components/drivers_nrf/clock \
+  $(SDK_ROOT)/components/drivers_nrf/common \
+  $(SDK_ROOT)/components/libraries/timer \
   $(SDK_ROOT)/components/libraries/util \
+  $(SDK_ROOT)/components/libraries/log \
+  $(SDK_ROOT)/components/libraries/log/src \
+  $(SDK_ROOT)/components/libraries/fstorage \
+  $(SDK_ROOT)/components/libraries/experimental_section_vars \
   $(SDK_ROOT)/components/toolchain \
+  $(SDK_ROOT)/components/ble/common \
+  $(SDK_ROOT)/components/ble/ble_advertising \
+  $(SDK_ROOT)/components/ble/ble_services/ble_nus \
   $(SDK_ROOT)/components/device \
+  $(SDK_ROOT)/components/softdevice/common/softdevice_handler \
+  $(SDK_ROOT)/components/softdevice/s130/headers \
 
 # Libraries common to all targets
 LIB_FILES += \
 
 # C flags common to all targets
+CFLAGS += -DBOARD_MICROBIT
+CFLAGS += -DSOFTDEVICE_PRESENT
 CFLAGS += -DNRF51
-CFLAGS += -DNRF51422
+CFLAGS += -DS130
+CFLAGS += -DBLE_STACK_SUPPORT_REQD
 CFLAGS += -DSWI_DISABLE0
+CFLAGS += -DNRF51822
+CFLAGS += -DNRF_SD_BLE_API_VERSION=2
 CFLAGS += -mcpu=cortex-m0
 CFLAGS += -mthumb -mabi=aapcs
-CFLAGS +=  -Wall -Werror -O3 -g3
+CFLAGS +=  -Wall -O3 -g3
 CFLAGS += -mfloat-abi=soft
 # keep every function in separate section, this allows linker to discard unused ones
 CFLAGS += -ffunction-sections -fdata-sections -fno-strict-aliasing
-CFLAGS += -fno-builtin --short-enums 
+CFLAGS += -fno-builtin --short-enums
 
 # C++ flags common to all targets
 CXXFLAGS += \
@@ -52,6 +85,8 @@ ASMFLAGS += -x assembler-with-cpp
 ASMFLAGS += -DNRF51
 ASMFLAGS += -DNRF51422
 ASMFLAGS += -DSWI_DISABLE0
+#shrink the heap
+ASMFLAGS += -D__HEAP_SIZE=1024
 
 # Linker flags
 LDFLAGS += -mthumb -mabi=aapcs -L $(TEMPLATE_PATH) -T$(LINKER_SCRIPT)
@@ -77,6 +112,10 @@ TEMPLATE_PATH := $(SDK_ROOT)/components/toolchain/gcc
 include $(TEMPLATE_PATH)/Makefile.common
 
 $(foreach target, $(TARGETS), $(call define_target, $(target)))
+
+combined: $(OUTPUT_DIRECTORY)/nrfvm.hex
+	@echo Merging: $< and s130 hex
+	mergehex -m $< $(SDK_ROOT)/components/softdevice/s130/hex/s130_nrf51_2.0.1_softdevice.hex -o $(OUTPUT_DIRECTORY)/nrfvm-combined.hex
 
 # Flash the program
 flash: $(OUTPUT_DIRECTORY)/nrfvm.hex

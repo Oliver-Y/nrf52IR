@@ -1,6 +1,3 @@
-#define CLOCK_CONFIG_LF_SRC 2
-#define BLE_ADVERTISING_ENABLED 0
-
 #ifndef SDK_CONFIG_H
 #define SDK_CONFIG_H
 // <<< Use Configuration Wizard in Context Menu >>>\n
@@ -353,7 +350,7 @@
 // <0=> Default (64 MHz) 
 
 #ifndef CLOCK_CONFIG_XTAL_FREQ
-#define CLOCK_CONFIG_XTAL_FREQ 0
+#define CLOCK_CONFIG_XTAL_FREQ 255
 #endif
 
 // <o> CLOCK_CONFIG_LF_SRC  - LF Clock Source
@@ -380,7 +377,7 @@
 // <7=> 7 
 
 #ifndef CLOCK_CONFIG_IRQ_PRIORITY
-#define CLOCK_CONFIG_IRQ_PRIORITY 7
+#define CLOCK_CONFIG_IRQ_PRIORITY 3
 #endif
 
 // <e> CLOCK_CONFIG_LOG_ENABLED - Enables logging in the module.

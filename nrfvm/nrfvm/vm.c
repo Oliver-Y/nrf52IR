@@ -4,7 +4,7 @@
 #define procs 0x30000
 #define code ((uint8_t*)procs)
 #define NSTACKS 16
-#define STACKLEN 64
+#define STACKLEN 48
 int32_t stacks[NSTACKS*STACKLEN];
 
 #define OP_ONSTART 5
@@ -19,8 +19,8 @@ void rsend(uint8_t);
 
 int rand(void);
 
-extern void(*prims[])();
-extern void(*libprims[])();
+void(*const prims[])();
+extern void(* const libprims[])();
 uint32_t now(void);
 
 
@@ -454,7 +454,7 @@ int32_t vm_pop_raw(){return *--sp;}
 void vm_push_float(float n){*sp++=(int32_t)(n*100);} 
 float vm_pop_float(){return ((float)*--sp)/100;}
 
-void(*prims[])() = {
+void(* const prims[])() = {
     eval_done,
     eval_byte, eval_num,
     eval_list, eval_eol,
