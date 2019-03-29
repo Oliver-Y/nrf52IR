@@ -61,7 +61,7 @@ runCommandLine(str, fcn){
 }
 
 downloadProcs(str){
-	console.log (str)
+//	console.log (str)
 	this.pc = this.vectorlen;
 	try {
 		this.setup();
@@ -409,11 +409,14 @@ encodeProcs(){
 	var res = [];
 	var lists = [];
 	for(var i in this.procnames){
+		var proccode = [];
 		var proc = this.oblist[this.procnames[i]];
 		var items = proc.items;
-		res.push(proc.args.length);
+		proccode.push(proc.args.length);
 //		res.push(proc.locals.length);
-		for(var i in items) this.encodeItem(items[i], res, lists);
+		for(var i in items) this.encodeItem(items[i], proccode, lists);
+		proc.code = proccode;
+		res = res.concat(proccode);
 	}
 	return res;
 }
@@ -482,6 +485,74 @@ encodeItem(i, res, lists){
 }
 
 
+/////////////////////////////////
+// 
+// Decompiler
+//
+/////////////////////////////////
+
+decompile(name){
+	var proc = this.oblist[name];
+	var code = [].concat(proc.code);
+	var items = proc.items;
+	var res = '';
+	code.shift();
+	add(name+' ('+hexWord(proc.addr)+')');
+	for(var i in items) decodeItem(items[i]);
+	return res;
+
+	function decodeItem(item){
+		var op = code.shift();
+		switch(item[1]){
+		case 'byte':
+			var n = code.shift();
+			add(fill20('01 '+hexByte(n))+'; push byte '+n);
+			break;
+		case 'number':
+			var n1 = code.shift();
+			var n2 = code.shift();
+			var n3 = code.shift();
+			var n4 = code.shift();
+			var n = n1+(n2*256)+(n3*256*256)+(n4*256*256*256);
+			if(n>=(256*256*256*128)) n-=256*256*256*256;
+			var bytes = '01 '+hexByte(n1)+' '+hexByte(n2)+' '+hexByte(n3)+' '+hexByte(n4);
+			add(fill20(bytes)+'; push number '+n/100);
+			break;
+		case 'prim':
+			add(fill20(hexByte(op))+'; '+item[2]);
+			break;
+		case 'list':
+			var n1 = code.shift();
+			var n2 = code.shift();
+			var n = n1+(n2*256);
+			var bytes = '03 '+hexByte(n1)+' '+hexByte(n2);
+			add(fill20(bytes)+'; list (length '+n+')');
+			break;
+		case 'eol':
+			add(fill20('04')+'; eol');
+			break;
+		case 'ufun':
+			var n1 = code.shift();
+			var n2 = code.shift();
+			var n = n1+(n2*256);
+			var bytes = '08 '+hexByte(n1)+' '+hexByte(n2);
+			add(fill20(bytes)+'; call '+item[2]+' (addr '+hexWord(n)+')');
+			break;
+		default:
+			add(item);
+		}
+	}
+
+	function add(str){res+=str; res+='\n';}
+	function fill20(str){return str+'                    '.slice(str.length);}
+	function hexByte(n){return (n+256).toString(16).substring(1);}
+	function hexWord(n){return (n+65536).toString(16).substring(1);}
+}
+
+
+source(name){
+	return this.oblist[name].body;
+}
 /////////////////////////////////
 // 
 // Setup
