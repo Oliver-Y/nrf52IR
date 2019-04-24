@@ -87,6 +87,38 @@ void prim_dotoff(){
   matrix[offset]&=~mask;
 }
 
+void prim_dot(){
+  int s = vm_pop();
+  int n = vm_pop()%25;
+  int offset = leddecode[n*2];
+  int mask = leddecode[n*2+1];
+  if (s) {
+    matrix[offset]|=mask;
+  } else {
+    matrix[offset]&=~mask;
+  }
+}
+
+void prim_symbol() {
+  uint16_t tmp[3];
+  int s = vm_pop();
+  s |= vm_pop() << 8;
+  s |= vm_pop() << 16;
+  s |= vm_pop() << 24;
+  for (int i=0; i<25; i++) {
+    int offset = leddecode[i*2];
+    int mask = leddecode[i*2+1];
+    if ((s >> i) & 1) {
+      tmp[offset] |= mask;
+    } else {
+      tmp[offset] &= ~mask;
+    }
+  }
+  for (int i=0; i<3; i++) {
+    matrix[i] = tmp[i];
+  }
+}
+
 void lib_ticker(){
   int i;
   nrf_gpio_pin_clear(rowpins[thisrow++]);
@@ -139,5 +171,6 @@ void prim_buttona(){vm_push(nrf_gpio_pin_read(BTNA_PIN)?0:1);}
 void(*const libprims[])() = {
   prim_print, prim_resett, prim_timer,
   prim_buttona,
-  prim_doton, prim_dotoff
+  prim_doton, prim_dotoff,
+  prim_dot, prim_symbol
 };

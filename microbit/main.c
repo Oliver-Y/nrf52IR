@@ -202,6 +202,9 @@ void runcc(){
   uint32_t count = xgetc();
   code[0] = 0xf8;
   code[1] = count;
+  if (ble_comms) {
+    while (ble_uart_buff_length() < count) {power_manage();}
+  }
   for (i=2; i<count+2; i++){
     uint8_t c = xgetc();
     code[i] = c;

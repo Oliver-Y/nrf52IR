@@ -20,11 +20,11 @@
 #define CENTRAL_LINK_COUNT 0
 #define PERIPHERAL_LINK_COUNT 1
 
-#define DEVICE_NAME "micro:bit"
+#define DEVICE_NAME "microvm"
 #define NUS_SERVICE_UUID_TYPE           BLE_UUID_TYPE_VENDOR_BEGIN
 
 #define APP_ADV_INTERVAL                64
-#define APP_ADV_TIMEOUT_IN_SECONDS      180
+#define APP_ADV_TIMEOUT_IN_SECONDS      0
 
 #define MIN_CONN_INTERVAL    MSEC_TO_UNITS(20, UNIT_1_25_MS)
 #define MAX_CONN_INTERVAL    MSEC_TO_UNITS(75, UNIT_1_25_MS)
@@ -283,7 +283,6 @@ uint32_t ble_send_data(uint8_t *array, uint8_t length)
 void nus_data_handler(ble_nus_t * p_nus, uint8_t * p_data, uint16_t length)
 {
   /* (*ble_data_callback)(p_data, length); */
-  uputc('A');
   for (int i=0; i<length; i++) {
     int newHead = (rxBufferHead + 1) % rxBufferSize;
     if (newHead != rxBufferTail) {
@@ -341,7 +340,7 @@ void advertising_init(void)
 	memset(&advdata, 0, sizeof(advdata));
 	advdata.name_type          = BLE_ADVDATA_FULL_NAME;
 	advdata.include_appearance = false;
-	advdata.flags              = BLE_GAP_ADV_FLAGS_LE_ONLY_LIMITED_DISC_MODE;
+	advdata.flags              = BLE_GAP_ADV_FLAGS_LE_ONLY_GENERAL_DISC_MODE;
 
 	memset(&scanrsp, 0, sizeof(scanrsp));
 	scanrsp.uuids_complete.uuid_cnt = sizeof(m_adv_uuids) / sizeof(m_adv_uuids[0]);
