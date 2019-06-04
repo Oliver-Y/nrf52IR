@@ -1,9 +1,0 @@
-/* 
-  InfoPlist.strings
-  artbit
-
-  Created by Paula Bontá on 2018-11-27.
-  Copyright © 2018 Paula Bontá. All rights reserved.
-*/
-
-NSBluetoothPeripheralUsageDescription = "Cette application utilise Bluetooth pour communiquer avec le micro:bit";

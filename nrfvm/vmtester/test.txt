@@ -1,7 +1,0 @@
-to on-buttona1
-print 1111
-end
-
-to on-buttonb1
-print 2222
-end
