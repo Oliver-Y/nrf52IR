@@ -10,7 +10,6 @@
 #include "app_timer.h"
 #include "softdevice_handler.h"
 
-#include "microbit.h"
 #include "lib/lib.h"
 #include "lib/vm.h"
 #include "lib/vm_uart.h"

@@ -1,7 +1,7 @@
+#include "nrf_gpio.h"
+
 /* #include "app_uart.h" */
 /* #include "ble_nus.h" */
-
-#include "microbit.h"
 
 /* #define UART_TX_BUF_SIZE  256 */
 /* #define UART_RX_BUF_SIZE  256 */
@@ -39,6 +39,9 @@
 			/* break; */
 	/* } */
 /* } */
+
+#define RX_PIN_NUMBER  25
+#define TX_PIN_NUMBER  24
 
 /* void uart_init(void (*cb)(uint8_t *data, uint16_t length)) */
 void uart_init()

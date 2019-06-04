@@ -11,8 +11,6 @@
 #include "app_timer.h"
 #include "fstorage.h"
 
-#include "microbit.h"
-
 #include "vm_uart.h"
 
 #define APP_FEATURE_NOT_SUPPORTED       BLE_GATT_STATUS_ATTERR_APP_BEGIN + 2
@@ -37,6 +35,12 @@
 
 #define APP_TIMER_PRESCALER      0
 #define APP_TIMER_OP_QUEUE_SIZE  4
+
+// Low frequency clock source to be used by the SoftDevice
+#define NRF_CLOCK_LFCLKSRC      {.source        = NRF_CLOCK_LF_SRC_RC,              \
+                                 .rc_ctiv       = 16,                               \
+                                 .rc_temp_ctiv  = 2,                                \
+                                 .xtal_accuracy = NRF_CLOCK_LF_XTAL_ACCURACY_250_PPM}
 
 ble_nus_t m_nus;
 uint16_t  m_conn_handle = BLE_CONN_HANDLE_INVALID;
