@@ -1,49 +1,8 @@
 #include "nrf_gpio.h"
 
-/* #include "app_uart.h" */
-/* #include "ble_nus.h" */
-
-/* #define UART_TX_BUF_SIZE  256 */
-/* #define UART_RX_BUF_SIZE  256 */
-
-/* void (*uart_callback)(uint8_t *data, uint16_t length); */
-
-/* void uart_event_handle(app_uart_evt_t * p_event) */
-/* { */
-	/* static uint8_t data[BLE_NUS_MAX_DATA_LEN]; */
-	/* static uint8_t index = 0; */
-	/* [> uint32_t       err_code; <] */
-
-	/* switch (p_event->evt_type) */
-	/* { */
-		/* case APP_UART_DATA_READY: */
-			/* UNUSED_VARIABLE(app_uart_get(&data[index])); */
-			/* index++; */
-
-			/* if ((data[index - 1] == '\n') || (index >= (BLE_NUS_MAX_DATA_LEN))) */
-			/* { */
-        /* (*uart_callback)(data, index); */
-				/* index = 0; */
-			/* } */
-			/* break; */
-
-		/* case APP_UART_COMMUNICATION_ERROR: */
-			/* APP_ERROR_HANDLER(p_event->data.error_communication); */
-			/* break; */
-
-		/* case APP_UART_FIFO_ERROR: */
-			/* APP_ERROR_HANDLER(p_event->data.error_code); */
-			/* break; */
-
-		/* default: */
-			/* break; */
-	/* } */
-/* } */
-
 #define RX_PIN_NUMBER  25
 #define TX_PIN_NUMBER  24
 
-/* void uart_init(void (*cb)(uint8_t *data, uint16_t length)) */
 void uart_init()
 {
 	nrf_gpio_cfg_output(TX_PIN_NUMBER);
@@ -72,19 +31,3 @@ void uputc(uint8_t c)
   while (NRF_UART0->EVENTS_TXDRDY!=1) {}
   NRF_UART0->EVENTS_TXDRDY = 0;
 }
-
-/* uint32_t vm_uart_put(uint8_t c) */
-/* { */
-  /* return app_uart_put(c); */
-/* } */
-
-/* uint32_t vm_uart_print(uint8_t *data, uint16_t length) */
-/* { */
-  /* for (uint32_t i = 0; i < length; i++) */
-  /* { */
-    /* while (app_uart_put(data[i]) != NRF_SUCCESS); */
-  /* } */
-  /* while (app_uart_put('\r') != NRF_SUCCESS); */
-  /* while (app_uart_put('\n') != NRF_SUCCESS); */
-  /* return 1; */
-/* } */

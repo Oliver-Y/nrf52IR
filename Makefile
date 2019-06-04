@@ -7,18 +7,18 @@ SDK_ROOT := /usr/local/nRF5_SDK_12.3.0
 PROJ_DIR := .
 
 $(OUTPUT_DIRECTORY)/scratch-microvm_microbit.out: \
-  LINKER_SCRIPT  := scratch-microvm_microbit-firmware.ld
+  LINKER_SCRIPT  := scratch-microvm_microbit.ld
 
 # Source files common to all targets
 SRC_FILES += \
   $(SDK_ROOT)/components/ble/ble_advertising/ble_advertising.c \
-	$(SDK_ROOT)/components/ble/ble_services/ble_nus/ble_nus.c \
+  $(SDK_ROOT)/components/ble/ble_services/ble_nus/ble_nus.c \
   $(SDK_ROOT)/components/ble/common/ble_advdata.c \
   $(SDK_ROOT)/components/ble/common/ble_conn_params.c \
   $(SDK_ROOT)/components/ble/common/ble_srv_common.c \
   $(SDK_ROOT)/components/drivers_nrf/clock/nrf_drv_clock.c \
   $(SDK_ROOT)/components/drivers_nrf/common/nrf_drv_common.c \
-	$(SDK_ROOT)/components/libraries/fstorage/fstorage.c \
+  $(SDK_ROOT)/components/libraries/fstorage/fstorage.c \
   $(SDK_ROOT)/components/libraries/timer/app_timer.c \
   $(SDK_ROOT)/components/libraries/util/app_error.c \
   $(SDK_ROOT)/components/libraries/util/app_error_weak.c \
@@ -26,10 +26,10 @@ SRC_FILES += \
   $(SDK_ROOT)/components/softdevice/common/softdevice_handler/softdevice_handler.c \
   $(SDK_ROOT)/components/toolchain/gcc/gcc_startup_nrf51.S \
   $(SDK_ROOT)/components/toolchain/system_nrf51.c \
-	$(PROJ_DIR)/lib/lib.c \
+  $(PROJ_DIR)/lib/lib.c \
   $(PROJ_DIR)/lib/vm.c \
   $(PROJ_DIR)/lib/vm_ble.c \
-	$(PROJ_DIR)/lib/vm_uart.c \
+  $(PROJ_DIR)/lib/vm_uart.c \
   $(PROJ_DIR)/main.c \
 
 # Include folders common to all targets
@@ -44,7 +44,7 @@ INC_FOLDERS += \
   $(SDK_ROOT)/components/drivers_nrf/hal \
   $(SDK_ROOT)/components/drivers_nrf/uart \
   $(SDK_ROOT)/components/libraries/experimental_section_vars \
-	$(SDK_ROOT)/components/libraries/fifo \
+  $(SDK_ROOT)/components/libraries/fifo \
   $(SDK_ROOT)/components/libraries/fstorage \
   $(SDK_ROOT)/components/libraries/log \
   $(SDK_ROOT)/components/libraries/log/src \
@@ -54,7 +54,7 @@ INC_FOLDERS += \
   $(SDK_ROOT)/components/toolchain \
   $(SDK_ROOT)/components/toolchain/cmsis/include \
   $(SDK_ROOT)/components/softdevice/common/softdevice_handler \
-	$(PROJ_DIR) \
+  $(PROJ_DIR) \
 
 # Libraries common to all targets
 LIB_FILES += \

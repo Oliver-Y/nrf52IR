@@ -451,5 +451,5 @@ void(*const prims[])() = {
     prim_not,
     prim_setbox, prim_box, prim_changebox,
     prim_broadcast,
-    prim_random, prim_wait, 
+    prim_random, prim_wait
 };

@@ -104,16 +104,11 @@ void timer_init()
   NRF_TIMER1->PRESCALER = 1;
   NRF_TIMER1->TASKS_CLEAR = 1;
   NRF_TIMER1->EVENTS_COMPARE[0] = 0;
-  /* NRF_TIMER1->EVENTS_COMPARE[1] = 0; */
   NRF_TIMER1->CC[0] = 8000;
-  /* NRF_TIMER1->CC[1] = 25000; */
   NRF_TIMER1->INTENSET = TIMER_INTENSET_COMPARE0_Enabled << TIMER_INTENSET_COMPARE0_Pos;
   NRF_TIMER1->SHORTS = (TIMER_SHORTS_COMPARE0_CLEAR_Enabled << TIMER_SHORTS_COMPARE0_CLEAR_Pos);
-  /* NRF_TIMER1->INTENSET = TIMER_INTENSET_COMPARE1_Enabled << TIMER_INTENSET_COMPARE1_Pos; */
-  /* NRF_TIMER1->SHORTS = (TIMER_SHORTS_COMPARE1_CLEAR_Enabled << TIMER_SHORTS_COMPARE1_CLEAR_Pos); */
   sd_nvic_SetPriority(TIMER1_IRQn, 3);
   sd_nvic_EnableIRQ(TIMER1_IRQn);
-  /* NVIC_EnableIRQ(TIMER1_IRQn); */
   NRF_TIMER1->TASKS_START = 1;
 }
 
@@ -125,11 +120,6 @@ void TIMER1_IRQHandler()
     ticks = (ticks+1)&0x7fffffff;
     lib_ticker();
   }
-  /* if ((NRF_TIMER1->EVENTS_COMPARE[1] != 0) && */
-     /* ((NRF_TIMER1->INTENSET & TIMER_INTENSET_COMPARE1_Msk) != 0)) { */
-    /* NRF_TIMER1->EVENTS_COMPARE[1] = 0; */
-    /* vm_run(); */
-  /* } */
 }
 
 void flash_word_write(uint32_t *p_address, uint32_t value)
@@ -193,7 +183,6 @@ void writeflash(){
   sendresponse(0xfc);
   prim_clear();
   /* vm_run_toggle(OP_ONSTART); */
-  /* sd_nvic_SystemReset(); */
 }
 
 void eraseflash(){
@@ -224,8 +213,6 @@ void runcc(){
 void pollcmd()
 {
   vm_stop();
-  /* uint8_t buff[5] = {245, 0, 0, 2, 3}; */
-  /* send(buff, 5); */
   send(poll_sensors(), 4);
 }
 
@@ -253,16 +240,14 @@ void connection_event()
 {
   if (connection_state == BLE_GAP_EVT_CONNECTED) {
     pollinhibit = true;
-    /* vm_running = false; */
   } else if (connection_state == BLE_GAP_EVT_DISCONNECTED) {
     pollinhibit = false;
-    /* vm_running = true; */
   }
 }
 
 int main(void)
 {
-	uint32_t err_code;
+  uint32_t err_code;
 
   APP_TIMER_INIT(APP_TIMER_PRESCALER, APP_TIMER_OP_QUEUE_SIZE, false);
   uart_init();
@@ -276,7 +261,7 @@ int main(void)
   err_code = softdevice_sys_evt_handler_set(sys_evt_dispatch);
   APP_ERROR_CHECK(err_code);
 
-	nrf_gpio_pin_set(ROW1);
+  nrf_gpio_pin_set(ROW1);
   nrf_gpio_pin_clear(COL1);
   nrf_delay_ms(500);
   nrf_gpio_pin_clear(ROW1);

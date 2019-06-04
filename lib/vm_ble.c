@@ -9,7 +9,6 @@
 
 #include "softdevice_handler.h"
 #include "app_timer.h"
-#include "fstorage.h"
 
 #include "vm_uart.h"
 
@@ -57,20 +56,20 @@ void (*conn_cb)();
 
 void on_adv_evt(ble_adv_evt_t ble_adv_evt)
 {
-	/* uint32_t err_code; */
+  /* uint32_t err_code; */
 
-	switch (ble_adv_evt)
-	{
-		case BLE_ADV_EVT_FAST:
-			/* err_code = bsp_indication_set(BSP_INDICATE_ADVERTISING); */
-			/* APP_ERROR_CHECK(err_code); */
-			break;
-		case BLE_ADV_EVT_IDLE:
-			/* sleep_mode_enter(); */
-			break;
-		default:
-			break;
-	}
+  switch (ble_adv_evt)
+  {
+    case BLE_ADV_EVT_FAST:
+      /* err_code = bsp_indication_set(BSP_INDICATE_ADVERTISING); */
+      /* APP_ERROR_CHECK(err_code); */
+      break;
+    case BLE_ADV_EVT_IDLE:
+      /* sleep_mode_enter(); */
+      break;
+    default:
+      break;
+  }
 }
 
 /**@brief Function for the Power manager.
@@ -304,27 +303,6 @@ void nus_data_handler(ble_nus_t * p_nus, uint8_t * p_data, uint16_t length)
       // Buffer full
     }
   }
-  /* ble_send_data(&rxBufferHead, 1); */
-  /* ble_send_data(&rxBufferTail, 1); */
-  /* uint8_t size = ble_uart_buff_length(); */
-  /* ble_send_data(&size, 1); */
-  /* for (int i=0; i<ble_uart_buff_length(); i+=20) { */
-    /* if (ble_uart_buff_length() - i < 20) { */
-      /* ble_send_data(rxBuffer+rxBufferTail+i, ble_uart_buff_length() - i); */
-    /* } else { */
-      /* if ((rxBufferTail + i) > rxBufferSize) { */
-        /* ble_send_data(rxBuffer+((rxBufferTail + i) - rxBufferSize), 20); */
-      /* } */
-      /* if (rxBufferSize - (rxBufferTail + i) < 20) { */
-        /* ble_send_data(rxBuffer+rxBufferTail+i, rxBufferSize - (rxBufferTail + i)); */
-        /* ble_send_data(rxBuffer, 20 - (rxBufferSize - (rxBufferTail + i))); */
-      /* } else { */
-        /* ble_send_data(rxBuffer+rxBufferTail+i, 20); */
-      /* } */
-    /* [> } <] */
-  /* } */
-  /* ble_send_data(&rxBufferHead, 1); */
-  /* ble_send_data(&rxBufferTail, 1); */
 }
 
 void services_init()
