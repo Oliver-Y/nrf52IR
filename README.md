@@ -1,10 +1,10 @@
 # scratch-microvm
 
-Scratch MicroVM is a stack based, token threaded, virtual machine used to represent, run, and maintain the state of programs for embedded devices
+Scratch MicroVM is a stack based, threaded, virtual machine used to represent, run, and maintain the state of programs for embedded devices
 
 ### micro:bit Reference Implementation
 
-This implementation of the MicroVM uses the [micro:bit](https://microbit.org/) as the target platform. The micro:bit features the nRF51822, a 32-bit Cortex-M0 processor running at 16MHz with 16KB of RAM and 256KB of flash (early rev. had just 128KB).
+This implementation of the MicroVM uses the [micro:bit](https://microbit.org/) as the target platform. The micro:bit features the nRF51822, a 32-bit Cortex-M0 processor running at 16MHz with 16KB of RAM and 256KB of flash (early rev. had just 128KB). This firmware does not use any micro:bit libaries and instead relies solely on the Nordic SDK.
 
 The micro:bit also includes a 25 LED 5x5 matrix display, two momentary switches, accelerometer and magnetometer, and general purpose I/O pins exposed via an edge connector.
 
@@ -17,11 +17,11 @@ Finally, the micro:bit employs the [Arm Mbed DAPLink](https://github.com/ARMmbed
 #### Required Software
 - [GNU Arm Embedded Toolchain](https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/gnu-rm/downloads)
 - [nRF51 SDK v12.3.0](https://developer.nordicsemi.com/)  
-Extract to `/usr/local/nRF5_SDK_12.3.0` or update Makefile
+Extract to `/usr/local/nRF5_SDK_12.3.0` or update the `SDK_ROOT` defined in the Makefile
 - Scratch Link (Lets Scratch connect to Bluetooth devices)  
 Get from the [micro:bit extension page](https://scratch.mit.edu/microbit), section 'Install Scratch Link'
 
-#### Require Hardware
+#### Required Hardware
 - [micro:bit](https://microbit.org/)
 - microUSB cable
 
