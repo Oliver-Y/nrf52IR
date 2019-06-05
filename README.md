@@ -16,32 +16,34 @@ Finally, the micro:bit employs the [Arm Mbed DAPLink](https://github.com/ARMmbed
 
 #### Required Software
 - [GNU Arm Embedded Toolchain](https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/gnu-rm/downloads)
-- [nRF51 SDK v12.3.0](https://developer.nordicsemi.com/)
+- [nRF51 SDK v12.3.0](https://developer.nordicsemi.com/)  
 Extract to `/usr/local/nRF5_SDK_12.3.0` or update Makefile
-- Scratch Link (Lets Scratch connect to Bluetooth devices
-Get from the [micro:bit extension page]([https://scratch.mit.edu/microbit](https://scratch.mit.edu/microbit)), section 'Install Scratch Link'
+- Scratch Link (Lets Scratch connect to Bluetooth devices)  
+Get from the [micro:bit extension page](https://scratch.mit.edu/microbit), section 'Install Scratch Link'
 
 #### Require Hardware
 - [micro:bit](https://microbit.org/)
 - microUSB cable
 
 #### Compiling and Installing
-1. Download the MicroVM source code
+1. Download the MicroVM source code  
 `git clone https://github.com/llk/scratch-microvm	`
-2. Compile the combined MicroVM firmware and Nordic SoftDevice .hex file
-`cd scratch-microvm`
+2. Compile the combined MicroVM firmware and Nordic SoftDevice .hex file  
+`cd scratch-microvm`  
 `make`
-3. Connect the micro:bit to the computer's USB port and copy over the compiled .hex file from
-`_build/scratch-microvm_microbit-combined.hex`
+3. Connect the micro:bit to the computer's USB port and copy over the compiled .hex file from  
+`_build/scratch-microvm_microbit-combined.hex`  
 alternatively you can run `make flash` from the scratch-microvm directory
 
 #### Using the MicroVM
 1. Make sure Scratch Link is running, Bluetooth is enabled, and the micro:bit is powered on with the MicroVM firmware.
-2. Launch the Scratch demo at https://llk.github.io/scratch-gui/microvm
-3. Click the 'Add Extension' button and choose the microvm extension
+2. Launch the Scratch demo at  
+https://llk.github.io/scratch-gui/microvm
+3. Click the 'Add Extension' button and choose the microvm extension  
+![Add Extension](https://lh3.googleusercontent.com/6VWlZudJ4pe3HKIkfJUNVtlhqUx6E7lkG01a7exQFY6h4XH8zh37yPmZ1w2IgIvu49sl_JZhZzs=s220)
 4. Click 'Connect' in the popup dialog next to the discovered MicroVM device
 5. The MicroVM will use Direct Control mode while connected to Scratch
-6. Click the download button to store the Scratch code on the MicroVM, then power-cycle or disconnect the MicroVM from Scratch to enter Download and Run mode
+6. Click the ![Download](https://lh3.googleusercontent.com/mffAGWd4EGfoY9JsnMijnvBqGgIdzCUqVNBT8Nt_p3QjL0mqXR_rnaIMI2p9CNq_qzY-7FHSsK0=s220) button to store the Scratch code on the MicroVM, then power-cycle or disconnect the MicroVM from Scratch to enter Download and Run mode
 
 #### Direct Control vs. Download and Run
 In **Direct Control** mode, Scratch is the computer. The Scratch VM controls the code execution and uses Bluetooth commands to control the operation of the device running the MicroVM.
