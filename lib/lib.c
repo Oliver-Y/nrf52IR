@@ -53,7 +53,8 @@ static void cfg_led(uint32_t pin)
       NRF_GPIO_PIN_NOSENSE);
 }
 
-void lib_init(){
+void lib_init()
+{
   int i;
   for(i=0;i<3;i++){
       cfg_led(rowpins[i]);
@@ -68,7 +69,8 @@ void lib_init(){
   nrf_gpio_cfg_input(BTNR_PIN,  NRF_GPIO_PIN_NOPULL);
 }
 
-void lib_poll(){
+void lib_poll()
+{
   int this_btna = nrf_gpio_pin_read(BTNA_PIN)?0:1;
   int this_btnb = nrf_gpio_pin_read(BTNB_PIN)?0:1;
   int this_btnr = nrf_gpio_pin_read(BTNR_PIN)?0:1;
@@ -80,21 +82,24 @@ void lib_poll(){
   last_btnr = this_btnr;
 }
 
-void prim_doton(){
+void prim_doton()
+{
   int n = vm_pop()%25;
   int offset = leddecode[n*2];
   int mask = leddecode[n*2+1];
   matrix[offset]|=mask;
 }
 
-void prim_dotoff(){
+void prim_dotoff()
+{
   int n = vm_pop()%25;
   int offset = leddecode[n*2];
   int mask = leddecode[n*2+1];
   matrix[offset]&=~mask;
 }
 
-void prim_dot(){
+void prim_dot()
+{
   int s = vm_pop();
   int n = vm_pop()%25;
   int offset = leddecode[n*2];
@@ -106,13 +111,15 @@ void prim_dot(){
   }
 }
 
-void prim_clear() {
+void prim_clear()
+{
   matrix[0] = 0;
   matrix[1] = 0;
   matrix[2] = 0;
 }
 
-void prim_symbol() {
+void prim_symbol()
+{
   uint16_t tmp[3];
   int s = vm_pop();
   s |= vm_pop() << 8;
@@ -132,7 +139,8 @@ void prim_symbol() {
   }
 }
 
-void lib_ticker(){
+void lib_ticker()
+{
   int i;
   nrf_gpio_pin_clear(rowpins[thisrow++]);
   if(thisrow==4) thisrow=0;
@@ -145,7 +153,8 @@ void lib_ticker(){
   nrf_gpio_pin_set(rowpins[thisrow]);
 }
 
-void sendprbuf(){
+void sendprbuf()
+{
   int len = strlen(prbuf);
   uputc(0xf0);
   uputc(len);
@@ -153,7 +162,8 @@ void sendprbuf(){
   uputc(0xed);
 }
 
-void printnum(int32_t n){
+void printnum(int32_t n)
+{
   if(n<0) {*prptr++='-'; n=-n;}
   int32_t k = (int32_t)(n/100);
   int32_t d1 = (int32_t)((n/10)%10);
@@ -170,11 +180,13 @@ void prim_print(){print(vm_pop_raw());}
 
 int32_t t0;
 
-void prim_resett(){
+void prim_resett()
+{
   t0 = now();
 }
 
-void prim_timer(){
+void prim_timer()
+{
   float t = (float)(now()-t0);
   vm_push_float(t/1000);
 }

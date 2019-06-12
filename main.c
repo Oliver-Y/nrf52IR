@@ -99,8 +99,8 @@ void ping()
 
 void timer_init()
 {
-  NRF_TIMER1->MODE      = TIMER_MODE_MODE_Timer;
-  NRF_TIMER1->BITMODE   = TIMER_BITMODE_BITMODE_16Bit;
+  NRF_TIMER1->MODE = TIMER_MODE_MODE_Timer;
+  NRF_TIMER1->BITMODE = TIMER_BITMODE_BITMODE_16Bit;
   NRF_TIMER1->PRESCALER = 1;
   NRF_TIMER1->TASKS_CLEAR = 1;
   NRF_TIMER1->EVENTS_COMPARE[0] = 0;
@@ -126,17 +126,18 @@ void flash_word_write(uint32_t *p_address, uint32_t value)
 {
   flash_busy = 1;
   sd_flash_write(p_address, (uint32_t*) &value, 1);
-  while(flash_busy == 1){power_manage();}
+  while(flash_busy == 1) {power_manage();}
 }
 
 void flash_page_erase(uint32_t *p_page)
 {
   flash_busy = 1;
   sd_flash_page_erase(*p_page);
-  while(flash_busy == 1){power_manage();}
+  while(flash_busy == 1) {power_manage();}
 }
 
-void readmemory(){
+void readmemory()
+{
   uint32_t addr = read32();
   uint32_t count = xgetc();
   uint32_t i;
@@ -149,7 +150,8 @@ void readmemory(){
   send((uint8_t *)code, i+1);
 }
 
-void writememory(){
+void writememory()
+{
   uint32_t addr = read32();
   uint32_t count = xgetc();
   uint32_t i;
@@ -164,7 +166,8 @@ void writememory(){
   send((uint8_t *)code, i+1);
 }
 
-void writeflash(){
+void writeflash()
+{
   uint32_t addr = read32();
   uint8_t count = xgetc();
   uint32_t value;
@@ -185,7 +188,8 @@ void writeflash(){
   /* vm_run_toggle(OP_ONSTART); */
 }
 
-void eraseflash(){
+void eraseflash()
+{
   uint32_t addr = read32();
   uint32_t page = addr / 0x400;
   uint32_t *p_page = &page;
@@ -193,7 +197,8 @@ void eraseflash(){
   sendresponse(0xfb);
 }
 
-void runcc(){
+void runcc()
+{
   uint8_t i;
   uint32_t count = xgetc();
   code[0] = 0xf8;
@@ -201,7 +206,7 @@ void runcc(){
   if (ble_comms) {
     while (ble_uart_buff_length() < count) {power_manage();}
   }
-  for (i=2; i<count+2; i++){
+  for (i=2; i<count+2; i++) {
     uint8_t c = xgetc();
     code[i] = c;
   }
@@ -218,7 +223,7 @@ void pollcmd()
 
 void dispatch(uint8_t c)
 {
-  if(c==0xff) ping();
+  if (c==0xff) ping();
   else if(c==0xfe) readmemory();
   else if(c==0xfd) writememory();
   else if(c==0xfc) writeflash();
@@ -234,7 +239,7 @@ static void sys_evt_dispatch(uint32_t sys_evt)
   }
 }
 
-uint32_t now(){return ticks;}
+uint32_t now() {return ticks;}
 
 void connection_event()
 {
@@ -271,8 +276,7 @@ int main(void)
 
   vm_run_toggle(OP_ONSTART);
   uint32_t end = now() + 50;
-  for (;;)
-  {
+  for (;;) {
     while (now()<end) {
       if (NRF_UART0->EVENTS_RXDRDY==1) {
         usb_comms = 1;
