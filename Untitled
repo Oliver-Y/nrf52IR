@@ -1,0 +1,34 @@
+
+void lpcomp_init(){
+  NRF_LPCOMP -> PSEL = (LPCOMP_PSEL_PSEL_AnalogInput2 << LPCOMP_PSEL_PSEL_Pos);
+  NRF_LPCOMP -> REFSEL |= (LPCOMP_REFSEL_REFSEL_SupplyThreeEighthsPrescaling << LPCOMP_REFSEL_REFSEL_Pos);
+  NRF_LPCOMP -> ANADETECT = (LPCOMP_ANADETECT_ANADETECT_Cross << LPCOMP_ANADETECT_ANADETECT_Pos);
+  NRF_LPCOMP -> INTENSET = LPCOMP_INTENSET_CROSS_Msk;
+  NRF_LPCOMP -> ENABLE = LPCOMP_ENABLE_ENABLE_Enabled;
+  sd_nvic_SetPriority(LPCOMP_IRQn,2);
+  sd_nvic_EnableIRQ(LPCOMP_IRQn);
+  nrf_gpio_cfg_output(LED4);
+  nrf_gpio_pin_toggle(LED4);
+  NRF_LPCOMP -> TASKS_START = 1;
+}
+void LPCOMP_IRQHandler(void){
+//if (mode == LEARN_MODE){
+//  pulse[pulse_counter++] = NRF_TIMER2->CC[1];
+//  bit_map(pulse[pulse_counter]);
+//  pulse_counter++;
+  NRF_LPCOMP->EVENTS_CROSS = 0;
+  nrf_gpio_pin_toggle(LOL_PIN);
+//}
+/*else if (mode == MATCH_MODE){
+  if(NRF_TIMER2 -> CC[1] == pulse[pulse_tracker]){
+    pulse_tracker++;
+  }
+  //something to denote that it has hit the end.
+  if (pulse_tracker >= pulse_counter){
+    pulse_tracker = 0;
+    nrf_gpio_pin_toggle(LED3);
+  }
+  else if (pulse_tracker < pulse_counter){
+    pulse_tracker = 0;
+  }*/
+}
